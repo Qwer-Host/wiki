@@ -1,0 +1,1060 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wiki qwer-host – Documentation</title>
+    <link>//localhost:1313/en/docs/</link>
+    <description>Recent content in Documentation on Wiki qwer-host</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	  <atom:link href="//localhost:1313/en/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Disabling Encrypted Client Hello (ECH)</title>
+      <link>//localhost:1313/en/docs/cloudflare/disable-ech/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/en/docs/cloudflare/disable-ech/</guid>
+      <description>
+        
+        
+        &lt;h1&gt;Disabling Encrypted Client Hello (ECH) on Cloudflare Free Tier via API&lt;/h1&gt;&lt;h2&gt;Why Disable ECH?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;why-disable-ech&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#why-disable-ech&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Roskomnadzor (Russian telecommunications regulator) has blocked the &lt;strong&gt;Encrypted Client Hello (ECH)&lt;/strong&gt; technology, causing issues for Cloudflare users in Russia. Moreover, Cloudflare has forcibly enabled this technology for all users, including those on the free tier.&lt;/p&gt;
+&lt;p&gt;This guide will show you how to disable ECH for your domain using the Cloudflare API.&lt;/p&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;For users from Russia:&lt;/strong&gt; Disabling ECH may be necessary to ensure your website&amp;rsquo;s accessibility for Russian users due to Roskomnadzor&amp;rsquo;s blocking of this technology.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Step 1: Check if ECH is Enabled&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-1-check-if-ech-is-enabled&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-1-check-if-ech-is-enabled&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Before disabling ECH, verify whether it&amp;rsquo;s enabled for your domain. You can do this using a Google Public DNS query:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Navigate to the following link, replacing &lt;code&gt;[YOUR_DOMAIN]&lt;/code&gt; with your domain name:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;https://dns.google/resolve?name=[YOUR_DOMAIN]&amp;amp;type=HTTPS&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;If the results show that ECH is active, proceed to the next step.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; For the domain &lt;code&gt;example.com&lt;/code&gt;, the link would look like:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;https://dns.google/resolve?name=example.com&amp;amp;type=HTTPS&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Step 2: Obtain Cloudflare API Credentials&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-2-obtain-cloudflare-api-credentials&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-2-obtain-cloudflare-api-credentials&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;To interact with the API, you&amp;rsquo;ll need two key elements:&lt;/p&gt;
+&lt;h3&gt;Global API Key&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;global-api-key&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#global-api-key&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Go to the &lt;a href=&#34;https://dash.cloudflare.com/profile/api-tokens&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloudflare profile page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Find the section with your &lt;strong&gt;Global API Key&lt;/strong&gt; and copy the key&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;Important:&lt;/strong&gt; The Global API Key provides full access to your account. Never share it with third parties and store it securely!&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Zone ID&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;zone-id&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#zone-id&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Log in to your domain&amp;rsquo;s Cloudflare dashboard&lt;/li&gt;
+&lt;li&gt;Scroll down the page in the right column&lt;/li&gt;
+&lt;li&gt;Copy the &lt;strong&gt;Zone ID&lt;/strong&gt; value&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;Zone ID is the unique identifier for your domain in the Cloudflare system.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Step 3: Disable ECH via Cloudflare API&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-3-disable-ech-via-cloudflare-api&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-3-disable-ech-via-cloudflare-api&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Method 1: Using curl Command&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;method-1-using-curl-command&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#method-1-using-curl-command&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;To disable ECH, execute the following command in your terminal, replacing &lt;code&gt;{ID_ZONE}&lt;/code&gt;, &lt;code&gt;{ACCOUNT_EMAIL}&lt;/code&gt;, and &lt;code&gt;{GLOBAL_API_KEY}&lt;/code&gt; with your data:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -X PATCH &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://api.cloudflare.com/client/v4/zones/{ID_ZONE}/settings/ech&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;X-Auth-Email: {ACCOUNT_EMAIL}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;X-Auth-Key: {GLOBAL_API_KEY}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Content-Type: application/json&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;     --data &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{&amp;#34;id&amp;#34;:&amp;#34;ech&amp;#34;,&amp;#34;value&amp;#34;:&amp;#34;off&amp;#34;}&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -X PATCH &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://api.cloudflare.com/client/v4/zones/abc123def456/settings/ech&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;X-Auth-Email: user@example.com&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Content-Type: application/json&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;     --data &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{&amp;#34;id&amp;#34;:&amp;#34;ech&amp;#34;,&amp;#34;value&amp;#34;:&amp;#34;off&amp;#34;}&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-green-200 hx:bg-green-100 hx:text-green-900 hx:dark:border-green-200/30 hx:dark:bg-green-900/30 hx:dark:text-green-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;Upon successful execution, you&amp;rsquo;ll receive a JSON response confirming the setting change.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Method 2: Using Postman&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;method-2-using-postman&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#method-2-using-postman&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;You can execute this request through &lt;strong&gt;Postman&lt;/strong&gt; by following these instructions:&lt;/p&gt;
+&lt;h4&gt;1. Request Setup&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;1-request-setup&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-request-setup&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Method:&lt;/strong&gt; &lt;code&gt;PATCH&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;URL:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;https://api.cloudflare.com/client/v4/zones/{ID_ZONE}/settings/ech&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;2. Headers Setup&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;2-headers-setup&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-headers-setup&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;In the &lt;strong&gt;Headers&lt;/strong&gt; section, add the following fields:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Key&lt;/th&gt;
+          &lt;th&gt;Value&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;X-Auth-Email&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;your Cloudflare email address&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;X-Auth-Key&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;your Global API Key&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;application/json&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;3. Body Setup&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;3-body-setup&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-body-setup&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;In the &lt;strong&gt;Body&lt;/strong&gt; section, select &lt;code&gt;raw&lt;/code&gt; and &lt;code&gt;JSON&lt;/code&gt;, then enter:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ech&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;off&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;4. Send Request&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;4-send-request&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-send-request&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Click the &lt;strong&gt;Send&lt;/strong&gt; button and wait for the server response.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Method 3: For Paid Plans&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;method-3-for-paid-plans&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#method-3-for-paid-plans&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If you&amp;rsquo;re using a &lt;strong&gt;paid Cloudflare plan&lt;/strong&gt;, you can disable ECH through the dashboard interface:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Navigate to the &lt;strong&gt;SSL/TLS&lt;/strong&gt; section&lt;/li&gt;
+&lt;li&gt;Open the &lt;strong&gt;Edge Certificates&lt;/strong&gt; tab&lt;/li&gt;
+&lt;li&gt;Find the &lt;strong&gt;Encrypted ClientHello (ECH)&lt;/strong&gt; setting&lt;/li&gt;
+&lt;li&gt;Set the value to &lt;strong&gt;Disabled&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; This option is only available for paid plan users (Pro, Business, Enterprise).&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Verify the Results&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;verify-the-results&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#verify-the-results&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;After disabling ECH, it&amp;rsquo;s recommended to verify the changes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Wait 5-10 minutes for the settings to apply&lt;/li&gt;
+&lt;li&gt;Run the Google Public DNS check again (Step 1)&lt;/li&gt;
+&lt;li&gt;Check your website&amp;rsquo;s accessibility for users from Russia&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-green-200 hx:bg-green-100 hx:text-green-900 hx:dark:border-green-200/30 hx:dark:bg-green-900/30 hx:dark:text-green-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;Done!&lt;/strong&gt; ECH is now disabled for your domain, and the site should be accessible to Russian users.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Common Issues and Solutions&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;common-issues-and-solutions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#common-issues-and-solutions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Authentication Error&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;authentication-error&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#authentication-error&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Receiving &lt;code&gt;Authentication error&lt;/code&gt; or &lt;code&gt;Invalid credentials&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Verify your email address is correct&lt;/li&gt;
+&lt;li&gt;Ensure you&amp;rsquo;ve copied the Global API Key completely&lt;/li&gt;
+&lt;li&gt;Check that you haven&amp;rsquo;t added extra spaces when copying&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Zone ID Error&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;zone-id-error&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#zone-id-error&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Receiving &lt;code&gt;Zone not found&lt;/code&gt; error&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make sure the Zone ID is copied correctly&lt;/li&gt;
+&lt;li&gt;Verify you&amp;rsquo;re using the Zone ID for the domain you want to modify&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;ECH Doesn&amp;rsquo;t Disable&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ech-doesnt-disable&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ech-doesnt-disable&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; After executing the command, ECH remains enabled&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Wait 10-15 minutes for changes to apply&lt;/li&gt;
+&lt;li&gt;Clear the DNS cache on your device&lt;/li&gt;
+&lt;li&gt;Retry the API request&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Additional Resources&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;additional-resources&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#additional-resources&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.cloudflare.com/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Official Cloudflare API Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.cloudflare.com/ssl/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SSL/TLS Configuration Guide for Cloudflare&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://community.cloudflare.com/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloudflare Community&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;Need help?&lt;/strong&gt; If you encounter difficulties disabling ECH, contact Cloudflare support or community forums.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Linking Web Server to Domain</title>
+      <link>//localhost:1313/en/docs/cloudflare/web-server-setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/en/docs/cloudflare/web-server-setup/</guid>
+      <description>
+        
+        
+        &lt;h1&gt;How to Link a Dynamic Map/Other Web Server to a Domain?&lt;/h1&gt;&lt;p&gt;If you have a web server (for example, a Minecraft dynamic map via Dynmap, BlueMap, or a server Panel), you can easily link it to your domain through Cloudflare. This takes literally &lt;strong&gt;a couple of clicks&lt;/strong&gt;!&lt;/p&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;What can be linked to a domain:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🗺️ Dynamic maps (Dynmap, BlueMap, Pl3xMap)&lt;/li&gt;
+&lt;li&gt;🎮 Server control panels (Pterodactyl, Multicraft)&lt;/li&gt;
+&lt;li&gt;🌐 Websites on your server&lt;/li&gt;
+&lt;li&gt;📊 Monitoring and statistics&lt;/li&gt;
+&lt;li&gt;🔧 Any other web service on your port&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;How to Transfer Domain to Cloudflare?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;how-to-transfer-domain-to-cloudflare&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#how-to-transfer-domain-to-cloudflare&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If you don&amp;rsquo;t have a domain on Cloudflare yet, you need to transfer it first:&lt;/p&gt;
+&lt;h3&gt;Quick Guide:&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;quick-guide&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#quick-guide&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Register on &lt;a href=&#34;https://dash.cloudflare.com/sign-up&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloudflare&lt;/a&gt;&lt;/strong&gt; (free)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Add your domain&lt;/strong&gt; — click &amp;ldquo;Add Site&amp;rdquo; and enter your domain&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Choose a plan&lt;/strong&gt; — select the free plan (Free)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloudflare will show your current DNS records&lt;/strong&gt; — review and confirm&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Change NS servers at your registrar&lt;/strong&gt; — Cloudflare will show 2 NS server addresses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Log in to your registrar&amp;rsquo;s website&lt;/strong&gt; (where you bought the domain) and replace NS servers with those provided by Cloudflare&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wait&lt;/strong&gt; — DNS servers will update within 24-48 hours (usually faster)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Detailed domain transfer instructions:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.cloudflare.com/dns/zone-setups/full-setup/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Official Cloudflare Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/results?search_query=cloudflare&amp;#43;add&amp;#43;domain&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Video tutorial on YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Step-by-Step Web Server Linking Guide&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-by-step-web-server-linking-guide&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-by-step-web-server-linking-guide&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Step 1: Create an A Record with Proxying&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-1-create-an-a-record-with-proxying&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-1-create-an-a-record-with-proxying&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Open Cloudflare dashboard&lt;/li&gt;
+&lt;li&gt;Select your domain&lt;/li&gt;
+&lt;li&gt;Go to &lt;strong&gt;DNS&lt;/strong&gt; → &lt;strong&gt;Records&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Add record&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Fill in the fields:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Field&lt;/th&gt;
+          &lt;th&gt;Value&lt;/th&gt;
+          &lt;th&gt;Description&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;A&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Record type&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;map&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Subdomain (you can choose any: &lt;code&gt;map&lt;/code&gt;, &lt;code&gt;dynmap&lt;/code&gt;, &lt;code&gt;web&lt;/code&gt;, &lt;code&gt;panel&lt;/code&gt;, etc.)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;IPv4 address&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;123.45.67.89&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Your server&amp;rsquo;s IP address&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Proxy status&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;🟠 &lt;strong&gt;ON&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Orange cloud must be &lt;strong&gt;enabled&lt;/strong&gt;!&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;TTL&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Auto&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Leave unchanged&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Important difference from Minecraft server setup:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;For a web server, Proxy Status (orange cloud) must be &lt;strong&gt;ENABLED&lt;/strong&gt; (orange)!&lt;br&gt;
+This allows using Cloudflare features, including port proxying.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Configuration example:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/cloudflare/a-record-proxy.png&#34; alt=&#34;A Record configuration with proxying&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Step 2: Configure Origin Rules for Port Forwarding&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-2-configure-origin-rules-for-port-forwarding&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-2-configure-origin-rules-for-port-forwarding&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Now you need to set up a rule that will redirect requests to the required port of your web server.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In Cloudflare dashboard, go to &lt;strong&gt;Rules&lt;/strong&gt; → &lt;strong&gt;Overview&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Create rule&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Origin rule&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/cloudflare/rules-overview-original-rules.png&#34; alt=&#34;Menu Original Rules&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h4&gt;Fill in the rule form:&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;fill-in-the-rule-form&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#fill-in-the-rule-form&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Rule name:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Dynmap Port Forwarding&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;(or any other name that makes sense to you)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;When incoming requests match&amp;hellip; (Condition):&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Select:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Field:&lt;/strong&gt; &lt;code&gt;URL Full&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Operator:&lt;/strong&gt; &lt;code&gt;wildcard&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Value:&lt;/strong&gt; &lt;code&gt;https://map.mhcore.xyz/*&lt;/code&gt; &lt;em&gt;(your subdomain with A record)&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Then&amp;hellip; (Action):&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In the &lt;strong&gt;Destination Port&lt;/strong&gt; section, select:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rewrite to:&lt;/strong&gt; &lt;code&gt;25443&lt;/code&gt; &lt;em&gt;(specify your web server&amp;rsquo;s port)&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Fill-in example:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/cloudflare/origin-rule.png&#34; alt=&#34;Origin Rule configuration in Cloudflare&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Step 3: Save and Deploy the Rule&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-3-save-and-deploy-the-rule&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-3-save-and-deploy-the-rule&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Review all settings&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Deploy&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Cloudflare will apply the rule automatically&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-green-200 hx:bg-green-100 hx:text-green-900 hx:dark:border-green-200/30 hx:dark:bg-green-900/30 hx:dark:text-green-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Done!&lt;/strong&gt; Now your web server is accessible at:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;https://map.mhcore.xyz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Note: Cloudflare will automatically add &lt;strong&gt;HTTPS&lt;/strong&gt; (SSL certificate), even if your server uses only HTTP!&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Step 4: Verify Functionality&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-4-verify-functionality&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-4-verify-functionality&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Open a browser&lt;/li&gt;
+&lt;li&gt;Navigate to your subdomain address (e.g., &lt;code&gt;https://map.mhcore.xyz&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;You should see your dynamic map or web interface!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Please note:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;First connection may take a few seconds&lt;/li&gt;
+&lt;li&gt;SSL certificate is created automatically and for free&lt;/li&gt;
+&lt;li&gt;Cloudflare will cache static files to speed up loading&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Multiple Web Services on One Domain&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;multiple-web-services-on-one-domain&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#multiple-web-services-on-one-domain&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;You can create multiple subdomains for different services:&lt;/p&gt;
+&lt;h3&gt;Structure Example:&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;structure-example&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#structure-example&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Subdomain&lt;/th&gt;
+          &lt;th&gt;Service&lt;/th&gt;
+          &lt;th&gt;Port&lt;/th&gt;
+          &lt;th&gt;Origin Rule&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;map.mhcore.xyz&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Dynmap&lt;/td&gt;
+          &lt;td&gt;8123&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;URL Full wildcard map.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;8123&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;bluemap.mhcore.xyz&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;BlueMap&lt;/td&gt;
+          &lt;td&gt;8100&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;URL Full wildcard bluemap.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;8100&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;panel.mhcore.xyz&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Pterodactyl&lt;/td&gt;
+          &lt;td&gt;8080&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;URL Full wildcard panel.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;8080&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;stats.mhcore.xyz&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Statistics&lt;/td&gt;
+          &lt;td&gt;3000&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;URL Full wildcard stats.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;3000&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;For each service:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a separate &lt;strong&gt;A record&lt;/strong&gt; with proxying enabled&lt;/li&gt;
+&lt;li&gt;Create a separate &lt;strong&gt;Origin Rule&lt;/strong&gt; with the corresponding port&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Benefits of Using Cloudflare&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;benefits-of-using-cloudflare&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#benefits-of-using-cloudflare&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;✅ &lt;strong&gt;Free SSL&lt;/strong&gt; — automatic HTTPS for your site&lt;br&gt;
+✅ &lt;strong&gt;DDoS protection&lt;/strong&gt; — protection against attacks&lt;br&gt;
+✅ &lt;strong&gt;Caching&lt;/strong&gt; — faster loading of static files&lt;br&gt;
+✅ &lt;strong&gt;CDN&lt;/strong&gt; — your site will load faster worldwide&lt;br&gt;
+✅ &lt;strong&gt;IP hiding&lt;/strong&gt; — your server&amp;rsquo;s real IP address will be hidden&lt;br&gt;
+✅ &lt;strong&gt;Analytics&lt;/strong&gt; — free visitor statistics&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Common Issues and Solutions&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;common-issues-and-solutions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#common-issues-and-solutions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;❌ Error 521 &amp;ldquo;Web server is down&amp;rdquo;&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;-error-521-web-server-is-down&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-error-521-web-server-is-down&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; Cloudflare cannot connect to your server&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Check that the web server is running&lt;/li&gt;
+&lt;li&gt;Ensure the port is open in the firewall&lt;/li&gt;
+&lt;li&gt;Verify the IP address in the A record is correct&lt;/li&gt;
+&lt;li&gt;Make sure the port in Origin Rule is specified correctly&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;❌ Error 522 &amp;ldquo;Connection timed out&amp;rdquo;&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;-error-522-connection-timed-out&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-error-522-connection-timed-out&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; Cloudflare cannot reach the server within the allotted time&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Check server accessibility from outside (via online port scanners)&lt;/li&gt;
+&lt;li&gt;Make sure the port is not blocked by the provider&lt;/li&gt;
+&lt;li&gt;Check firewall settings on the server&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;❌ Infinite loading or &amp;ldquo;Too many redirects&amp;rdquo;&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;-infinite-loading-or-too-many-redirects&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-infinite-loading-or-too-many-redirects&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; Incorrect SSL/TLS settings&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to &lt;strong&gt;SSL/TLS&lt;/strong&gt; → &lt;strong&gt;Overview&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Set mode to &lt;strong&gt;Flexible&lt;/strong&gt; (if your server doesn&amp;rsquo;t use HTTPS)&lt;/li&gt;
+&lt;li&gt;Or set to &lt;strong&gt;Full&lt;/strong&gt; (if your server uses a self-signed certificate)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;❌ Page opens but styles/scripts don&amp;rsquo;t load&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;-page-opens-but-stylesscripts-dont-load&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-page-opens-but-stylesscripts-dont-load&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; Mixed Content — HTTPS page loading HTTP resources&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to &lt;strong&gt;SSL/TLS&lt;/strong&gt; → &lt;strong&gt;Edge Certificates&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Enable &lt;strong&gt;Always Use HTTPS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Enable &lt;strong&gt;Automatic HTTPS Rewrites&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;SSL/TLS Configuration&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ssltls-configuration&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ssltls-configuration&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For correct web server operation through Cloudflare, configure SSL:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to &lt;strong&gt;SSL/TLS&lt;/strong&gt; → &lt;strong&gt;Overview&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Choose the appropriate mode:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Mode&lt;/th&gt;
+          &lt;th&gt;When to Use&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Flexible&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Your server uses only HTTP (no SSL)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Full&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Your server uses HTTPS with self-signed certificate&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Full (strict)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Your server uses HTTPS with trusted certificate&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;Recommendation:&lt;/strong&gt; For most cases (Dynmap, simple web servers), use &lt;strong&gt;Flexible&lt;/strong&gt; mode.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Usage Examples&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;usage-examples&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#usage-examples&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Example 1: Dynmap for Minecraft Server&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;example-1-dynmap-for-minecraft-server&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#example-1-dynmap-for-minecraft-server&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Domain: map.mhcore.xyz
+IP: 123.45.67.89
+Dynmap Port: 8123
+
+A Record:
+- Name: map
+- IP: 123.45.67.89
+- Proxy: ON
+
+Origin Rule:
+- URL Full wildcard https://map.mhcore.xyz/*
+- Rewrite to port 8123&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Result: &lt;code&gt;https://map.mhcore.xyz&lt;/code&gt; will show your Dynmap!&lt;/p&gt;
+&lt;h3&gt;Example 2: Pterodactyl Control Panel&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;example-2-pterodactyl-control-panel&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#example-2-pterodactyl-control-panel&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Domain: panel.mhcore.xyz
+IP: 123.45.67.89
+Panel Port: 8080
+
+A Record:
+- Name: panel
+- IP: 123.45.67.89
+- Proxy: ON
+
+Origin Rule:
+- URL Full wildcard https://panel.mhcore.xyz/*
+- Rewrite to port 8080&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Result: &lt;code&gt;https://panel.mhcore.xyz&lt;/code&gt; will open the control panel!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Useful Links&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;useful-links&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#useful-links&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.cloudflare.com/rules/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Official Cloudflare Rules Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.cloudflare.com/ssl/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloudflare SSL/TLS Configuration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.cloudflare.com/support/troubleshooting/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Troubleshooting Cloudflare Errors&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Need help?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you encounter difficulties setting up a web server through Cloudflare, contact your hosting support or Cloudflare community forums.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Linking a Domain to Minecraft Server</title>
+      <link>//localhost:1313/en/docs/cloudflare/domain-setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/en/docs/cloudflare/domain-setup/</guid>
+      <description>
+        
+        
+        &lt;h1&gt;How to Use Your Domain Instead of an IP Address?&lt;/h1&gt;&lt;p&gt;Linking a domain to your server is necessary to make the connection process simpler and faster. Typically, an IP address is used for connection, which can be long and difficult to remember (&lt;code&gt;123.45.67.89:1234&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;If you link a domain, for example, &lt;code&gt;play.mhcore.xyz&lt;/code&gt;, it will be easier for players to remember, which can help attract an audience to your server.&lt;/p&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Why do you need this?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Easy to remember: &lt;code&gt;play.mhcore.xyz&lt;/code&gt; instead of &lt;code&gt;123.45.67.89:25565&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Professional appearance for your server&lt;/li&gt;
+&lt;li&gt;Ability to change hosting without changing the address for players&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Preparation&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;preparation&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#preparation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Important to remember!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To begin, you need to:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Purchase a domain&lt;/strong&gt; (for example, on Namecheap, GoDaddy, REG.RU, etc.)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transfer it to Cloudflare&lt;/strong&gt; (free, but mandatory for this guide)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you already have a domain in Cloudflare — proceed to the next step!&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Step-by-Step Instructions&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-by-step-instructions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-by-step-instructions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Step 1: Open Cloudflare Dashboard&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-1-open-cloudflare-dashboard&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-1-open-cloudflare-dashboard&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Go to &lt;a href=&#34;https://dash.cloudflare.com/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloudflare&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Log in to your account&lt;/li&gt;
+&lt;li&gt;You will see a list of all your domains&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Step 2: Select Your Domain&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-2-select-your-domain&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-2-select-your-domain&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;From the list of domains, select the one you want to use for your Minecraft server.&lt;/p&gt;
+&lt;h3&gt;Step 3: Navigate to the &amp;ldquo;DNS&amp;rdquo; Tab&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-3-navigate-to-the-dns-tab&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-3-navigate-to-the-dns-tab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In the top menu, find and click on &lt;strong&gt;DNS&lt;/strong&gt; → &lt;strong&gt;Records&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Method 1: Setup via A Record (Recommended)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;method-1-setup-via-a-record-recommended&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#method-1-setup-via-a-record-recommended&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Step 4: Create a New A Record&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-4-create-a-new-a-record&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-4-create-a-new-a-record&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Click the &lt;strong&gt;Add record&lt;/strong&gt; button and fill in the fields as follows:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Field&lt;/th&gt;
+          &lt;th&gt;Value&lt;/th&gt;
+          &lt;th&gt;Description&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;A&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Record type&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;play&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Any name (subdomain)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;IPv4 address&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;123.45.67.89&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Your server&amp;rsquo;s IP address &lt;strong&gt;WITHOUT PORT&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Proxy status&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;🔴 &lt;strong&gt;OFF&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Orange cloud must be &lt;strong&gt;disabled&lt;/strong&gt; (gray)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;TTL&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Auto&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Leave unchanged&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Critically important:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Proxy Status (orange cloud) &lt;strong&gt;MUST&lt;/strong&gt; be disabled!&lt;/li&gt;
+&lt;li&gt;In IPv4, specify the IP &lt;strong&gt;WITHOUT PORT&lt;/strong&gt; (e.g., &lt;code&gt;123.45.67.89&lt;/code&gt;, not &lt;code&gt;123.45.67.89:25565&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Example A Record Configuration:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/cloudflare/a-record.png&#34; alt=&#34;A Record Configuration in Cloudflare&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Save the record by clicking &lt;strong&gt;Save&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;Step 5: Create a New SRV Record&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-5-create-a-new-srv-record&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-5-create-a-new-srv-record&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Now create an SRV record to specify the server port. Click &lt;strong&gt;Add record&lt;/strong&gt; and fill in:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Field&lt;/th&gt;
+          &lt;th&gt;Value&lt;/th&gt;
+          &lt;th&gt;Description&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;SRV&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Record type&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;_minecraft._tcp.play&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Format: &lt;code&gt;_minecraft._tcp.(your_subdomain)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Service&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;_minecraft&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Auto-filled&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Protocol&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;TCP&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Auto-filled&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;TTL&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Auto&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Leave unchanged&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Priority&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Record priority&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Weight&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Record weight&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Port&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;25565&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;Your Minecraft server port&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Target&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;play.mhcore.xyz&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Format: &lt;code&gt;(a-record_name).(your_domain)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;SRV Record Fields Explained:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name:&lt;/strong&gt; &lt;code&gt;_minecraft._tcp.play&lt;/code&gt; means the server will be accessible at &lt;code&gt;play.mhcore.xyz&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Port:&lt;/strong&gt; Specify your Minecraft server port (usually &lt;code&gt;25565&lt;/code&gt; or another)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Target:&lt;/strong&gt; Should point to the A record you created (e.g., &lt;code&gt;play.mhcore.xyz&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Example SRV Record Configuration:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/cloudflare/srv-record.png&#34; alt=&#34;SRV Record Configuration in Cloudflare&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Save the record by clicking &lt;strong&gt;Save&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Method 2: Setup Without A Record (Alternative)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;method-2-setup-without-a-record-alternative&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#method-2-setup-without-a-record-alternative&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If your server is hosted on MHCore, you can use the node address directly:&lt;/p&gt;
+&lt;h3&gt;Step 4 (alternative): Create Only SRV Record&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-4-alternative-create-only-srv-record&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-4-alternative-create-only-srv-record&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Field&lt;/th&gt;
+          &lt;th&gt;Value&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;SRV&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;_minecraft._tcp.play&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Priority&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Weight&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Port&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;25565&lt;/code&gt; (your server port)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Target&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;node1.mhcore.xyz&lt;/code&gt; (your node name)&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;For MHCore Users:&lt;/strong&gt;
+In Target, specify your node address in the format: &lt;code&gt;(node_name).mhcore.xyz&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example: &lt;code&gt;node1.mhcore.xyz&lt;/code&gt;, &lt;code&gt;node2.mhcore.xyz&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Result&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;result&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#result&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;According to the example above, your server will be accessible at:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;play.mhcore.xyz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Players will be able to connect to the server by simply entering this address in Minecraft, without specifying the port!&lt;/p&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-green-200 hx:bg-green-100 hx:text-green-900 hx:dark:border-green-200/30 hx:dark:bg-green-900/30 hx:dark:text-green-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Done!&lt;/strong&gt; 🎉&lt;/p&gt;
+&lt;p&gt;Now players can connect to your server using a beautiful and memorable address!&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Time for Changes to Apply&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;time-for-changes-to-apply&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#time-for-changes-to-apply&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Please note:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;DNS records may not apply instantly. Typically, changes take effect:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cloudflare:&lt;/strong&gt; 1-5 minutes&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Worldwide:&lt;/strong&gt; from 1 hour to 48 hours (due to DNS caching)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the domain doesn&amp;rsquo;t work immediately — wait 10-15 minutes and try again.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;Common Errors and Solutions&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;common-errors-and-solutions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#common-errors-and-solutions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;❌ Error: &amp;ldquo;Unknown host&amp;rdquo;&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;-error-unknown-host&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-error-unknown-host&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Causes:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DNS records haven&amp;rsquo;t propagated yet&lt;/li&gt;
+&lt;li&gt;Error in A record configuration&lt;/li&gt;
+&lt;li&gt;Proxy Status is enabled (orange cloud)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Check that Proxy Status is &lt;strong&gt;disabled&lt;/strong&gt; for the A record&lt;/li&gt;
+&lt;li&gt;Wait 15-30 minutes&lt;/li&gt;
+&lt;li&gt;Clear DNS cache on your computer:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Windows:&lt;/strong&gt; &lt;code&gt;ipconfig /flushdns&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;macOS:&lt;/strong&gt; &lt;code&gt;sudo dscacheutil -flushcache&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Linux:&lt;/strong&gt; &lt;code&gt;sudo systemd-resolve --flush-caches&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;❌ Error: Connection via domain works but with wrong port&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;-error-connection-via-domain-works-but-with-wrong-port&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-error-connection-via-domain-works-but-with-wrong-port&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; SRV record is misconfigured or missing&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Check for the presence of an SRV record&lt;/li&gt;
+&lt;li&gt;Ensure the port is specified correctly&lt;/li&gt;
+&lt;li&gt;Verify the Name format: &lt;code&gt;_minecraft._tcp.(subdomain)&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;❌ Cloudflare shows error when creating record&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;-cloudflare-shows-error-when-creating-record&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-cloudflare-shows-error-when-creating-record&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; Incorrect data format&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensure Target ends with &lt;code&gt;.&lt;/code&gt; or contains a fully qualified domain name&lt;/li&gt;
+&lt;li&gt;Check that all required fields are filled&lt;/li&gt;
+&lt;li&gt;Use only allowed characters (a-z, 0-9, hyphen, period)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Additional Capabilities&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;additional-capabilities&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#additional-capabilities&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Multiple Servers on One Domain&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;multiple-servers-on-one-domain&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#multiple-servers-on-one-domain&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;You can create multiple subdomains for different servers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;play.mhcore.xyz&lt;/code&gt; — main server&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lobby.mhcore.xyz&lt;/code&gt; — lobby server&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;creative.mhcore.xyz&lt;/code&gt; — creative mode&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;minigames.mhcore.xyz&lt;/code&gt; — mini-games&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For each, create separate A and SRV records with different names and ports!&lt;/p&gt;
+&lt;h3&gt;Using CNAME Instead of A Record&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;using-cname-instead-of-a-record&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#using-cname-instead-of-a-record&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;If your hosting provides a dedicated address (e.g., &lt;code&gt;server123.hosting.com&lt;/code&gt;), you can use a CNAME record instead of an A record:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Field&lt;/th&gt;
+          &lt;th&gt;Value&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;CNAME&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;play&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Target&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;server123.hosting.com&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Proxy status&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;OFF&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Useful Links&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;useful-links&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#useful-links&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.cloudflare.com/dns/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Official Cloudflare DNS Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mxtoolbox.com/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Online DNS Record Checker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cloudflare.com/learning/dns/what-is-dns/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DNS Guide for Beginners&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Need help?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you encounter difficulties setting up your domain, contact your hosting support or Cloudflare.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+{{- $context := .context -}}
+{{- $switchesVisible := .switchesVisible -}}
+{{- $copyrightVisible := .copyrightVisible -}}
+
+<div class="hx:w-full hx:mt-8">
+  {{- if not $copyrightVisible -}}
+    <hr class="hx:border-gray-200 hx:dark:border-neutral-800" />
+  {{- end -}}
+  
+  <div class="hx:flex hx:flex-col hx:items-center hx:justify-center hx:py-8 hx:text-center">
+    <p class="hx:text-lg hx:font-semibold hx:text-gray-800 hx:dark:text-gray-200 hx:mb-2">
+      qwer-host © 2022-{{ now.Format "2006" }}
+    </p>
+    <p class="hx:text-sm hx:text-gray-600 hx:dark:text-gray-400 hx:mb-2">
+      All rights reserved. Not affiliated with Mojang or Microsoft.
+    </p>
+    <p class="hx:text-sm hx:text-gray-600 hx:dark:text-gray-400 hx:mb-4">
+      Made by <a href="#" class="hx:text-blue-600 hx:dark:text-blue-400 hx:hover:underline" target="_blank" rel="noopener">_WiseFox_</a> for <a href="https://mhcore.xyz" class="hx:text-blue-600 hx:dark:text-blue-400 hx:hover:underline" target="_blank" rel="noopener">MHCore</a>
+    </p>
+  </div>
+</div>

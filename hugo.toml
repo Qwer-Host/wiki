@@ -1,0 +1,87 @@
+defaultContentLanguage = 'ru'
+languageCode = 'ru-ru'
+title = 'Wiki qwer-host'
+theme = 'hextra'
+
+[params]
+  [params.theme]
+    displayToggle = false
+
+[languages]
+  [languages.ru]
+    title = "Wiki qwer-host"
+    languageName = "Русский"
+    weight = 1
+    [languages.ru.menu]
+      [[languages.ru.menu.main]]
+        name = "Документация"
+        pageRef = "docs"
+        weight = 1
+      [[languages.ru.menu.main]]
+        identifier = "search"
+        weight = 3
+        [languages.ru.menu.main.params]
+          type = "search"
+      [[languages.ru.menu.main]]
+        identifier = "theme-toggle"
+        weight = 4
+        [languages.ru.menu.main.params]
+          type = "theme-toggle"
+      [[languages.ru.menu.main]]
+        identifier = "language-switch"
+        weight = 5
+        [languages.ru.menu.main.params]
+          type = "language-switch"
+
+  [languages.en]
+    title = "Wiki qwer-host"
+    languageName = "English"
+    weight = 2
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = "Docs"
+        pageRef = "docs"
+        weight = 1
+      [[languages.en.menu.main]]
+        identifier = "search"
+        weight = 3
+        [languages.en.menu.main.params]
+          type = "search"
+      [[languages.en.menu.main]]
+        identifier = "theme-toggle"
+        weight = 4
+        [languages.en.menu.main.params]
+          type = "theme-toggle"
+      [[languages.en.menu.main]]
+        identifier = "language-switch"
+        weight = 5
+        [languages.en.menu.main.params]
+          type = "language-switch"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    name = "Docs"
+    pageRef = "docs"
+    weight = 1
+  [[menu.main]]
+    identifier = "search"
+    weight = 3
+    [menu.main.params]
+      type = "search"
+  [[menu.main]]
+    identifier = "theme-toggle"
+    weight = 4
+    [menu.main.params]
+      type = "theme-toggle"
+  [[menu.main]]
+    identifier = "language-switch"
+    weight = 5
+    [menu.main.params]
+      type = "language-switch"
+
+

@@ -1,0 +1,1122 @@
+/* Минималистичный переключатель темы */
+.minimal-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-btn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #374151;
+}
+
+.theme-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-btn:active {
+  transform: scale(0.95);
+}
+
+.theme-icon-container {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.theme-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  stroke: currentColor;
+}
+
+.sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.8);
+}
+
+/* Dark theme styles */
+.dark .theme-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+.dark .theme-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dark .sun-icon {
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.8);
+}
+
+.dark .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Кастомный переключатель темы */
+.hextra-theme-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hextra-theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Градиентный текст для заголовков */
+.gradient-text {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Темная тема для градиентного текста */
+.dark .gradient-text {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #16a34a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Стили для переключателя темы в виде свитча */
+.theme-switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.theme-switch-checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-switch-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #e5e7eb;
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #d1d5db;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.theme-switch-slider:hover {
+  background: #d1d5db;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.theme-switch-checkbox:checked + .theme-switch-slider {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+.theme-switch-checkbox:checked + .theme-switch-slider:hover {
+  background: #4b5563;
+  border-color: #6b7280;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.theme-switch-button {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d1d5db;
+}
+
+.theme-switch-checkbox:checked + .theme-switch-slider .theme-switch-button {
+  transform: translateX(28px);
+}
+
+.theme-switch-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  width: 48px;
+  padding: 0 6px;
+  pointer-events: none;
+}
+
+.theme-switch-sun {
+  color: #4ade80;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.theme-switch-moon {
+  color: #64748b;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.theme-switch-checkbox:checked + .theme-switch-slider .theme-switch-sun {
+  opacity: 0.3;
+}
+
+.theme-switch-checkbox:checked + .theme-switch-slider .theme-switch-moon {
+  opacity: 1;
+}
+
+/* Темная тема для переключателя */
+.dark .theme-switch-slider {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+.dark .theme-switch-slider:hover {
+  background: #6b7280;
+  border-color: #9ca3af;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark .theme-switch-checkbox:checked + .theme-switch-slider {
+  background: #d1d5db;
+  border-color: #e5e7eb;
+}
+
+.dark .theme-switch-checkbox:checked + .theme-switch-slider:hover {
+  background: #e5e7eb;
+  border-color: #f3f4f6;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.dark .theme-switch-button {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+.dark .theme-switch-sun {
+  color: #4ade80;
+}
+
+.dark .theme-switch-moon {
+  color: #93c5fd;
+}
+
+/* Анимация для иконок солнца и луны */
+.hx\:theme-toggle-sun,
+.hx\:theme-toggle-moon {
+  transform-origin: center;
+}
+
+/* Улучшенная анимация при наведении */
+.hextra-theme-toggle:hover .hx\:theme-toggle-sun {
+  animation: sun-rotate 2s linear infinite;
+}
+
+.hextra-theme-toggle:hover .hx\:theme-toggle-moon {
+  animation: moon-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes sun-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes moon-glow {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+/* Улучшенный переключатель языка */
+.hextra-language-switch {
+  transition: all 0.3s ease;
+}
+
+.hextra-language-switch:hover {
+  transform: scale(1.05);
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 768px) {
+  .hextra-theme-toggle,
+  .hextra-language-switch {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Кастомные стили для футера */
+#custom-footer .copyright-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+#custom-footer .copyright-level {
+  color: #6b7280;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+:root[class~="dark"] #custom-footer .copyright-level {
+  color: #9ca3af;
+}
+
+#custom-footer .copyright-level.primary {
+  color: #1f2937;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+}
+
+:root[class~="dark"] #custom-footer .copyright-level.primary {
+  color: #f9fafb;
+}
+
+#custom-footer .copyright-level.primary::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #22c55e;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+#custom-footer:hover .copyright-level.primary::after {
+  width: 100px;
+  opacity: 1;
+}
+
+#custom-footer .copyright-level.secondary {
+  font-size: 14px;
+}
+
+#custom-footer .copyright-level.tertiary {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+#custom-footer .copyright-level.tertiary:hover {
+  opacity: 1;
+}
+
+#custom-footer .copyright-level.tertiary .fa-heart {
+  transition: all 0.3s ease;
+}
+
+#custom-footer .copyright-level.tertiary:hover .fa-heart {
+  transform: scale(1.3);
+}
+
+#custom-footer .copyright-level a {
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+:root[class~="dark"] #custom-footer .copyright-level a {
+  color: #9ca3af;
+}
+
+#custom-footer .copyright-level a:hover {
+  color: #1f2937;
+}
+
+:root[class~="dark"] #custom-footer .copyright-level a:hover {
+  color: #f9fafb;
+}
+
+#custom-footer .copyright-level a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #22c55e;
+  transition: width 0.3s ease;
+}
+
+#custom-footer .copyright-level a:hover::after {
+  width: 100%;
+}
+
+/* Социальные ссылки */
+#custom-footer .social-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#custom-footer .social-footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(107, 114, 128, 0.15);
+  color: #6b7280;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+:root[class~="dark"] #custom-footer .social-footer a {
+  background-color: rgba(156, 163, 175, 0.15);
+  color: #9ca3af;
+}
+
+#custom-footer .social-footer a:hover {
+  background-color: #22c55e;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+}
+
+#custom-footer .social-footer a[title="Instagram"]:hover {
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+#custom-footer .social-footer a[title="TikTok"]:hover {
+  background: linear-gradient(45deg, #000000, #EE1D52, #69C9D0);
+}
+
+#custom-footer .social-footer a[title="YouTube"]:hover {
+  background-color: #FF0000;
+}
+
+#custom-footer .social-footer a[title="Discord"]:hover {
+  background: linear-gradient(45deg, #5865F2, #7289DA);
+}
+
+#custom-footer .social-footer a[title="Telegram"]:hover {
+  background: linear-gradient(45deg, #0088cc, #29B6F6);
+}
+
+#custom-footer .social-footer a[title="VK"]:hover {
+  background: linear-gradient(45deg, #45668e, #5181B8);
+}
+
+#custom-footer .social-footer a[title="Contact"]:hover {
+  background: linear-gradient(45deg, #22c55e, #16a34a);
+}
+
+#custom-footer .social-footer a[title="GitHub"]:hover {
+  background: linear-gradient(45deg, #333, #24292e);
+}
+
+@media screen and (max-width: 564px) {
+  #custom-footer .social-footer {
+    max-width: 280px;
+  }
+}
+
+/* Анимация переливания для заголовка qwer-host Wiki */
+.animated-title {
+  background: linear-gradient(
+    45deg,
+    #22c55e,
+    #16a34a,
+    #15803d,
+    #14532d,
+    #166534,
+    #15803d,
+    #22c55e
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow 3s ease-in-out infinite;
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Для темной темы - делаем анимацию более яркой */
+.dark .animated-title {
+  background: linear-gradient(
+    45deg,
+    #4ade80,
+    #22c55e,
+    #16a34a,
+    #15803d,
+    #22c55e,
+    #16a34a,
+    #4ade80
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .animated-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .animated-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Стильные анимации загрузки */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Применение анимаций к элементам */
+.hextra-navbar {
+  animation: slideInDown 0.8s ease-out;
+}
+
+.gradient-text {
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.hextra-hero-headline {
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.hextra-hero-subtitle {
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.hextra-hero-button {
+  animation: scaleIn 0.8s ease-out 0.7s both;
+}
+
+.hextra-feature-grid .hextra-feature-card:nth-child(1) {
+  animation: fadeInLeft 0.8s ease-out 0.4s both;
+}
+
+.hextra-feature-grid .hextra-feature-card:nth-child(2) {
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.hextra-feature-grid .hextra-feature-card:nth-child(3) {
+  animation: fadeInRight 0.8s ease-out 0.6s both;
+}
+
+.hextra-feature-grid .hextra-feature-card:nth-child(4) {
+  animation: fadeInLeft 0.8s ease-out 0.7s both;
+}
+
+.hextra-feature-grid .hextra-feature-card:nth-child(5) {
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+.hextra-feature-grid .hextra-feature-card:nth-child(6) {
+  animation: fadeInRight 0.8s ease-out 0.9s both;
+}
+
+.hextra-feature-grid .hextra-feature-card:nth-child(7) {
+  animation: fadeInUp 0.8s ease-out 1s both;
+}
+
+/* Hover анимации для карточек */
+.hextra-feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hextra-feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dark .hextra-feature-card:hover {
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* Анимация для переключателя темы */
+.theme-btn {
+  animation: scaleIn 0.6s ease-out 0.3s both;
+}
+
+/* Анимация для боковой панели */
+.hextra-sidebar {
+  animation: fadeInLeft 0.8s ease-out 0.2s both;
+}
+
+/* Анимация для основного контента */
+.hextra-content {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* Анимация для хлебных крошек */
+.hextra-breadcrumb {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* Пульсирующая анимация для кнопок */
+.hextra-hero-button button,
+.hextra-hero-button a {
+  transition: all 0.3s ease;
+}
+
+.hextra-hero-button button:hover,
+.hextra-hero-button a:hover {
+  animation: pulse 1s infinite;
+}
+
+/* Анимация для поиска */
+.hextra-search {
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+/* Мягкие анимации для мобильных устройств */
+@media (max-width: 768px) {
+  .hextra-feature-grid .hextra-feature-card {
+    animation: fadeInUp 0.6s ease-out calc(0.1s * var(--card-index, 1)) both;
+  }
+}
+
+/* Анимация появления футера */
+.hextra-footer {
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+/* Плавное появление изображений */
+img {
+  animation: scaleIn 0.8s ease-out 0.5s both;
+}
+
+/* Отключение анимаций для пользователей с предпочтением reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Дополнительные стильные эффекты */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(249, 115, 22, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.8), 0 0 30px rgba(249, 115, 22, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes slideInRotate {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+/* Особые эффекты для главного заголовка */
+.gradient-text {
+  position: relative;
+  animation: fadeInUp 1s ease-out 0.2s both, glow 3s ease-in-out infinite alternate;
+}
+
+/* Floating эффект для кнопок */
+.hextra-hero-button {
+  animation: scaleIn 0.8s ease-out 0.7s both, float 3s ease-in-out infinite;
+}
+
+/* Стильные переходы между страницами */
+.page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  z-index: 9998;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.page-transition.active {
+  transform: translateY(0);
+}
+
+/* Анимация для text reveal */
+.text-reveal {
+  overflow: hidden;
+  position: relative;
+}
+
+.text-reveal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  transform: translateX(-100%);
+  animation: reveal 1.5s ease-out forwards;
+}
+
+@keyframes reveal {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Morphing borders для карточек */
+.hextra-feature-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.hextra-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 30%, rgba(34, 197, 94, 0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.hextra-feature-card:hover::before {
+  transform: translateX(100%);
+}
+
+/* Стильный scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Темная тема для скроллбара */
+.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Particle animation background */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(249, 115, 22, 0.3);
+  border-radius: 50%;
+  animation: particleFloat 20s infinite linear;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive animations */
+@media (max-width: 768px) {
+  .hextra-feature-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .hextra-hero-button {
+    animation: scaleIn 0.6s ease-out 0.5s both;
+  }
+}
+
+/* Стили для светлой темы - соответствуют стандартным цветам Hextra */
+:not(.dark) {
+  /* Переключатель языка в светлой теме */
+  --hextra-navbar-color: var(--gray-700);
+  --hextra-navbar-hover-color: var(--gray-900);
+}
+
+/* Переключатель языка в светлой теме */
+:not(.dark) .hextra-language-switch button {
+  color: var(--gray-700, #374151);
+  background-color: var(--gray-50, rgba(0, 0, 0, 0.05));
+  border: 1px solid var(--gray-200, rgba(0, 0, 0, 0.1));
+}
+
+:not(.dark) .hextra-language-switch button:hover {
+  background-color: var(--gray-100, rgba(0, 0, 0, 0.1));
+  color: var(--gray-900, #111827);
+}
+
+:not(.dark) .hextra-language-switch .hextra-language-switch-dropdown {
+  background-color: var(--white, white);
+  border: 1px solid var(--gray-200, rgba(0, 0, 0, 0.1));
+  box-shadow: 0 4px 6px var(--gray-100, rgba(0, 0, 0, 0.1));
+}
+
+:not(.dark) .hextra-language-switch .hextra-language-switch-dropdown a {
+  color: var(--gray-700, #374151);
+}
+
+:not(.dark) .hextra-language-switch .hextra-language-switch-dropdown a:hover {
+  background-color: var(--gray-50, rgba(0, 0, 0, 0.05));
+  color: var(--gray-900, #111827);
+}
+
+/* Дополнительные стили для переключателя языка */
+:not(.dark) .hextra-language-switcher {
+  color: var(--gray-700, #374151);
+  background-color: var(--gray-50, rgba(0, 0, 0, 0.05));
+}
+
+:not(.dark) .hextra-language-switcher:hover {
+  background-color: var(--gray-100, rgba(0, 0, 0, 0.1));
+  color: var(--gray-900, #111827);
+}
+
+:not(.dark) .hextra-language-switcher svg {
+  color: var(--gray-700, #374151);
+}
+
+:not(.dark) [data-popper-placement] {
+  background-color: var(--white, white);
+  border: 1px solid var(--gray-200, rgba(0, 0, 0, 0.1));
+  box-shadow: 0 4px 6px var(--gray-100, rgba(0, 0, 0, 0.1));
+}
+
+:not(.dark) [data-popper-placement] a {
+  color: var(--gray-700, #374151);
+}
+
+:not(.dark) [data-popper-placement] a:hover {
+  background-color: var(--gray-50, rgba(0, 0, 0, 0.05));
+  color: var(--gray-900, #111827);
+}
+
+.hextra-navbar-title,
+.hextra-navbar .hextra-navbar-title a,
+.hextra-sidebar-title,
+.hextra-sidebar .hextra-sidebar-title a,
+.hextra-navbar a[href="/"],
+.hextra-navbar a[href="/ru/"],
+nav .hextra-navbar-title,
+nav a[href="/"],
+[class*="navbar"] .hextra-navbar-title,
+[class*="navbar"] a[href="/"] {
+  color: #000000 !important; 
+  font-weight: 600 !important;
+  transition: color 0.3s ease !important;
+}
+
+.hextra-navbar-title:hover,
+.hextra-navbar .hextra-navbar-title a:hover,
+.hextra-sidebar-title:hover,
+.hextra-sidebar .hextra-sidebar-title a:hover,
+.hextra-navbar a[href="/"]:hover,
+.hextra-navbar a[href="/ru/"]:hover,
+nav .hextra-navbar-title:hover,
+nav a[href="/"]:hover,
+[class*="navbar"] .hextra-navbar-title:hover,
+[class*="navbar"] a[href="/"]:hover {
+  color: #374151 !important; 
+}
+
+.dark .hextra-navbar-title,
+.dark .hextra-navbar .hextra-navbar-title a,
+.dark .hextra-sidebar-title,
+.dark .hextra-sidebar .hextra-sidebar-title a,
+.dark .hextra-navbar a[href="/"],
+.dark .hextra-navbar a[href="/ru/"],
+.dark nav .hextra-navbar-title,
+.dark nav a[href="/"],
+.dark [class*="navbar"] .hextra-navbar-title,
+.dark [class*="navbar"] a[href="/"] {
+  color: #ffffff !important; 
+}
+
+.dark .hextra-navbar-title:hover,
+.dark .hextra-navbar .hextra-navbar-title a:hover,
+.dark .hextra-sidebar-title:hover,
+.dark .hextra-sidebar .hextra-sidebar-title a:hover,
+.dark .hextra-navbar a[href="/"]:hover,
+.dark .hextra-navbar a[href="/ru/"]:hover,
+.dark nav .hextra-navbar-title:hover,
+.dark nav a[href="/"]:hover,
+.dark [class*="navbar"] .hextra-navbar-title:hover,
+.dark [class*="navbar"] a[href="/"]:hover {
+  color: #e5e7eb !important;
+}
+
+.hextra-feature-grid .hextra-feature-card h3,
+.hextra-feature-grid .hextra-feature-card .hextra-feature-card-title,
+.hextra-feature-grid h3,
+.hextra-feature-grid [class*="feature-card"] h3,
+.hextra-cards .hextra-card h3,
+.hextra-cards .hextra-card .hextra-card-title,
+[class*="hx:feature"] h3,
+[class*="feature-grid"] h3 {
+  color: #374151 !important;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.hextra-feature-grid .hextra-feature-card:hover h3,
+.hextra-feature-grid .hextra-feature-card:hover .hextra-feature-card-title,
+.hextra-feature-grid:hover h3,
+.hextra-feature-grid [class*="feature-card"]:hover h3,
+.hextra-cards .hextra-card:hover h3,
+.hextra-cards .hextra-card:hover .hextra-card-title,
+[class*="hx:feature"]:hover h3,
+[class*="feature-grid"]:hover h3 {
+  color: #1f2937 !important; 
+}
+
+.dark .hextra-feature-grid .hextra-feature-card h3,
+.dark .hextra-feature-grid .hextra-feature-card .hextra-feature-card-title,
+.dark .hextra-feature-grid h3,
+.dark .hextra-feature-grid [class*="feature-card"] h3,
+.dark .hextra-cards .hextra-card h3,
+.dark .hextra-cards .hextra-card .hextra-card-title,
+.dark [class*="hx:feature"] h3,
+.dark [class*="feature-grid"] h3 {
+  color: #e5e7eb !important; 
+}
+
+.dark .hextra-feature-grid .hextra-feature-card:hover h3,
+.dark .hextra-feature-grid .hextra-feature-card:hover .hextra-feature-card-title,
+.dark .hextra-feature-grid:hover h3,
+.dark .hextra-feature-grid [class*="feature-card"]:hover h3,
+.dark .hextra-cards .hextra-card:hover h3,
+.dark .hextra-cards .hextra-card:hover .hextra-card-title,
+.dark [class*="hx:feature"]:hover h3,
+.dark [class*="feature-grid"]:hover h3 {
+  color: #f9fafb !important; 
+}
+.hextra-cards .hextra-card:hover .hextra-card-title {
+  color: #1d4ed8 !important; 
+}
+
+.dark .hextra-feature-card h3,
+.dark .hextra-feature-card .hextra-feature-card-title,
+.dark .hextra-cards .hextra-card h3,
+.dark .hextra-cards .hextra-card .hextra-card-title {
+  color: #60a5fa !important; 
+}
+
+.dark .hextra-feature-card:hover h3,
+.dark .hextra-feature-card:hover .hextra-feature-card-title,
+.dark .hextra-cards .hextra-card:hover h3,
+.dark .hextra-cards .hextra-card:hover .hextra-card-title {
+  color: #93c5fd !important; 
+}
+
+[class*="hextra-card"] h3,
+[class*="hextra-card"] .title,
+[class*="feature-card"] h3,
+[class*="feature-card"] .title {
+  color: #2563eb !important;
+  font-weight: 600;
+}
+
+.dark [class*="hextra-card"] h3,
+.dark [class*="hextra-card"] .title,
+.dark [class*="feature-card"] h3,
+.dark [class*="feature-card"] .title {
+  color: #60a5fa !important;
+}
