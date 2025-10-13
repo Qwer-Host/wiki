@@ -403,9 +403,11 @@ This allows using Cloudflare features, including port proxying.&lt;/p&gt;
 &lt;h3&gt;Step 2: Configure Origin Rules for Port Forwarding&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-2-configure-origin-rules-for-port-forwarding&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#step-2-configure-origin-rules-for-port-forwarding&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Now you need to set up a rule that will redirect requests to the required port of your web server.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;In Cloudflare dashboard, go to &lt;strong&gt;Rules&lt;/strong&gt; → &lt;strong&gt;Origin Rules&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;In Cloudflare dashboard, go to &lt;strong&gt;Rules&lt;/strong&gt; → &lt;strong&gt;Overview&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Create rule&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Origin rule&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/cloudflare/rules-overview-original-rules.png&#34; alt=&#34;Menu Original Rules&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;h4&gt;Fill in the rule form:&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;fill-in-the-rule-form&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#fill-in-the-rule-form&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Rule name:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
@@ -424,31 +426,15 @@ This allows using Cloudflare features, including port proxying.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;When incoming requests match&amp;hellip; (Condition):&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Select:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Field:&lt;/strong&gt; &lt;code&gt;Hostname&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Operator:&lt;/strong&gt; &lt;code&gt;equals&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Value:&lt;/strong&gt; &lt;code&gt;map.mhcore.xyz&lt;/code&gt; &lt;em&gt;(your subdomain with A record)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Field:&lt;/strong&gt; &lt;code&gt;URL Full&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Operator:&lt;/strong&gt; &lt;code&gt;wildcard&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Value:&lt;/strong&gt; &lt;code&gt;https://map.mhcore.xyz/*&lt;/code&gt; &lt;em&gt;(your subdomain with A record)&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Then&amp;hellip; (Action):&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;In the &lt;strong&gt;Destination Port&lt;/strong&gt; section, select:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Rewrite to:&lt;/strong&gt; &lt;code&gt;8123&lt;/code&gt; &lt;em&gt;(specify your web server&amp;rsquo;s port)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rewrite to:&lt;/strong&gt; &lt;code&gt;25443&lt;/code&gt; &lt;em&gt;(specify your web server&amp;rsquo;s port)&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
-  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
-
-  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
-    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Popular web service ports:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Dynmap:&lt;/strong&gt; usually &lt;code&gt;8123&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;BlueMap:&lt;/strong&gt; usually &lt;code&gt;8100&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Pterodactyl Panel:&lt;/strong&gt; usually &lt;code&gt;80&lt;/code&gt; or &lt;code&gt;8080&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Nginx/Apache:&lt;/strong&gt; usually &lt;code&gt;80&lt;/code&gt; or &lt;code&gt;8080&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Specify the port on which your web server is running!&lt;/p&gt;
-&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
 &lt;p&gt;&lt;strong&gt;Fill-in example:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/cloudflare/origin-rule.png&#34; alt=&#34;Origin Rule configuration in Cloudflare&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -518,25 +504,25 @@ This allows using Cloudflare features, including port proxying.&lt;/p&gt;
           &lt;td&gt;&lt;code&gt;map.mhcore.xyz&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;Dynmap&lt;/td&gt;
           &lt;td&gt;8123&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;Hostname equals map.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;8123&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;URL Full wildcard map.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;8123&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;code&gt;bluemap.mhcore.xyz&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;BlueMap&lt;/td&gt;
           &lt;td&gt;8100&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;Hostname equals bluemap.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;8100&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;URL Full wildcard bluemap.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;8100&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;code&gt;panel.mhcore.xyz&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;Pterodactyl&lt;/td&gt;
           &lt;td&gt;8080&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;Hostname equals panel.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;8080&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;URL Full wildcard panel.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;8080&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;code&gt;stats.mhcore.xyz&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;Statistics&lt;/td&gt;
           &lt;td&gt;3000&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;Hostname equals stats.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;3000&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;URL Full wildcard stats.mhcore.xyz&lt;/code&gt; → Port &lt;code&gt;3000&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -626,21 +612,6 @@ This allows using Cloudflare features, including port proxying.&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;hr&gt;
-&lt;h2&gt;Additional Settings (Optional)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;additional-settings-optional&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#additional-settings-optional&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Caching&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;caching&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#caching&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;To speed up loading, you can configure caching:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Go to &lt;strong&gt;Caching&lt;/strong&gt; → &lt;strong&gt;Configuration&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Set &lt;strong&gt;Caching Level&lt;/strong&gt; to &lt;strong&gt;Standard&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Enable &lt;strong&gt;Auto Minify&lt;/strong&gt; for HTML, CSS, and JavaScript&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3&gt;Firewall Rules&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;firewall-rules&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#firewall-rules&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For additional protection, you can configure firewall rules:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Go to &lt;strong&gt;Security&lt;/strong&gt; → &lt;strong&gt;WAF&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Create rules to block suspicious requests&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
 &lt;h2&gt;Usage Examples&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;usage-examples&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#usage-examples&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Example 1: Dynmap for Minecraft Server&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;example-1-dynmap-for-minecraft-server&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#example-1-dynmap-for-minecraft-server&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
@@ -655,7 +626,7 @@ A Record:
 - Proxy: ON
 
 Origin Rule:
-- Hostname equals map.mhcore.xyz
+- URL Full wildcard https://map.mhcore.xyz/*
 - Rewrite to port 8123&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
   &lt;button
     class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
@@ -680,7 +651,7 @@ A Record:
 - Proxy: ON
 
 Origin Rule:
-- Hostname equals panel.mhcore.xyz
+- URL Full wildcard https://panel.mhcore.xyz/*
 - Rewrite to port 8080&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
   &lt;button
     class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
@@ -710,31 +681,6 @@ Origin Rule:
 &lt;/div&gt;
 
 &lt;hr&gt;
-&lt;h2&gt;Where to Store Screenshots?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;where-to-store-screenshots&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#where-to-store-screenshots&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Place screenshots for this page in the folder:&lt;/p&gt;
-&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
-
-&lt;div&gt;&lt;pre&gt;&lt;code&gt;static/images/docs/cloudflare/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
-  &lt;button
-    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
-    title=&#34;Copy code&#34;
-  &gt;
-    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
-&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
-  &lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Required screenshots:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;a-record-proxy.png&lt;/code&gt; — A record with proxying enabled (orange cloud)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;origin-rule.png&lt;/code&gt; — Origin Rule configuration with port&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Additional (optional):&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cloudflare-rules-menu.png&lt;/code&gt; — Rules menu in Cloudflare&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;origin-rule-conditions.png&lt;/code&gt; — Origin Rule conditions&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ssl-settings.png&lt;/code&gt; — SSL/TLS settings&lt;/li&gt;
-&lt;/ul&gt;
 
       </description>
     </item>

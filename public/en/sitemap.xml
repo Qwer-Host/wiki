@@ -38,6 +38,18 @@
                 href="//localhost:1313/en/docs/minecraft-commands/"
                 />
   </url><url>
+    <loc>//localhost:1313/en/docs/cloudflare/web-server-setup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="//localhost:1313/docs/cloudflare/web-server-setup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/en/docs/cloudflare/web-server-setup/"
+                />
+  </url><url>
     <loc>//localhost:1313/en/docs/cloudflare/domain-setup/</loc>
     <xhtml:link
                 rel="alternate"

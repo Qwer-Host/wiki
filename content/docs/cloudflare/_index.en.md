@@ -4,7 +4,7 @@ description: "Guides for configuring and managing CloudFlare for your domain"
 weight: 30
 ---
 
-# CloudFlare: Guides and Instructions
+# Guides and Instructions
 
 CloudFlare is a global content delivery network (CDN) and web security platform. In this section, you'll find useful guides for configuring and managing your domains through CloudFlare.
 

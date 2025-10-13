@@ -4,8 +4,6 @@ description: "Complete guide to choosing Minecraft server cores in 2025"
 weight: 20
 ---
 
-# Minecraft Server Cores
-
 In the era of Minecraft 1.21+ and beyond, choosing a server core isn't just a technical detail—it's a strategic decision that determines stability, performance, and the uniqueness of your world. 
 
 But with an abundance of forks, proxies, and hybrids, it's easy to get confused. We'll break down key options by categories, based on current trends in 2025: from performance focus to mod support.

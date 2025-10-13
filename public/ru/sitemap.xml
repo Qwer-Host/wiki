@@ -38,6 +38,18 @@
                 href="//localhost:1313/docs/cloudflare/disable-ech/"
                 />
   </url><url>
+    <loc>//localhost:1313/docs/cloudflare/web-server-setup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/en/docs/cloudflare/web-server-setup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="//localhost:1313/docs/cloudflare/web-server-setup/"
+                />
+  </url><url>
     <loc>//localhost:1313/docs/cloudflare/domain-setup/</loc>
     <xhtml:link
                 rel="alternate"
@@ -127,6 +139,10 @@
                 href="//localhost:1313/categories/"
                 />
   </url><url>
+    <loc>//localhost:1313/terms/</loc>
+  </url><url>
     <loc>//localhost:1313/about/</loc>
+  </url><url>
+    <loc>//localhost:1313/privacy/</loc>
   </url>
 </urlset>

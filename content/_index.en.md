@@ -5,7 +5,7 @@ layout: hextra-home
 
 <div class="hx:mt-6 hx:mb-6">
 {{< hextra/hero-headline >}}
-  <span class="gradient-text">qwer-host Wiki</span>
+  <span class="gradient-text"><span style="color: #ffffff;">qwer</span><span style="color: #22c55e;">-host</span> <span style="color: #ffffff;">Wiki</span></span>
 {{< /hextra/hero-headline >}}
 </div>
 
@@ -26,19 +26,25 @@ layout: hextra-home
     title="Learn Right Now"
     subtitle="Get access to detailed guides, frequently asked questions, and useful tips for setting up and managing your hosting."
     class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-md:min-h-[340px]"
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(255,107,53,0.15),hsla(0,0%,100%,0));"
+    image="/images/docs-en.png"
+    imageClass="hx:top-[40%] hx:left-[24px] hx:w-[180%] hx:sm:w-[110%] hx:dark:opacity-80"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(194,97,254,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Clear Instructions"
     subtitle="Find solutions for tasks of any complexity — from server rental to website management — with clear and practical guides."
     class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-lg:min-h-[340px]"
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(255,165,0,0.15),hsla(0,0%,100%,0));"
+    image="/images/docs-2-en.png"
+    imageClass="hx:top-[40%] hx:left-[36px] hx:w-[180%] hx:sm:w-[110%] hx:dark:opacity-80"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(142,53,74,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Everything in One Place"
     subtitle="Our wiki combines guides, FAQs, and recommendations so you can quickly find the information you need."
     class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-md:min-h-[340px]"
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(255,215,0,0.15),hsla(0,0%,100%,0));"
+    image="/images/docs-3-en.png"
+    imageClass="hx:top-[40%] hx:left-[36px] hx:w-[110%] hx:sm:w-[110%] hx:dark:opacity-80"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(221,210,59,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Quick Answer Search"

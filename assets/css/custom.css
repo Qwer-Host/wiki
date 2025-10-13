@@ -1,3 +1,178 @@
+/* ========================================
+   Кастомный брендированный логотип
+   ======================================== */
+
+/* Основной контейнер логотипа */
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Первая часть "qwer" - белая с легким свечением */
+.brand-qwer {
+  color: #ffffff;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.2),
+    0 0 30px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Вторая часть "-host" - зеленая с ярким свечением */
+.brand-host {
+  color: #22c55e;
+  text-shadow: 
+    0 0 10px rgba(34, 197, 94, 0.5),
+    0 0 20px rgba(34, 197, 94, 0.3),
+    0 0 30px rgba(34, 197, 94, 0.2),
+    0 0 40px rgba(34, 197, 94, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Третья часть " Wiki" - белая с мягким свечением */
+.brand-wiki {
+  color: #e5e7eb;
+  font-weight: 600;
+  text-shadow: 
+    0 0 8px rgba(229, 231, 235, 0.2),
+    0 0 15px rgba(229, 231, 235, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Эффект при наведении - усиление свечения */
+.brand-title:hover .brand-qwer {
+  text-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.5),
+    0 0 30px rgba(255, 255, 255, 0.3),
+    0 0 45px rgba(255, 255, 255, 0.2);
+}
+
+.brand-title:hover .brand-host {
+  color: #10b981;
+  text-shadow: 
+    0 0 15px rgba(16, 185, 129, 0.7),
+    0 0 30px rgba(16, 185, 129, 0.5),
+    0 0 45px rgba(16, 185, 129, 0.3),
+    0 0 60px rgba(16, 185, 129, 0.2);
+}
+
+.brand-title:hover .brand-wiki {
+  text-shadow: 
+    0 0 12px rgba(229, 231, 235, 0.3),
+    0 0 20px rgba(229, 231, 235, 0.2);
+}
+
+/* ========================================
+   Светлая тема
+   ======================================== */
+
+/* В светлой теме делаем цвета более контрастными */
+:root:not(.dark) .brand-qwer {
+  color: #1f2937;
+  text-shadow: 
+    0 0 10px rgba(31, 41, 55, 0.15),
+    0 0 20px rgba(31, 41, 55, 0.1);
+}
+
+:root:not(.dark) .brand-host {
+  color: #16a34a;
+  text-shadow: 
+    0 0 10px rgba(22, 163, 74, 0.4),
+    0 0 20px rgba(22, 163, 74, 0.2),
+    0 0 30px rgba(22, 163, 74, 0.1);
+}
+
+:root:not(.dark) .brand-wiki {
+  color: #4b5563;
+  text-shadow: 
+    0 0 8px rgba(75, 85, 99, 0.15),
+    0 0 15px rgba(75, 85, 99, 0.1);
+}
+
+:root:not(.dark) .brand-title:hover .brand-qwer {
+  color: #111827;
+  text-shadow: 
+    0 0 15px rgba(17, 24, 39, 0.2),
+    0 0 30px rgba(17, 24, 39, 0.15);
+}
+
+:root:not(.dark) .brand-title:hover .brand-host {
+  color: #15803d;
+  text-shadow: 
+    0 0 15px rgba(21, 128, 61, 0.6),
+    0 0 30px rgba(21, 128, 61, 0.4),
+    0 0 45px rgba(21, 128, 61, 0.2);
+}
+
+:root:not(.dark) .brand-title:hover .brand-wiki {
+  color: #374151;
+  text-shadow: 
+    0 0 12px rgba(55, 65, 81, 0.2),
+    0 0 20px rgba(55, 65, 81, 0.15);
+}
+
+/* ========================================
+   Улучшенный дизайн navbar в документах
+   ======================================== */
+
+/* Контраст для активного пункта меню в sidebar */
+.hextra-sidebar-active-item {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(22, 163, 74, 0.1)) !important;
+  border-left: 3px solid #22c55e !important;
+  font-weight: 600 !important;
+}
+
+.dark .hextra-sidebar-active-item {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.15)) !important;
+  border-left-color: #4ade80 !important;
+}
+
+/* Hover эффект для пунктов sidebar */
+.hextra-sidebar-container a:hover:not(.hextra-sidebar-active-item) {
+  background: rgba(34, 197, 94, 0.05);
+  transform: translateX(2px);
+  transition: all 0.2s ease;
+}
+
+.dark .hextra-sidebar-container a:hover:not(.hextra-sidebar-active-item) {
+  background: rgba(34, 197, 94, 0.08);
+}
+
+/* Исправление позиционирования меню выбора языка */
+.hextra-language-switcher {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Улучшение видимости иконки языка */
+.hextra-language-switcher svg {
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+  color: currentColor;
+}
+
+.hextra-language-options {
+  position: absolute !important;
+  top: calc(100% + 8px) !important;
+  right: 0 !important;
+  left: auto !important;
+  margin: 0 !important;
+  transform: translateX(0) !important;
+}
+
+/* RTL поддержка для меню языков */
+[dir="rtl"] .hextra-language-options {
+  right: auto !important;
+  left: 0 !important;
+}
+
 /* Минималистичный переключатель темы */
 .minimal-theme-toggle {
   display: flex;
@@ -87,36 +262,64 @@
   transform: scale(0.95);
 }
 
-/* Градиентный текст для заголовков */
+/* ========================================
+   Стили для главной страницы: заголовок с цветными частями
+   ======================================== */
+
+/* Контейнер заголовка на главной */
 .gradient-text {
-  background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
+/* Эффект свечения вокруг текста (background glow) */
+.gradient-text:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 150%;
+  z-index: -1;
+  filter: blur(60px);
+  opacity: 0.5;
+  background: radial-gradient(ellipse at center, rgba(34, 197, 94, 0.3), transparent 60%);
+  pointer-events: none;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Темная тема - эффект свечения */
+.dark .gradient-text:after {
+  filter: blur(80px);
+  opacity: 0.6;
+  background: radial-gradient(ellipse at center, rgba(34, 197, 94, 0.4), transparent 60%);
+}
+
+/* Светлая тема - стили для частей текста */
+:root:not(.dark) .gradient-text span:nth-child(1) {
+  color: #1f2937 !important;
+}
+
+:root:not(.dark) .gradient-text span:nth-child(2) {
+  color: #16a34a !important;
+}
+
+:root:not(.dark) .gradient-text span:nth-child(3) {
+  color: #4b5563 !important;
+}
+
+/* Анимация пульсации свечения */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    background-position: 100% 50%;
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.05);
   }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Темная тема для градиентного текста */
-.dark .gradient-text {
-  background: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #16a34a 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
 }
 
 /* Стили для переключателя темы в виде свитча */
