@@ -12,7 +12,6 @@
   align-items: center;
 }
 
-/* Первая часть "qwer" - белая с легким свечением */
 .brand-qwer {
   color: #ffffff;
   text-shadow: 
@@ -22,7 +21,6 @@
   transition: all 0.3s ease;
 }
 
-/* Вторая часть "-host" - зеленая с ярким свечением */
 .brand-host {
   color: #22c55e;
   text-shadow: 
@@ -33,7 +31,6 @@
   transition: all 0.3s ease;
 }
 
-/* Третья часть " Wiki" - белая с мягким свечением */
 .brand-wiki {
   color: #e5e7eb;
   font-weight: 600;
@@ -43,7 +40,6 @@
   transition: all 0.3s ease;
 }
 
-/* Эффект при наведении - усиление свечения */
 .brand-title:hover .brand-qwer {
   text-shadow: 
     0 0 15px rgba(255, 255, 255, 0.5),
@@ -70,7 +66,6 @@
    Светлая тема
    ======================================== */
 
-/* В светлой теме делаем цвета более контрастными */
 :root:not(.dark) .brand-qwer {
   color: #1f2937;
   text-shadow: 
@@ -115,11 +110,6 @@
     0 0 20px rgba(55, 65, 81, 0.15);
 }
 
-/* ========================================
-   Улучшенный дизайн navbar в документах
-   ======================================== */
-
-/* Контраст для активного пункта меню в sidebar */
 .hextra-sidebar-active-item {
   background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(22, 163, 74, 0.1)) !important;
   border-left: 3px solid #22c55e !important;
@@ -131,7 +121,6 @@
   border-left-color: #4ade80 !important;
 }
 
-/* Hover эффект для пунктов sidebar */
 .hextra-sidebar-container a:hover:not(.hextra-sidebar-active-item) {
   background: rgba(34, 197, 94, 0.05);
   transform: translateX(2px);
@@ -142,7 +131,6 @@
   background: rgba(34, 197, 94, 0.08);
 }
 
-/* Исправление позиционирования меню выбора языка */
 .hextra-language-switcher {
   position: relative;
   display: flex !important;
@@ -150,7 +138,6 @@
   gap: 0.5rem;
 }
 
-/* Улучшение видимости иконки языка */
 .hextra-language-switcher svg {
   width: 20px;
   height: 20px;
@@ -167,13 +154,11 @@
   transform: translateX(0) !important;
 }
 
-/* RTL поддержка для меню языков */
 [dir="rtl"] .hextra-language-options {
   right: auto !important;
   left: 0 !important;
 }
 
-/* Минималистичный переключатель темы */
 .minimal-theme-toggle {
   display: flex;
   align-items: center;
@@ -232,7 +217,6 @@
   transform: rotate(180deg) scale(0.8);
 }
 
-/* Dark theme styles */
 .dark .theme-btn {
   background: rgba(255, 255, 255, 0.1);
   color: #e2e8f0;
@@ -252,7 +236,6 @@
   transform: rotate(0deg) scale(1);
 }
 
-/* Кастомный переключатель темы */
 .hextra-theme-toggle:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -262,42 +245,12 @@
   transform: scale(0.95);
 }
 
-/* ========================================
-   Стили для главной страницы: заголовок с цветными частями
-   ======================================== */
-
-/* Контейнер заголовка на главной */
 .gradient-text {
   font-weight: 800;
   position: relative;
   display: inline-block;
 }
 
-/* Эффект свечения вокруг текста (background glow) */
-.gradient-text:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 150%;
-  z-index: -1;
-  filter: blur(60px);
-  opacity: 0.5;
-  background: radial-gradient(ellipse at center, rgba(34, 197, 94, 0.3), transparent 60%);
-  pointer-events: none;
-  animation: glow-pulse 3s ease-in-out infinite;
-}
-
-/* Темная тема - эффект свечения */
-.dark .gradient-text:after {
-  filter: blur(80px);
-  opacity: 0.6;
-  background: radial-gradient(ellipse at center, rgba(34, 197, 94, 0.4), transparent 60%);
-}
-
-/* Светлая тема - стили для частей текста */
 :root:not(.dark) .gradient-text span:nth-child(1) {
   color: #1f2937 !important;
 }
@@ -310,19 +263,6 @@
   color: #4b5563 !important;
 }
 
-/* Анимация пульсации свечения */
-@keyframes glow-pulse {
-  0%, 100% {
-    opacity: 0.5;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1.05);
-  }
-}
-
-/* Стили для переключателя темы в виде свитча */
 .theme-switch-container {
   display: flex;
   align-items: center;
@@ -459,13 +399,11 @@
   color: #93c5fd;
 }
 
-/* Анимация для иконок солнца и луны */
 .hx\:theme-toggle-sun,
 .hx\:theme-toggle-moon {
   transform-origin: center;
 }
 
-/* Улучшенная анимация при наведении */
 .hextra-theme-toggle:hover .hx\:theme-toggle-sun {
   animation: sun-rotate 2s linear infinite;
 }
@@ -484,7 +422,6 @@
   to { opacity: 1; }
 }
 
-/* Улучшенный переключатель языка */
 .hextra-language-switch {
   transition: all 0.3s ease;
 }
@@ -503,7 +440,6 @@
   }
 }
 
-/* Кастомные стили для футера */
 #custom-footer .copyright-levels {
   display: flex;
   flex-direction: column;
@@ -682,7 +618,6 @@
   }
 }
 
-/* Анимация переливания для заголовка qwer-host Wiki */
 .animated-title {
   background: linear-gradient(
     45deg,
@@ -717,7 +652,6 @@
   }
 }
 
-/* Для темной темы - делаем анимацию более яркой */
 .dark .animated-title {
   background: linear-gradient(
     45deg,
@@ -876,27 +810,22 @@
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
 }
 
-/* Анимация для переключателя темы */
 .theme-btn {
   animation: scaleIn 0.6s ease-out 0.3s both;
 }
 
-/* Анимация для боковой панели */
 .hextra-sidebar {
   animation: fadeInLeft 0.8s ease-out 0.2s both;
 }
 
-/* Анимация для основного контента */
 .hextra-content {
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
-/* Анимация для хлебных крошек */
 .hextra-breadcrumb {
   animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 
-/* Пульсирующая анимация для кнопок */
 .hextra-hero-button button,
 .hextra-hero-button a {
   transition: all 0.3s ease;
@@ -907,7 +836,6 @@
   animation: pulse 1s infinite;
 }
 
-/* Анимация для поиска */
 .hextra-search {
   animation: fadeInUp 0.6s ease-out 0.3s both;
 }
@@ -919,33 +847,12 @@
   }
 }
 
-/* Анимация появления футера */
 .hextra-footer {
   animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
-/* Плавное появление изображений */
 img {
   animation: scaleIn 0.8s ease-out 0.5s both;
-}
-
-/* Отключение анимаций для пользователей с предпочтением reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Дополнительные стильные эффекты */
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(249, 115, 22, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(249, 115, 22, 0.8), 0 0 30px rgba(249, 115, 22, 0.6);
-  }
 }
 
 @keyframes float {
@@ -968,18 +875,15 @@ img {
   }
 }
 
-/* Особые эффекты для главного заголовка */
 .gradient-text {
   position: relative;
-  animation: fadeInUp 1s ease-out 0.2s both, glow 3s ease-in-out infinite alternate;
+  animation: fadeInUp 1s ease-out 0.2s both;
 }
 
-/* Floating эффект для кнопок */
 .hextra-hero-button {
   animation: scaleIn 0.8s ease-out 0.7s both, float 3s ease-in-out infinite;
 }
 
-/* Стильные переходы между страницами */
 .page-transition {
   position: fixed;
   top: 0;
@@ -996,7 +900,6 @@ img {
   transform: translateY(0);
 }
 
-/* Анимация для text reveal */
 .text-reveal {
   overflow: hidden;
   position: relative;
@@ -1026,7 +929,6 @@ img {
   }
 }
 
-/* Morphing borders для карточек */
 .hextra-feature-card {
   position: relative;
   overflow: hidden;
@@ -1048,7 +950,6 @@ img {
   transform: translateX(100%);
 }
 
-/* Стильный scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -1067,7 +968,6 @@ img {
   background: #6b7280;
 }
 
-/* Темная тема для скроллбара */
 .dark ::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
 }
@@ -1080,7 +980,6 @@ img {
   background: #6b7280;
 }
 
-/* Particle animation background */
 .particles {
   position: fixed;
   top: 0;
@@ -1128,14 +1027,12 @@ img {
   }
 }
 
-/* Стили для светлой темы - соответствуют стандартным цветам Hextra */
+/* Стили для светлой темы */
 :not(.dark) {
-  /* Переключатель языка в светлой теме */
   --hextra-navbar-color: var(--gray-700);
   --hextra-navbar-hover-color: var(--gray-900);
 }
 
-/* Переключатель языка в светлой теме */
 :not(.dark) .hextra-language-switch button {
   color: var(--gray-700, #374151);
   background-color: var(--gray-50, rgba(0, 0, 0, 0.05));
@@ -1162,7 +1059,6 @@ img {
   color: var(--gray-900, #111827);
 }
 
-/* Дополнительные стили для переключателя языка */
 :not(.dark) .hextra-language-switcher {
   color: var(--gray-700, #374151);
   background-color: var(--gray-50, rgba(0, 0, 0, 0.05));
