@@ -24,7 +24,7 @@ layout: hextra-home
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
     title="Learn Right Now"
-    subtitle="Get access to detailed guides, frequently asked questions, and useful tips for setting up and managing your hosting."
+    subtitle="Get access to detailed guides, frequently asked questions, and useful tips for setting up and managing your server."
     class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-md:min-h-[340px]"
     image="/images/docs-en.png"
     imageClass="hx:top-[40%] hx:left-[24px] hx:w-[180%] hx:sm:w-[110%] hx:dark:opacity-80"

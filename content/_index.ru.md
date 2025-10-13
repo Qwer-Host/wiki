@@ -24,7 +24,7 @@ layout: hextra-home
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
     title="Изучите прямо сейчас"
-    subtitle="Получите доступ к подробным гайдам, ответам на частые вопросы и полезным советам по настройке и управлению вашим хостингом."
+    subtitle="Получите доступ к подробным гайдам, ответам на частые вопросы и полезным советам по настройке и управлению вашим серверов."
     class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-md:min-h-[340px]"
     image="images/docs.png"
     imageClass="hx:top-[40%] hx:left-[24px] hx:w-[180%] hx:sm:w-[110%] hx:dark:opacity-80"
