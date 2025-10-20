@@ -34,7 +34,7 @@ layout: hextra-home
     title="Зрозумілі інструкції"
     subtitle="Знаходьте рішення для завдань будь-якої складності — від оренди серверів до керування сайтами — з чіткими та практичними посібниками."
     class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-lg:min-h-[340px]"
-    image="images/docs-2.png"
+    image="/images/docs-2.png"
     imageClass="hx:top-[40%] hx:left-[36px] hx:w-[180%] hx:sm:w-[110%] hx:dark:opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(142,53,74,0.15),hsla(0,0%,100%,0));"
 
@@ -43,7 +43,7 @@ layout: hextra-home
     title="Все в одному місці"
     subtitle="Наша вікі об'єднує гайди, FAQ та рекомендації, щоб ви могли швидко знайти потрібну інформацію."
     class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-md:min-h-[340px]"
-    image="images/docs-3.png"
+    image="/images/docs-3.png"
     imageClass="hx:top-[40%] hx:left-[36px] hx:w-[110%] hx:sm:w-[110%] hx:dark:opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(221,210,59,0.15),hsla(0,0%,100%,0));"
 
