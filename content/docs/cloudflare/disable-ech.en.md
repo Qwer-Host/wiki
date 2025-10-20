@@ -4,8 +4,6 @@ description: "Comprehensive guide to disabling ECH on CloudFlare's free tier via
 weight: 10
 ---
 
-# Disabling Encrypted Client Hello (ECH) on Cloudflare Free Tier via API
-
 ## Why Disable ECH?
 
 Roskomnadzor (Russian telecommunications regulator) has blocked the **Encrypted Client Hello (ECH)** technology, causing issues for Cloudflare users in Russia. Moreover, Cloudflare has forcibly enabled this technology for all users, including those on the free tier.

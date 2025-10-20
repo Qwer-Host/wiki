@@ -1,5 +1,5 @@
 ---
-title: Тема Hextra
+title: Wiki Qwer-host
 layout: hextra-home
 ---
 
