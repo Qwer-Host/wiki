@@ -363,7 +363,6 @@
   opacity: 1;
 }
 
-/* Темная тема для переключателя */
 .dark .theme-switch-slider {
   background: #4b5563;
   border-color: #6b7280;
@@ -431,7 +430,6 @@
   background-color: rgba(59, 130, 246, 0.1);
 }
 
-/* Мобильная адаптивность */
 @media (max-width: 768px) {
   .hextra-theme-toggle,
   .hextra-language-switch {
@@ -682,7 +680,6 @@
   }
 }
 
-/* Стильные анимации загрузки */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1219,10 +1216,6 @@ nav a[href="/"]:hover,
 .dark [class*="feature-card"] .title {
   color: #60a5fa !important;
 }
-
-/* ========================================
-   Исправление видимости кнопки меню на светлой теме
-   ======================================== */
 
 /* Кнопка гамбургер-меню на светлой теме */
 :root:not(.dark) .hextra-hamburger-menu {

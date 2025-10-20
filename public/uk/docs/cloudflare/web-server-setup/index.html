@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="uk"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="robots" content="noindex, nofollow" />
+  <link rel="icon shortcut" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" id="favicon-svg" />
+<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
+<title>Прив&#39;язка веб-сервера до домену – Wiki qwer-host</title>
+  <meta name="description" content="Як підключити динамічну карту Minecraft або інший веб-сервер до вашого домену через CloudFlare" /><link rel="canonical" href="//localhost:1313/uk/docs/cloudflare/web-server-setup/" itemprop="url" />
+
+<meta property="og:title" content="Прив&#39;язка веб-сервера до домену" />
+<meta property="og:description" content="Як підключити динамічну карту Minecraft або інший веб-сервер до вашого домену через CloudFlare" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="//localhost:1313/uk/docs/cloudflare/web-server-setup/" /><meta property="article:section" content="docs" />
+
+
+
+  <meta itemprop="name" content="Прив&#39;язка веб-сервера до домену">
+  <meta itemprop="description" content="Як підключити динамічну карту Minecraft або інший веб-сервер до вашого домену через CloudFlare">
+  <meta itemprop="wordCount" content="868">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Прив&#39;язка веб-сервера до домену">
+  <meta name="twitter:description" content="Як підключити динамічну карту Minecraft або інший веб-сервер до вашого домену через CloudFlare">
+<link href="/css/compiled/main.css" rel="stylesheet" />
+    <link href="/css/variables.css" rel="stylesheet" />
+    <link href="/css/custom.css" rel="stylesheet" />
+
+  
+
+
+  <script>
+    
+
+    function setTheme(theme) {
+      document.documentElement.classList.remove("light", "dark");
+
+      if (theme !== "light" && theme !== "dark") {
+       theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+
+      document.documentElement.classList.add(theme);
+      document.documentElement.style.colorScheme = theme;
+    }
+
+    setTheme("color-theme" in localStorage ? localStorage.getItem("color-theme") : 'system')
+
+  </script>
+
+  <script>
+    
+
+    if (localStorage.getItem('banner-closed')) {
+      document.documentElement.style.setProperty("--hextra-banner-height", "0px");
+      document.documentElement.classList.add("hextra-banner-hidden");
+    }
+  </script>
+
+  
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    quicklink.listen();
+  });
+</script>
+</head>
+<body dir="ltr"><div class="hextra-nav-container hx:sticky hx:top-0 hx:z-20 hx:w-full hx:bg-transparent hx:print:hidden">
+  <div
+    class="hextra-nav-container-blur hx:pointer-events-none hx:absolute hx:z-[-1] hx:h-full hx:w-full hx:bg-white hx:dark:bg-dark hx:shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] hx:contrast-more:shadow-[0_0_0_1px_#000] hx:dark:shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] hx:contrast-more:dark:shadow-[0_0_0_1px_#fff]"
+  ></div>
+
+  <nav class="hextra-max-navbar-width hx:mx-auto hx:flex hx:items-center hx:justify-end hx:gap-2 hx:h-16 hx:px-6">
+    <a class="hx:flex hx:items-center hx:hover:opacity-75 hx:ltr:mr-auto hx:rtl:ml-auto" href="/uk/">
+    <img class="hx:mr-2 hx:block hx:dark:hidden" src="/images/logo.svg" alt="Logo" height="20" width="20" />
+    <img class="hx:mr-2 hx:hidden hx:dark:block" src="/images/logo.svg" alt="Dark Logo" height="20" width="20" />
+    <span class="brand-title hx:mr-2 hx:font-extrabold hx:inline hx:select-none" title="Wiki qwer-host">
+      <span class="brand-qwer">qwer</span><span class="brand-host">-host </span>
+    </span>
+</a>
+<a
+  title=""
+  href="/uk/docs/"
+  
+  class="hx:text-sm hx:contrast-more:text-gray-700 hx:contrast-more:dark:text-gray-100 hx:relative hx:-ml-2 hx:hidden hx:whitespace-nowrap hx:p-2 hx:md:inline-flex hx:items-center hx:gap-1 hx:font-medium"
+><span class="hx:text-center">Документація</span>
+</a><div class="hextra-search-wrapper hx:relative hx:md:w-64">
+  <div class="hx:relative hx:flex hx:items-center hx:text-gray-900 hx:contrast-more:text-gray-800 hx:dark:text-gray-300 hx:contrast-more:dark:text-gray-300">
+    <input
+      placeholder="Пошук..."
+      class="hextra-search-input hx:focus:hextra-focus hx:block hx:w-full hx:appearance-none hx:rounded-lg hx:px-3 hx:py-2 hx:transition-colors hx:text-base hx:leading-tight hx:md:text-sm hx:bg-black/[.05] hx:dark:bg-gray-50/10 hx:focus:bg-white hx:dark:focus:bg-dark hx:placeholder:text-gray-500 hx:dark:placeholder:text-gray-400 hx:contrast-more:border hx:contrast-more:border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="hx:absolute hx:my-1.5 hx:select-none hx:ltr:right-1.5 hx:rtl:left-1.5 hx:h-5 hx:rounded-sm hx:bg-white hx:px-1.5 hx:font-mono hx:text-[10px] hx:font-medium hx:text-gray-500 hx:border hx:border-gray-200 hx:dark:border-gray-100/20 hx:dark:bg-dark/50 hx:contrast-more:border-current hx:contrast-more:text-current hx:contrast-more:dark:border-current hx:items-center hx:gap-1 hx:transition-opacity hx:pointer-events-none hx:hidden hx:sm:flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="hextra-search-results hextra-scrollbar hx:hidden hx:border hx:border-gray-200 hx:bg-white hx:text-gray-100 hx:dark:border-neutral-800 hx:dark:bg-neutral-900 hx:absolute hx:top-full hx:z-20 hx:mt-2 hx:overflow-auto hx:overscroll-contain hx:rounded-xl hx:py-2.5 hx:shadow-xl hx:max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] hx:md:max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx:inset-x-0 hx:ltr:md:left-auto hx:rtl:md:right-auto hx:contrast-more:border hx:contrast-more:border-gray-900 hx:contrast-more:dark:border-gray-50 hx:w-screen hx:min-h-[100px] hx:max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+<div class="minimal-theme-toggle">
+  <button type="button" id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+    <div class="theme-icon-container">
+      <svg class="theme-icon sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="theme-icon moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </div>
+  </button>
+</div>
+
+<style>
+.minimal-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-btn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-btn:hover {
+  background: rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-btn:active {
+  transform: scale(0.95);
+}
+
+.theme-icon-container {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.theme-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  stroke: currentColor;
+}
+
+.sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.8);
+}
+
+ 
+.dark .theme-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+.dark .theme-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dark .sun-icon {
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.8);
+}
+
+.dark .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+ 
+:not(.dark) .theme-btn {
+  background: rgba(0, 0, 0, 0.08);
+  color: #374151;
+}
+
+:not(.dark) .theme-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeBtn = document.getElementById('theme-toggle-btn');
+  
+  
+  const initializeTheme = () => {
+    const storedTheme = localStorage.getItem('color-theme');
+    const systemDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (storedTheme) {
+      
+      if (storedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } else {
+      
+      if (systemDarkTheme) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  };
+  
+  
+  initializeTheme();
+  
+  
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function() {
+      const isDark = document.documentElement.classList.contains('dark');
+      
+      if (isDark) {
+        
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  }
+  
+  
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    const storedTheme = localStorage.getItem('color-theme');
+    
+    if (!storedTheme) {
+      if (e.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  });
+});
+</script>
+<div class="hx:flex hx:items-center hx:relative ">
+    <button
+      title="Змінити мову"
+      data-state="closed"
+      data-location="top"
+      class="hextra-language-switcher hx:cursor-pointer hx:rounded-md hx:text-left hx:font-medium hx:p-2"
+      type="button"
+      aria-label="Змінити мову"
+    >
+      <div class="hx:flex hx:items-center hx:gap-2 hx:capitalize"><svg height=24 width=24 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg></div>
+    </button>
+    <ul
+      class="hextra-language-options hx:hidden hx:z-20 hx:max-h-64 hx:overflow-auto hx:rounded-md hx:ring-1 hx:ring-black/5 hx:bg-white hx:py-1 hx:text-sm hx:shadow-lg hx:dark:ring-white/20 hx:dark:bg-neutral-800"
+    >
+      
+        
+        <li class="hx:flex hx:flex-col">
+          <a
+            href="/docs/cloudflare/web-server-setup/"
+            class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9"
+          >Русский</a>
+        </li>
+      
+        
+        <li class="hx:flex hx:flex-col">
+          <a
+            href="/en/docs/cloudflare/web-server-setup/"
+            class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9"
+          >English</a>
+        </li>
+      
+        
+        <li class="hx:flex hx:flex-col">
+          <a
+            href="/uk/docs/cloudflare/web-server-setup/"
+            class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9"
+          >Українська<span class="hx:absolute hx:inset-y-0 hx:flex hx:items-center hx:ltr:right-3 hx:rtl:left-3"><svg height=1em width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></a>
+        </li>
+      </ul>
+  </div><button type="button" aria-label="Menu" class="hextra-hamburger-menu hx:cursor-pointer hx:-mr-2 hx:rounded-sm hx:p-2 hx:active:bg-gray-400/20 hx:md:hidden"><svg height=24 fill="none" viewBox="0 0 24 24" stroke="currentColor"><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8H20"></path></g><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16H20"></path></g></svg></button>
+  </nav>
+</div>
+
+  <div class='hx:mx-auto hx:flex hextra-max-page-width'>
+    <aside class="hextra-sidebar-container hx:flex hx:flex-col hx:print:hidden hx:md:top-16 hx:md:shrink-0 hx:md:w-64 hx:md:self-start hx:max-md:[transform:translate3d(0,-100%,0)] hx:md:sticky">
+  
+  <div class="hx:px-4 hx:pt-4 hx:md:hidden">
+    <div class="hextra-search-wrapper hx:relative hx:md:w-64">
+  <div class="hx:relative hx:flex hx:items-center hx:text-gray-900 hx:contrast-more:text-gray-800 hx:dark:text-gray-300 hx:contrast-more:dark:text-gray-300">
+    <input
+      placeholder="Пошук..."
+      class="hextra-search-input hx:focus:hextra-focus hx:block hx:w-full hx:appearance-none hx:rounded-lg hx:px-3 hx:py-2 hx:transition-colors hx:text-base hx:leading-tight hx:md:text-sm hx:bg-black/[.05] hx:dark:bg-gray-50/10 hx:focus:bg-white hx:dark:focus:bg-dark hx:placeholder:text-gray-500 hx:dark:placeholder:text-gray-400 hx:contrast-more:border hx:contrast-more:border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="hx:absolute hx:my-1.5 hx:select-none hx:ltr:right-1.5 hx:rtl:left-1.5 hx:h-5 hx:rounded-sm hx:bg-white hx:px-1.5 hx:font-mono hx:text-[10px] hx:font-medium hx:text-gray-500 hx:border hx:border-gray-200 hx:dark:border-gray-100/20 hx:dark:bg-dark/50 hx:contrast-more:border-current hx:contrast-more:text-current hx:contrast-more:dark:border-current hx:items-center hx:gap-1 hx:transition-opacity hx:pointer-events-none hx:hidden hx:sm:flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="hextra-search-results hextra-scrollbar hx:hidden hx:border hx:border-gray-200 hx:bg-white hx:text-gray-100 hx:dark:border-neutral-800 hx:dark:bg-neutral-900 hx:absolute hx:top-full hx:z-20 hx:mt-2 hx:overflow-auto hx:overscroll-contain hx:rounded-xl hx:py-2.5 hx:shadow-xl hx:max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] hx:md:max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx:inset-x-0 hx:ltr:md:left-auto hx:rtl:md:right-auto hx:contrast-more:border hx:contrast-more:border-gray-900 hx:contrast-more:dark:border-gray-50 hx:w-screen hx:min-h-[100px] hx:max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+
+  </div>
+  <div class="hextra-scrollbar hx:overflow-y-auto hx:overflow-x-hidden hx:p-4 hx:grow hx:md:h-[calc(100vh-var(--navbar-height)-var(--menu-height))]">
+    <ul class="hx:flex hx:flex-col hx:gap-1 hx:md:hidden">
+      
+      
+          <li class="open"><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/"
+    
+  >Документація
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></span>
+    </a><div class="hx:ltr:pr-0 hx:overflow-hidden">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/minecraft-commands/"
+    
+  >Консольні команди для сервера Minecraft
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/minecraft-cores/"
+    
+  >Ядра для Minecraft
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/server-setup/mysql/"
+    
+  >MySQL (Бази даних)
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col open"><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/"
+    
+  >CloudFlare
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></span>
+    </a>
+              <div class="hx:ltr:pr-0 hx:overflow-hidden">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/disable-ech/"
+    
+  >Вимкнення Encrypted Client Hello (ECH)
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col open"><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
+    href="/uk/docs/cloudflare/web-server-setup/"
+    
+  >Прив&#39;язка веб-сервера до домену
+    </a>
+  
+    <ul class='hx:flex hx:flex-col hx:gap-1 hx:relative hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:dark:before:bg-neutral-800 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:pr-3 hx:rtl:before:right-0 hx:ltr:ml-3 hx:rtl:mr-3'><li>
+              <a
+                href="#%d1%8f%d0%ba-%d0%bf%d0%b5%d1%80%d0%b5%d0%bd%d0%b5%d1%81%d1%82%d0%b8-%d0%b4%d0%be%d0%bc%d0%b5%d0%bd-%d0%bd%d0%b0-cloudflare"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Як перенести домен на Cloudflare?</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%bf%d0%be%d0%ba%d1%80%d0%be%d0%ba%d0%be%d0%b2%d0%b0-%d1%96%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%86%d1%96%d1%8f-%d0%bf%d1%80%d0%b8%d0%b2%d1%8f%d0%b7%d0%ba%d0%b8-%d0%b2%d0%b5%d0%b1-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Покрокова інструкція прив’язки веб-сервера</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%ba%d1%80%d0%be%d0%ba-4-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d1%96%d1%80%d0%ba%d0%b0-%d1%80%d0%be%d0%b1%d0%be%d1%82%d0%b8"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Крок 4: Перевірка роботи</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%bc%d0%bd%d0%be%d0%b6%d0%b8%d0%bd%d0%bd%d1%96-%d0%b2%d0%b5%d0%b1-%d1%81%d0%b5%d1%80%d0%b2%d1%96%d1%81%d0%b8-%d0%bd%d0%b0-%d0%be%d0%b4%d0%bd%d0%be%d0%bc%d1%83-%d0%b4%d0%be%d0%bc%d0%b5%d0%bd%d1%96"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Множинні веб-сервіси на одному домені</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%b0%d0%b3%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d1%8f-cloudflare"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Переваги використання Cloudflare</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%bc%d0%be%d0%b6%d0%bb%d0%b8%d0%b2%d1%96-%d0%bf%d1%80%d0%be%d0%b1%d0%bb%d0%b5%d0%bc%d0%b8-%d1%82%d0%b0-%d1%80%d1%96%d1%88%d0%b5%d0%bd%d0%bd%d1%8f"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Можливі проблеми та рішення</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%bd%d0%b0%d0%bb%d0%b0%d1%88%d1%82%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-ssltls"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Налаштування SSL/TLS</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d1%8f"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Приклади використання</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%ba%d0%be%d1%80%d0%b8%d1%81%d0%bd%d1%96-%d0%bf%d0%be%d1%81%d0%b8%d0%bb%d0%b0%d0%bd%d0%bd%d1%8f"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Корисні посилання</a>
+            </li>
+          </ul>
+  
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/domain-setup/"
+    
+  >Прив&#39;язка домену до Minecraft сервера
+    </a>
+              
+            </li></ul>
+      </div>
+            </li></ul>
+      </div></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/about/"
+    
+  >Про нас
+    </a></li>
+    </ul>
+
+    <ul class="hx:flex hx:flex-col hx:gap-1 hx:max-md:hidden">
+        
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/minecraft-commands/"
+    
+  >Консольні команди для сервера Minecraft
+    </a></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/minecraft-cores/"
+    
+  >Ядра для Minecraft
+    </a></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/server-setup/mysql/"
+    
+  >MySQL (Бази даних)
+    </a></li>
+          <li class="open"><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/"
+    
+  >CloudFlare
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></span>
+    </a><div class="hx:ltr:pr-0 hx:overflow-hidden">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/disable-ech/"
+    
+  >Вимкнення Encrypted Client Hello (ECH)
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col open"><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
+    href="/uk/docs/cloudflare/web-server-setup/"
+    
+  >Прив&#39;язка веб-сервера до домену
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/domain-setup/"
+    
+  >Прив&#39;язка домену до Minecraft сервера
+    </a>
+              
+            </li></ul>
+      </div></li>
+        
+      </ul>
+    </div>
+  
+  </aside>
+    
+<nav class="hextra-toc hx:order-last hx:hidden hx:w-64 hx:shrink-0 hx:xl:block hx:print:hidden hx:px-4" aria-label="table of contents">
+    <div class="hextra-scrollbar hx:sticky hx:top-16 hx:overflow-y-auto hx:pr-4 hx:pt-6 hx:text-sm [hyphens:auto] hx:max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] hx:ltr:-mr-4 hx:rtl:-ml-4"><p class="hx:mb-4 hx:font-semibold hx:tracking-tight">На цій сторінці</p><ul>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d1%8f%d0%ba-%d0%bf%d0%b5%d1%80%d0%b5%d0%bd%d0%b5%d1%81%d1%82%d0%b8-%d0%b4%d0%be%d0%bc%d0%b5%d0%bd-%d0%bd%d0%b0-cloudflare">Як перенести домен на Cloudflare?
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d1%88%d0%b2%d0%b8%d0%b4%d0%ba%d0%b0-%d1%96%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%86%d1%96%d1%8f">Швидка інструкція:
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%bf%d0%be%d0%ba%d1%80%d0%be%d0%ba%d0%be%d0%b2%d0%b0-%d1%96%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%86%d1%96%d1%8f-%d0%bf%d1%80%d0%b8%d0%b2%d1%8f%d0%b7%d0%ba%d0%b8-%d0%b2%d0%b5%d0%b1-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0">Покрокова інструкція прив’язки веб-сервера
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%ba%d1%80%d0%be%d0%ba-1-%d1%81%d1%82%d0%b2%d0%be%d1%80%d1%96%d1%82%d1%8c-a-%d0%b7%d0%b0%d0%bf%d0%b8%d1%81-%d0%b7-%d0%bf%d1%80%d0%be%d0%ba%d1%81%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f%d0%bc">Крок 1: Створіть A-запис з проксуванням
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%ba%d1%80%d0%be%d0%ba-2-%d0%bd%d0%b0%d0%bb%d0%b0%d1%88%d1%82%d1%83%d0%b9%d1%82%d0%b5-origin-rules-%d0%b4%d0%bb%d1%8f-%d0%bf%d0%b5%d1%80%d0%b5%d0%bd%d0%b0%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d0%b5%d0%bd%d0%bd%d1%8f-%d0%bf%d0%be%d1%80%d1%82%d1%96%d0%b2">Крок 2: Налаштуйте Origin Rules для перенаправлення портів
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%b7%d0%b0%d0%bf%d0%be%d0%b2%d0%bd%d1%96%d1%82%d1%8c-%d1%84%d0%be%d1%80%d0%bc%d1%83-%d0%bf%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d0%b0">Заповніть форму правила:
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%ba%d1%80%d0%be%d0%ba-3-%d0%b7%d0%b1%d0%b5%d1%80%d0%b5%d0%b6%d1%96%d1%82%d1%8c-%d1%82%d0%b0-%d1%80%d0%be%d0%b7%d0%b3%d0%be%d1%80%d0%bd%d1%96%d1%82%d1%8c-%d0%bf%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d0%be">Крок 3: Збережіть та розгорніть правило
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%ba%d1%80%d0%be%d0%ba-4-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d1%96%d1%80%d0%ba%d0%b0-%d1%80%d0%be%d0%b1%d0%be%d1%82%d0%b8">Крок 4: Перевірка роботи
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%bc%d0%bd%d0%be%d0%b6%d0%b8%d0%bd%d0%bd%d1%96-%d0%b2%d0%b5%d0%b1-%d1%81%d0%b5%d1%80%d0%b2%d1%96%d1%81%d0%b8-%d0%bd%d0%b0-%d0%be%d0%b4%d0%bd%d0%be%d0%bc%d1%83-%d0%b4%d0%be%d0%bc%d0%b5%d0%bd%d1%96">Множинні веб-сервіси на одному домені
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4-%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%82%d1%83%d1%80%d0%b8">Приклад структури:
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%b0%d0%b3%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d1%8f-cloudflare">Переваги використання Cloudflare
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%bc%d0%be%d0%b6%d0%bb%d0%b8%d0%b2%d1%96-%d0%bf%d1%80%d0%be%d0%b1%d0%bb%d0%b5%d0%bc%d0%b8-%d1%82%d0%b0-%d1%80%d1%96%d1%88%d0%b5%d0%bd%d0%bd%d1%8f">Можливі проблеми та рішення
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#-%d0%bf%d0%be%d0%bc%d0%b8%d0%bb%d0%ba%d0%b0-521-web-server-is-down">❌ Помилка 521 “Web server is down”
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#-%d0%bf%d0%be%d0%bc%d0%b8%d0%bb%d0%ba%d0%b0-522-connection-timed-out">❌ Помилка 522 “Connection timed out”
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#-%d0%bd%d0%b5%d1%81%d0%ba%d1%96%d0%bd%d1%87%d0%b5%d0%bd%d0%bd%d0%b5-%d0%b7%d0%b0%d0%b2%d0%b0%d0%bd%d1%82%d0%b0%d0%b6%d0%b5%d0%bd%d0%bd%d1%8f-%d0%b0%d0%b1%d0%be-too-many-redirects">❌ Нескінченне завантаження або “Too many redirects”
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#-%d1%81%d1%82%d0%be%d1%80%d1%96%d0%bd%d0%ba%d0%b0-%d0%b2%d1%96%d0%b4%d0%ba%d1%80%d0%b8%d0%b2%d0%b0%d1%94%d1%82%d1%8c%d1%81%d1%8f-%d0%b0%d0%bb%d0%b5-%d1%81%d1%82%d0%b8%d0%bb%d1%96%d1%81%d0%ba%d1%80%d0%b8%d0%bf%d1%82%d0%b8-%d0%bd%d0%b5-%d0%b7%d0%b0%d0%b2%d0%b0%d0%bd%d1%82%d0%b0%d0%b6%d1%83%d1%8e%d1%82%d1%8c%d1%81%d1%8f">❌ Сторінка відкривається, але стилі/скрипти не завантажуються
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%bd%d0%b0%d0%bb%d0%b0%d1%88%d1%82%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-ssltls">Налаштування SSL/TLS
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d1%8f">Приклади використання
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4-1-dynmap-%d0%b4%d0%bb%d1%8f-minecraft-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0">Приклад 1: Dynmap для Minecraft сервера
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4-2-%d0%bf%d0%b0%d0%bd%d0%b5%d0%bb%d1%8c-%d0%ba%d0%b5%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-pterodactyl">Приклад 2: Панель керування Pterodactyl
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%ba%d0%be%d1%80%d0%b8%d1%81%d0%bd%d1%96-%d0%bf%d0%be%d1%81%d0%b8%d0%bb%d0%b0%d0%bd%d0%bd%d1%8f">Корисні посилання
+        </a>
+      </li></ul>
+      <div class="hx:mt-8 hx:border-t hx:bg-white hx:pt-8 hx:shadow-[0_-12px_16px_white] hx:dark:bg-dark hx:dark:shadow-[0_-12px_16px_#111] hx:sticky hx:bottom-0 hx:flex hx:flex-col hx:items-start hx:gap-2 hx:pb-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-t hx:contrast-more:border-neutral-400 hx:contrast-more:shadow-none hx:contrast-more:dark:border-neutral-400">
+        <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx:cursor-pointer hx:transition-all hx:duration-75 hx:opacity-0 hx:text-xs hx:font-medium hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-100 hx:contrast-more:text-gray-800 hx:contrast-more:dark:text-gray-50">
+          <span>Прокрутити до початку</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx:inline hx:ltr:ml-1 hx:rtl:mr-1 hx:h-3.5 hx:w-3.5 hx:rounded-full hx:border hx:border-gray-500 hx:hover:border-gray-900 hx:dark:border-gray-400 hx:dark:hover:border-gray-100 hx:contrast-more:border-gray-800 hx:contrast-more:dark:border-gray-50">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+    <article class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="hx:w-full hx:min-w-0 hx:max-w-6xl hx:px-6 hx:pt-4 hx:md:px-12">
+        <div class="hx:mt-1.5 hx:flex hx:items-center hx:gap-1 hx:overflow-hidden hx:text-sm hx:text-gray-500 hx:dark:text-gray-400 hx:contrast-more:text-current">
+        <div class="hx:whitespace-nowrap hx:transition-colors hx:min-w-[24px] hx:overflow-hidden hx:text-ellipsis hx:hover:text-gray-900 hx:dark:hover:text-gray-100">
+          <a href="/uk/docs/">Документація</a>
+        </div><svg class="hx:w-3.5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        <div class="hx:whitespace-nowrap hx:transition-colors hx:min-w-[24px] hx:overflow-hidden hx:text-ellipsis hx:hover:text-gray-900 hx:dark:hover:text-gray-100">
+          <a href="/uk/docs/cloudflare/">CloudFlare</a>
+        </div><svg class="hx:w-3.5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx:whitespace-nowrap hx:transition-colors hx:font-medium hx:text-gray-700 hx:contrast-more:font-bold hx:contrast-more:text-current hx:dark:text-gray-100 hx:contrast-more:dark:text-current">Прив&#39;язка веб-сервера до домену</div>
+  </div>
+
+        <div class="content">
+          <h1>Прив&#39;язка веб-сервера до домену</h1>
+          <h1>Як прив&rsquo;язати динамічну карту/інший веб-сервер до домену?</h1><p>Якщо у вас є веб-сервер (наприклад, динамічна карта Minecraft через Dynmap, BlueMap або Panel сервера), ви можете легко прив&rsquo;язати його до свого домену через Cloudflare. Це займе буквально <strong>пару кліків</strong>!</p>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><strong>Що можна прив&rsquo;язати до домену:</strong></p>
+<ul>
+<li>🗺️ Динамічні карти (Dynmap, BlueMap, Pl3xMap)</li>
+<li>🎮 Панелі керування серверами (Pterodactyl, Multicraft)</li>
+<li>🌐 Веб-сайти на вашому сервері</li>
+<li>📊 Моніторинг та статистика</li>
+<li>🔧 Будь-який інший веб-сервіс на вашому порту</li>
+</ul></div>
+  </div>
+</div>
+
+<hr>
+<h2>Як перенести домен на Cloudflare?<span class="hx:absolute hx:-mt-20" id="як-перенести-домен-на-cloudflare"></span>
+    <a href="#%d1%8f%d0%ba-%d0%bf%d0%b5%d1%80%d0%b5%d0%bd%d0%b5%d1%81%d1%82%d0%b8-%d0%b4%d0%be%d0%bc%d0%b5%d0%bd-%d0%bd%d0%b0-cloudflare" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Якщо у вас ще немає домену в Cloudflare, спочатку його потрібно перенести:</p>
+<h3>Швидка інструкція:<span class="hx:absolute hx:-mt-20" id="швидка-інструкція"></span>
+    <a href="#%d1%88%d0%b2%d0%b8%d0%b4%d0%ba%d0%b0-%d1%96%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%86%d1%96%d1%8f" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li><strong>Зареєструйтеся на <a href="https://dash.cloudflare.com/sign-up"target="_blank" rel="noopener">Cloudflare</a></strong> (безкоштовно)</li>
+<li><strong>Додайте ваш домен</strong> — натисніть &ldquo;Add Site&rdquo; та введіть ваш домен</li>
+<li><strong>Виберіть тариф</strong> — виберіть безкоштовний план (Free)</li>
+<li><strong>Cloudflare покаже ваші поточні DNS-записи</strong> — перевірте та підтвердіть</li>
+<li><strong>Змініть NS-сервери у реєстратора</strong> — Cloudflare покаже 2 адреси NS-серверів</li>
+<li><strong>Зайдіть на сайт реєстратора</strong> (де купували домен) та замініть NS-сервери на ті, що дав Cloudflare</li>
+<li><strong>Зачекайте</strong> — DNS-сервери оновляться протягом 24-48 годин (зазвичай швидше)</li>
+</ol>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><strong>Детальні інструкції з перенесення домену:</strong></p>
+<ul>
+<li><a href="https://developers.cloudflare.com/dns/zone-setups/full-setup/"target="_blank" rel="noopener">Офіційна документація Cloudflare</a></li>
+<li><a href="https://www.youtube.com/results?search_query=cloudflare&#43;add&#43;domain"target="_blank" rel="noopener">Відео-інструкція на YouTube</a></li>
+</ul></div>
+  </div>
+</div>
+
+<hr>
+<h2>Покрокова інструкція прив&rsquo;язки веб-сервера<span class="hx:absolute hx:-mt-20" id="покрокова-інструкція-привязки-веб-сервера"></span>
+    <a href="#%d0%bf%d0%be%d0%ba%d1%80%d0%be%d0%ba%d0%be%d0%b2%d0%b0-%d1%96%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%86%d1%96%d1%8f-%d0%bf%d1%80%d0%b8%d0%b2%d1%8f%d0%b7%d0%ba%d0%b8-%d0%b2%d0%b5%d0%b1-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Крок 1: Створіть A-запис з проксуванням<span class="hx:absolute hx:-mt-20" id="крок-1-створіть-a-запис-з-проксуванням"></span>
+    <a href="#%d0%ba%d1%80%d0%be%d0%ba-1-%d1%81%d1%82%d0%b2%d0%be%d1%80%d1%96%d1%82%d1%8c-a-%d0%b7%d0%b0%d0%bf%d0%b8%d1%81-%d0%b7-%d0%bf%d1%80%d0%be%d0%ba%d1%81%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f%d0%bc" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>Відкрийте панель керування Cloudflare</li>
+<li>Виберіть ваш домен</li>
+<li>Перейдіть до <strong>DNS</strong> → <strong>Records</strong></li>
+<li>Натисніть <strong>Add record</strong></li>
+</ol>
+<p>Заповніть поля:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Поле</th>
+          <th>Значення</th>
+          <th>Опис</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Type</strong></td>
+          <td><code>A</code></td>
+          <td>Тип запису</td>
+      </tr>
+      <tr>
+          <td><strong>Name</strong></td>
+          <td><code>map</code></td>
+          <td>Піддомен (можете обрати будь-який: <code>map</code>, <code>dynmap</code>, <code>web</code>, <code>panel</code> тощо)</td>
+      </tr>
+      <tr>
+          <td><strong>IPv4 address</strong></td>
+          <td><code>123.45.67.89</code></td>
+          <td>IP-адреса вашого сервера</td>
+      </tr>
+      <tr>
+          <td><strong>Proxy status</strong></td>
+          <td>🟠 <strong>ON</strong></td>
+          <td>Помаранчева хмаринка має бути <strong>увімкнена</strong>!</td>
+      </tr>
+      <tr>
+          <td><strong>TTL</strong></td>
+          <td><code>Auto</code></td>
+          <td>Залиште без змін</td>
+      </tr>
+  </tbody>
+</table>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><strong>Важлива відмінність від налаштування Minecraft сервера:</strong></p>
+<p>Для веб-сервера Proxy Status (помаранчева хмаринка) має бути <strong>УВІМКНЕНА</strong> (помаранчева)!<br>
+Це дозволить використовувати функції Cloudflare, включаючи проксування портів.</p>
+</div>
+  </div>
+</div>
+
+<p><strong>Приклад налаштування:</strong></p>
+<p><img src="/images/docs/cloudflare/a-record-proxy.png" alt="Налаштування A-запису з проксуванням"  loading="lazy" /></p>
+<p>Натисніть <strong>Save</strong>.</p>
+<hr>
+<h3>Крок 2: Налаштуйте Origin Rules для перенаправлення портів<span class="hx:absolute hx:-mt-20" id="крок-2-налаштуйте-origin-rules-для-перенаправлення-портів"></span>
+    <a href="#%d0%ba%d1%80%d0%be%d0%ba-2-%d0%bd%d0%b0%d0%bb%d0%b0%d1%88%d1%82%d1%83%d0%b9%d1%82%d0%b5-origin-rules-%d0%b4%d0%bb%d1%8f-%d0%bf%d0%b5%d1%80%d0%b5%d0%bd%d0%b0%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d0%b5%d0%bd%d0%bd%d1%8f-%d0%bf%d0%be%d1%80%d1%82%d1%96%d0%b2" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Тепер потрібно налаштувати правило, яке буде перенаправляти запити на потрібний порт вашого веб-сервера.</p>
+<ol>
+<li>У панелі Cloudflare перейдіть до <strong>Rules</strong> → <strong>Overview</strong></li>
+<li>Натисніть <strong>Create rule</strong></li>
+<li>Виберіть <strong>Origin rule</strong></li>
+</ol>
+<p><img src="/images/docs/cloudflare/rules-overview-original-rules.png" alt="Меню Original Rules"  loading="lazy" /></p>
+<h4>Заповніть форму правила:<span class="hx:absolute hx:-mt-20" id="заповніть-форму-правила"></span>
+    <a href="#%d0%b7%d0%b0%d0%bf%d0%be%d0%b2%d0%bd%d1%96%d1%82%d1%8c-%d1%84%d0%be%d1%80%d0%bc%d1%83-%d0%bf%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d0%b0" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p><strong>Rule name (Назва правила):</strong></p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><pre><code>Map Port Forwarding</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Скопіювати код"
+  >
+    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<p><em>(або будь-яка інша зрозуміла вам назва)</em></p>
+<p><strong>When incoming requests match&hellip; (Умова):</strong></p>
+<p>Виберіть:</p>
+<ul>
+<li><strong>Field:</strong> <code>URL Full</code></li>
+<li><strong>Operator:</strong> <code>wildcard</code></li>
+<li><strong>Value:</strong> <code>https://map.mhcore.xyz/*</code> <em>(ваш піддомен з A-записом)</em></li>
+</ul>
+<p><strong>Then&hellip; (Дія):</strong></p>
+<p>У розділі <strong>Destination Port</strong> виберіть:</p>
+<ul>
+<li><strong>Rewrite to:</strong> <code>25443</code> <em>(вкажіть порт вашого веб-сервера)</em></li>
+</ul>
+<p><strong>Приклад заповнення:</strong></p>
+<p><img src="/images/docs/cloudflare/origin-rule.png" alt="Налаштування Origin Rule в Cloudflare"  loading="lazy" /></p>
+<hr>
+<h3>Крок 3: Збережіть та розгорніть правило<span class="hx:absolute hx:-mt-20" id="крок-3-збережіть-та-розгорніть-правило"></span>
+    <a href="#%d0%ba%d1%80%d0%be%d0%ba-3-%d0%b7%d0%b1%d0%b5%d1%80%d0%b5%d0%b6%d1%96%d1%82%d1%8c-%d1%82%d0%b0-%d1%80%d0%be%d0%b7%d0%b3%d0%be%d1%80%d0%bd%d1%96%d1%82%d1%8c-%d0%bf%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d0%be" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>Перевірте всі налаштування</li>
+<li>Натисніть <strong>Deploy</strong></li>
+<li>Cloudflare застосує правило автоматично</li>
+</ol>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-green-200 hx:bg-green-100 hx:text-green-900 hx:dark:border-green-200/30 hx:dark:bg-green-900/30 hx:dark:text-green-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><strong>Готово!</strong> Тепер ваш веб-сервер доступний за адресою:</p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><pre><code>https://map.mhcore.xyz</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Скопіювати код"
+  >
+    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<p>Зверніть увагу: Cloudflare автоматично додасть <strong>HTTPS</strong> (SSL-сертифікат), навіть якщо ваш сервер використовує тільки HTTP!</p>
+</div>
+  </div>
+</div>
+
+<hr>
+<h2>Крок 4: Перевірка роботи<span class="hx:absolute hx:-mt-20" id="крок-4-перевірка-роботи"></span>
+    <a href="#%d0%ba%d1%80%d0%be%d0%ba-4-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d1%96%d1%80%d0%ba%d0%b0-%d1%80%d0%be%d0%b1%d0%be%d1%82%d0%b8" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
+<li>Відкрийте браузер</li>
+<li>Перейдіть за адресою вашого піддомену (наприклад, <code>https://map.mhcore.xyz</code>)</li>
+<li>Ви повинні побачити вашу динамічну карту або веб-інтерфейс!</li>
+</ol>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><strong>Зверніть увагу:</strong></p>
+<ul>
+<li>Перше підключення може зайняти кілька секунд</li>
+<li>SSL-сертифікат створюється автоматично та безкоштовно</li>
+<li>Cloudflare буде кешувати статичні файли для прискорення завантаження</li>
+</ul></div>
+  </div>
+</div>
+
+<hr>
+<h2>Множинні веб-сервіси на одному домені<span class="hx:absolute hx:-mt-20" id="множинні-веб-сервіси-на-одному-домені"></span>
+    <a href="#%d0%bc%d0%bd%d0%be%d0%b6%d0%b8%d0%bd%d0%bd%d1%96-%d0%b2%d0%b5%d0%b1-%d1%81%d0%b5%d1%80%d0%b2%d1%96%d1%81%d0%b8-%d0%bd%d0%b0-%d0%be%d0%b4%d0%bd%d0%be%d0%bc%d1%83-%d0%b4%d0%be%d0%bc%d0%b5%d0%bd%d1%96" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Ви можете створити кілька піддоменів для різних сервісів:</p>
+<h3>Приклад структури:<span class="hx:absolute hx:-mt-20" id="приклад-структури"></span>
+    <a href="#%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4-%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%82%d1%83%d1%80%d0%b8" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Піддомен</th>
+          <th>Сервіс</th>
+          <th>Порт</th>
+          <th>Origin Rule</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>map.mhcore.xyz</code></td>
+          <td>Dynmap</td>
+          <td>8123</td>
+          <td><code>URL Full wildcard map.mhcore.xyz</code> → Port <code>8123</code></td>
+      </tr>
+      <tr>
+          <td><code>bluemap.mhcore.xyz</code></td>
+          <td>BlueMap</td>
+          <td>8100</td>
+          <td><code>URL Full wildcard bluemap.mhcore.xyz</code> → Port <code>8100</code></td>
+      </tr>
+      <tr>
+          <td><code>panel.mhcore.xyz</code></td>
+          <td>Pterodactyl</td>
+          <td>8080</td>
+          <td><code>URL Full wildcard panel.mhcore.xyz</code> → Port <code>8080</code></td>
+      </tr>
+      <tr>
+          <td><code>stats.mhcore.xyz</code></td>
+          <td>Статистика</td>
+          <td>3000</td>
+          <td><code>URL Full wildcard stats.mhcore.xyz</code> → Port <code>3000</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>Для кожного сервісу:</p>
+<ol>
+<li>Створіть окремий <strong>A-запис</strong> з увімкненим проксуванням</li>
+<li>Створіть окреме <strong>Origin Rule</strong> з відповідним портом</li>
+</ol>
+<hr>
+<h2>Переваги використання Cloudflare<span class="hx:absolute hx:-mt-20" id="переваги-використання-cloudflare"></span>
+    <a href="#%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%b0%d0%b3%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d1%8f-cloudflare" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>✅ <strong>Безкоштовний SSL</strong> — автоматичний HTTPS для вашого сайту<br>
+✅ <strong>DDoS захист</strong> — захист від атак<br>
+✅ <strong>Кешування</strong> — прискорення завантаження статичних файлів<br>
+✅ <strong>CDN</strong> — ваш сайт буде швидше завантажуватися по всьому світу<br>
+✅ <strong>Приховування IP</strong> — ваша реальна IP-адреса сервера буде прихована<br>
+✅ <strong>Аналітика</strong> — безкоштовна статистика відвідувань</p>
+<hr>
+<h2>Можливі проблеми та рішення<span class="hx:absolute hx:-mt-20" id="можливі-проблеми-та-рішення"></span>
+    <a href="#%d0%bc%d0%be%d0%b6%d0%bb%d0%b8%d0%b2%d1%96-%d0%bf%d1%80%d0%be%d0%b1%d0%bb%d0%b5%d0%bc%d0%b8-%d1%82%d0%b0-%d1%80%d1%96%d1%88%d0%b5%d0%bd%d0%bd%d1%8f" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>❌ Помилка 521 &ldquo;Web server is down&rdquo;<span class="hx:absolute hx:-mt-20" id="-помилка-521-web-server-is-down"></span>
+    <a href="#-%d0%bf%d0%be%d0%bc%d0%b8%d0%bb%d0%ba%d0%b0-521-web-server-is-down" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p><strong>Причина:</strong> Cloudflare не може підключитися до вашого сервера</p>
+<p><strong>Рішення:</strong></p>
+<ol>
+<li>Перевірте, що веб-сервер запущений і працює</li>
+<li>Переконайтеся, що порт відкритий у файрволі</li>
+<li>Перевірте правильність IP-адреси в A-записі</li>
+<li>Переконайтеся, що порт у Origin Rule вказаний правильно</li>
+</ol>
+<h3>❌ Помилка 522 &ldquo;Connection timed out&rdquo;<span class="hx:absolute hx:-mt-20" id="-помилка-522-connection-timed-out"></span>
+    <a href="#-%d0%bf%d0%be%d0%bc%d0%b8%d0%bb%d0%ba%d0%b0-522-connection-timed-out" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p><strong>Причина:</strong> Cloudflare не може достукатися до сервера за відведений час</p>
+<p><strong>Рішення:</strong></p>
+<ol>
+<li>Перевірте доступність сервера ззовні (через онлайн-сканери портів)</li>
+<li>Переконайтеся, що порт не блокується провайдером</li>
+<li>Перевірте налаштування файрвола на сервері</li>
+</ol>
+<h3>❌ Нескінченне завантаження або &ldquo;Too many redirects&rdquo;<span class="hx:absolute hx:-mt-20" id="-нескінченне-завантаження-або-too-many-redirects"></span>
+    <a href="#-%d0%bd%d0%b5%d1%81%d0%ba%d1%96%d0%bd%d1%87%d0%b5%d0%bd%d0%bd%d0%b5-%d0%b7%d0%b0%d0%b2%d0%b0%d0%bd%d1%82%d0%b0%d0%b6%d0%b5%d0%bd%d0%bd%d1%8f-%d0%b0%d0%b1%d0%be-too-many-redirects" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p><strong>Причина:</strong> Неправильні налаштування SSL/TLS</p>
+<p><strong>Рішення:</strong></p>
+<ol>
+<li>Перейдіть до <strong>SSL/TLS</strong> → <strong>Overview</strong></li>
+<li>Встановіть режим <strong>Flexible</strong> (якщо ваш сервер не використовує HTTPS)</li>
+<li>Або встановіть <strong>Full</strong> (якщо ваш сервер використовує самопідписаний сертифікат)</li>
+</ol>
+<h3>❌ Сторінка відкривається, але стилі/скрипти не завантажуються<span class="hx:absolute hx:-mt-20" id="-сторінка-відкривається-але-стиліскрипти-не-завантажуються"></span>
+    <a href="#-%d1%81%d1%82%d0%be%d1%80%d1%96%d0%bd%d0%ba%d0%b0-%d0%b2%d1%96%d0%b4%d0%ba%d1%80%d0%b8%d0%b2%d0%b0%d1%94%d1%82%d1%8c%d1%81%d1%8f-%d0%b0%d0%bb%d0%b5-%d1%81%d1%82%d0%b8%d0%bb%d1%96%d1%81%d0%ba%d1%80%d0%b8%d0%bf%d1%82%d0%b8-%d0%bd%d0%b5-%d0%b7%d0%b0%d0%b2%d0%b0%d0%bd%d1%82%d0%b0%d0%b6%d1%83%d1%8e%d1%82%d1%8c%d1%81%d1%8f" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p><strong>Причина:</strong> Змішаний контент (Mixed Content) — HTTPS сторінка завантажує HTTP ресурси</p>
+<p><strong>Рішення:</strong></p>
+<ol>
+<li>Перейдіть до <strong>SSL/TLS</strong> → <strong>Edge Certificates</strong></li>
+<li>Увімкніть <strong>Always Use HTTPS</strong></li>
+<li>Увімкніть <strong>Automatic HTTPS Rewrites</strong></li>
+</ol>
+<hr>
+<h2>Налаштування SSL/TLS<span class="hx:absolute hx:-mt-20" id="налаштування-ssltls"></span>
+    <a href="#%d0%bd%d0%b0%d0%bb%d0%b0%d1%88%d1%82%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-ssltls" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Для коректної роботи веб-сервера через Cloudflare налаштуйте SSL:</p>
+<ol>
+<li>Перейдіть до <strong>SSL/TLS</strong> → <strong>Overview</strong></li>
+<li>Виберіть підхожий режим:</li>
+</ol>
+<table>
+  <thead>
+      <tr>
+          <th>Режим</th>
+          <th>Коли використовувати</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Flexible</strong></td>
+          <td>Ваш сервер використовує тільки HTTP (без SSL)</td>
+      </tr>
+      <tr>
+          <td><strong>Full</strong></td>
+          <td>Ваш сервер використовує HTTPS з самопідписаним сертифікатом</td>
+      </tr>
+      <tr>
+          <td><strong>Full (strict)</strong></td>
+          <td>Ваш сервер використовує HTTPS з довіреним сертифікатом</td>
+      </tr>
+  </tbody>
+</table>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><strong>Рекомендація:</strong> Для більшості випадків (Dynmap, прості веб-сервери) використовуйте режим <strong>Flexible</strong>.</div>
+  </div>
+</div>
+
+<hr>
+<h2>Приклади використання<span class="hx:absolute hx:-mt-20" id="приклади-використання"></span>
+    <a href="#%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d1%8f" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Приклад 1: Dynmap для Minecraft сервера<span class="hx:absolute hx:-mt-20" id="приклад-1-dynmap-для-minecraft-сервера"></span>
+    <a href="#%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4-1-dynmap-%d0%b4%d0%bb%d1%8f-minecraft-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><pre><code>Домен: map.mhcore.xyz
+IP: 123.45.67.89
+Порт Dynmap: 8123
+
+A-запис:
+- Name: map
+- IP: 123.45.67.89
+- Proxy: ON
+
+Origin Rule:
+- URL Full wildcard http://map.mhcore.xyz/*
+- Rewrite to port 8123</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Скопіювати код"
+  >
+    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<p>Результат: <code>https://map.mhcore.xyz</code> покаже вашу Dynmap!</p>
+<h3>Приклад 2: Панель керування Pterodactyl<span class="hx:absolute hx:-mt-20" id="приклад-2-панель-керування-pterodactyl"></span>
+    <a href="#%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4-2-%d0%bf%d0%b0%d0%bd%d0%b5%d0%bb%d1%8c-%d0%ba%d0%b5%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-pterodactyl" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><pre><code>Домен: panel.mhcore.xyz
+IP: 123.45.67.89
+Порт Panel: 8080
+
+A-запис:
+- Name: panel
+- IP: 123.45.67.89
+- Proxy: ON
+
+Origin Rule:
+- URL Full wildcard https://panel.mhcore.xyz/*
+- Rewrite to port 8080</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Скопіювати код"
+  >
+    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<p>Результат: <code>https://panel.mhcore.xyz</code> відкриє панель керування!</p>
+<hr>
+<h2>Корисні посилання<span class="hx:absolute hx:-mt-20" id="корисні-посилання"></span>
+    <a href="#%d0%ba%d0%be%d1%80%d0%b8%d1%81%d0%bd%d1%96-%d0%bf%d0%be%d1%81%d0%b8%d0%bb%d0%b0%d0%bd%d0%bd%d1%8f" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="https://developers.cloudflare.com/rules/"target="_blank" rel="noopener">Офіційна документація Cloudflare Rules</a></li>
+<li><a href="https://developers.cloudflare.com/ssl/"target="_blank" rel="noopener">Cloudflare SSL/TLS Configuration</a></li>
+<li><a href="https://developers.cloudflare.com/support/troubleshooting/"target="_blank" rel="noopener">Troubleshooting Cloudflare Errors</a></li>
+</ul>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><strong>Потрібна допомога?</strong></p>
+<p>Якщо у вас виникли складнощі з налаштуванням веб-сервера через Cloudflare, зверніться до підтримки вашого хостингу або на форуми спільноти Cloudflare.</p>
+</div>
+  </div>
+</div>
+
+<hr>
+
+        </div>
+        <div class="hx:mt-16"></div>
+        <div class="hx:mb-8 hx:flex hx:items-center hx:border-t hx:pt-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-neutral-400 hx:dark:contrast-more:border-neutral-400 hx:print:hidden"><a
+        href="/uk/docs/cloudflare/disable-ech/"
+        title="Вимкнення Encrypted Client Hello (ECH)"
+        class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:pr-4 hx:rtl:pl-4"
+      ><svg class="hx:inline hx:h-5 hx:shrink-0 hx:ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Вимкнення Encrypted Client Hello (ECH)</a><a
+        href="/uk/docs/cloudflare/domain-setup/"
+        title="Прив&#39;язка домену до Minecraft сервера"
+        class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:ml-auto hx:ltr:pl-4 hx:ltr:text-right hx:rtl:mr-auto hx:rtl:pr-4 hx:rtl:text-left"
+      >Прив&#39;язка домену до Minecraft сервера<svg class="hx:inline hx:h-5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+        
+      </main>
+    </article>
+  </div>
+
+      <footer class="hextra-footer hx:bg-gray-100 hx:pb-[env(safe-area-inset-bottom)] hx:dark:bg-neutral-900 hx:print:bg-transparent"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <div class="hextra-max-footer-width hx:mx-auto hx:flex hx:justify-center hx:py-12 hx:pl-[max(env(safe-area-inset-left),1.5rem)] hx:pr-[max(env(safe-area-inset-right),1.5rem)]" id="custom-footer">
+    <div class="hx:flex hx:w-full hx:flex-col hx:items-center hx:text-center">
+      
+      <div class="copyright-levels">
+        <h1 class="copyright-level primary animated-title">
+          <span class="brand-qwer">qwer</span><span class="brand-host">-host </span><span class="brand-wiki">Wiki</span>
+        </h1>
+        <p class="copyright-level secondary"><a href="https://my.qwer-host.com/">qwer-host</a> © 2022-2025</p>
+        <p class="copyright-level secondary">All rights reserved. Not affiliated with Mojang or Microsoft.</p>
+        <p class="copyright-level secondary">
+          <a href="/terms">Договор-оферта</a> | 
+          <a href="/privacy">Политика конфиденциальности</a>
+        </p>
+      </div>
+      
+      <div class="social-footer">
+        <a href="https://my.qwer-host.com" title="Contact" aria-label="Contact Us" target="_blank" rel="noopener">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="https://discord.com/invite/fTqZBaEbbG" title="Discord" aria-label="Join our Discord" target="_blank" rel="noopener">
+          <i class="fab fa-discord"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="Telegram" aria-label="Join our Telegram" target="_blank" rel="noopener">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="VK" aria-label="Follow us on VK" target="_blank" rel="noopener">
+          <i class="fab fa-vk"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="Instagram" aria-label="Follow us on Instagram" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="TikTok" aria-label="Follow us on TikTok" target="_blank" rel="noopener">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="YouTube" aria-label="Subscribe to our YouTube" target="_blank" rel="noopener">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+    <script defer src="/js/main.js" integrity=""></script>
+<script defer src="/js/flexsearch.9f5b5908f93ae86f1ecd4b043b799f580c2d1654e703dd9357d568ac41b2547a.js" integrity="sha256-n1tZCPk66G8ezUsEO3mfWAwtFlTnA92TV9VorEGyVHo=" crossorigin="anonymous"></script>
+        <script defer src="/uk.search.js" integrity=""></script>
+  </body>
+</html>

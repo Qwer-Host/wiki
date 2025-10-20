@@ -58,6 +58,31 @@ theme = 'hextra'
         [languages.en.menu.main.params]
           type = "language-switch"
 
+  [languages.uk]
+    title = "Wiki qwer-host"
+    languageName = "Українська"
+    weight = 3
+    [languages.uk.menu]
+      [[languages.uk.menu.main]]
+        name = "Документація"
+        pageRef = "docs"
+        weight = 1
+      [[languages.uk.menu.main]]
+        identifier = "search"
+        weight = 3
+        [languages.uk.menu.main.params]
+          type = "search"
+      [[languages.uk.menu.main]]
+        identifier = "theme-toggle"
+        weight = 4
+        [languages.uk.menu.main.params]
+          type = "theme-toggle"
+      [[languages.uk.menu.main]]
+        identifier = "language-switch"
+        weight = 5
+        [languages.uk.menu.main.params]
+          type = "language-switch"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="uk"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="robots" content="noindex, nofollow" />
+  <link rel="icon shortcut" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" id="favicon-svg" />
+<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
+<title>Консольні команди для сервера Minecraft – Wiki qwer-host</title>
+  <meta name="description" content="Оволодійте мистецтвом адміністрування сервера Minecraft за допомогою повного посібника з консольних команд" /><link rel="canonical" href="//localhost:1313/uk/docs/minecraft-commands/" itemprop="url" />
+
+<meta property="og:title" content="Консольні команди для сервера Minecraft" />
+<meta property="og:description" content="Оволодійте мистецтвом адміністрування сервера Minecraft за допомогою повного посібника з консольних команд" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="//localhost:1313/uk/docs/minecraft-commands/" />
+
+  <meta itemprop="name" content="Консольні команди для сервера Minecraft">
+  <meta itemprop="description" content="Оволодійте мистецтвом адміністрування сервера Minecraft за допомогою повного посібника з консольних команд">
+  <meta itemprop="wordCount" content="789">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Консольні команди для сервера Minecraft">
+  <meta name="twitter:description" content="Оволодійте мистецтвом адміністрування сервера Minecraft за допомогою повного посібника з консольних команд">
+<link href="/css/compiled/main.css" rel="stylesheet" />
+    <link href="/css/variables.css" rel="stylesheet" />
+    <link href="/css/custom.css" rel="stylesheet" />
+
+  
+
+
+  <script>
+    
+
+    function setTheme(theme) {
+      document.documentElement.classList.remove("light", "dark");
+
+      if (theme !== "light" && theme !== "dark") {
+       theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+
+      document.documentElement.classList.add(theme);
+      document.documentElement.style.colorScheme = theme;
+    }
+
+    setTheme("color-theme" in localStorage ? localStorage.getItem("color-theme") : 'system')
+
+  </script>
+
+  <script>
+    
+
+    if (localStorage.getItem('banner-closed')) {
+      document.documentElement.style.setProperty("--hextra-banner-height", "0px");
+      document.documentElement.classList.add("hextra-banner-hidden");
+    }
+  </script>
+
+  
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    quicklink.listen();
+  });
+</script>
+</head>
+<body dir="ltr"><div class="hextra-nav-container hx:sticky hx:top-0 hx:z-20 hx:w-full hx:bg-transparent hx:print:hidden">
+  <div
+    class="hextra-nav-container-blur hx:pointer-events-none hx:absolute hx:z-[-1] hx:h-full hx:w-full hx:bg-white hx:dark:bg-dark hx:shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] hx:contrast-more:shadow-[0_0_0_1px_#000] hx:dark:shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] hx:contrast-more:dark:shadow-[0_0_0_1px_#fff]"
+  ></div>
+
+  <nav class="hextra-max-navbar-width hx:mx-auto hx:flex hx:items-center hx:justify-end hx:gap-2 hx:h-16 hx:px-6">
+    <a class="hx:flex hx:items-center hx:hover:opacity-75 hx:ltr:mr-auto hx:rtl:ml-auto" href="/uk/">
+    <img class="hx:mr-2 hx:block hx:dark:hidden" src="/images/logo.svg" alt="Logo" height="20" width="20" />
+    <img class="hx:mr-2 hx:hidden hx:dark:block" src="/images/logo.svg" alt="Dark Logo" height="20" width="20" />
+    <span class="brand-title hx:mr-2 hx:font-extrabold hx:inline hx:select-none" title="Wiki qwer-host">
+      <span class="brand-qwer">qwer</span><span class="brand-host">-host </span>
+    </span>
+</a>
+<a
+  title=""
+  href="/uk/docs/"
+  
+  class="hx:text-sm hx:contrast-more:text-gray-700 hx:contrast-more:dark:text-gray-100 hx:relative hx:-ml-2 hx:hidden hx:whitespace-nowrap hx:p-2 hx:md:inline-flex hx:items-center hx:gap-1 hx:font-medium"
+><span class="hx:text-center">Документація</span>
+</a><div class="hextra-search-wrapper hx:relative hx:md:w-64">
+  <div class="hx:relative hx:flex hx:items-center hx:text-gray-900 hx:contrast-more:text-gray-800 hx:dark:text-gray-300 hx:contrast-more:dark:text-gray-300">
+    <input
+      placeholder="Пошук..."
+      class="hextra-search-input hx:focus:hextra-focus hx:block hx:w-full hx:appearance-none hx:rounded-lg hx:px-3 hx:py-2 hx:transition-colors hx:text-base hx:leading-tight hx:md:text-sm hx:bg-black/[.05] hx:dark:bg-gray-50/10 hx:focus:bg-white hx:dark:focus:bg-dark hx:placeholder:text-gray-500 hx:dark:placeholder:text-gray-400 hx:contrast-more:border hx:contrast-more:border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="hx:absolute hx:my-1.5 hx:select-none hx:ltr:right-1.5 hx:rtl:left-1.5 hx:h-5 hx:rounded-sm hx:bg-white hx:px-1.5 hx:font-mono hx:text-[10px] hx:font-medium hx:text-gray-500 hx:border hx:border-gray-200 hx:dark:border-gray-100/20 hx:dark:bg-dark/50 hx:contrast-more:border-current hx:contrast-more:text-current hx:contrast-more:dark:border-current hx:items-center hx:gap-1 hx:transition-opacity hx:pointer-events-none hx:hidden hx:sm:flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="hextra-search-results hextra-scrollbar hx:hidden hx:border hx:border-gray-200 hx:bg-white hx:text-gray-100 hx:dark:border-neutral-800 hx:dark:bg-neutral-900 hx:absolute hx:top-full hx:z-20 hx:mt-2 hx:overflow-auto hx:overscroll-contain hx:rounded-xl hx:py-2.5 hx:shadow-xl hx:max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] hx:md:max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx:inset-x-0 hx:ltr:md:left-auto hx:rtl:md:right-auto hx:contrast-more:border hx:contrast-more:border-gray-900 hx:contrast-more:dark:border-gray-50 hx:w-screen hx:min-h-[100px] hx:max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+<div class="minimal-theme-toggle">
+  <button type="button" id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+    <div class="theme-icon-container">
+      <svg class="theme-icon sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="theme-icon moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </div>
+  </button>
+</div>
+
+<style>
+.minimal-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-btn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-btn:hover {
+  background: rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-btn:active {
+  transform: scale(0.95);
+}
+
+.theme-icon-container {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.theme-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  stroke: currentColor;
+}
+
+.sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.8);
+}
+
+ 
+.dark .theme-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+.dark .theme-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dark .sun-icon {
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.8);
+}
+
+.dark .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+ 
+:not(.dark) .theme-btn {
+  background: rgba(0, 0, 0, 0.08);
+  color: #374151;
+}
+
+:not(.dark) .theme-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeBtn = document.getElementById('theme-toggle-btn');
+  
+  
+  const initializeTheme = () => {
+    const storedTheme = localStorage.getItem('color-theme');
+    const systemDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (storedTheme) {
+      
+      if (storedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } else {
+      
+      if (systemDarkTheme) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  };
+  
+  
+  initializeTheme();
+  
+  
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function() {
+      const isDark = document.documentElement.classList.contains('dark');
+      
+      if (isDark) {
+        
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  }
+  
+  
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    const storedTheme = localStorage.getItem('color-theme');
+    
+    if (!storedTheme) {
+      if (e.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  });
+});
+</script>
+<div class="hx:flex hx:items-center hx:relative ">
+    <button
+      title="Змінити мову"
+      data-state="closed"
+      data-location="top"
+      class="hextra-language-switcher hx:cursor-pointer hx:rounded-md hx:text-left hx:font-medium hx:p-2"
+      type="button"
+      aria-label="Змінити мову"
+    >
+      <div class="hx:flex hx:items-center hx:gap-2 hx:capitalize"><svg height=24 width=24 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg></div>
+    </button>
+    <ul
+      class="hextra-language-options hx:hidden hx:z-20 hx:max-h-64 hx:overflow-auto hx:rounded-md hx:ring-1 hx:ring-black/5 hx:bg-white hx:py-1 hx:text-sm hx:shadow-lg hx:dark:ring-white/20 hx:dark:bg-neutral-800"
+    >
+      
+        
+        <li class="hx:flex hx:flex-col">
+          <a
+            href="/docs/minecraft-commands/"
+            class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9"
+          >Русский</a>
+        </li>
+      
+        
+        <li class="hx:flex hx:flex-col">
+          <a
+            href="/en/docs/minecraft-commands/"
+            class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9"
+          >English</a>
+        </li>
+      
+        
+        <li class="hx:flex hx:flex-col">
+          <a
+            href="/uk/docs/minecraft-commands/"
+            class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9"
+          >Українська<span class="hx:absolute hx:inset-y-0 hx:flex hx:items-center hx:ltr:right-3 hx:rtl:left-3"><svg height=1em width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></a>
+        </li>
+      </ul>
+  </div><button type="button" aria-label="Menu" class="hextra-hamburger-menu hx:cursor-pointer hx:-mr-2 hx:rounded-sm hx:p-2 hx:active:bg-gray-400/20 hx:md:hidden"><svg height=24 fill="none" viewBox="0 0 24 24" stroke="currentColor"><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8H20"></path></g><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16H20"></path></g></svg></button>
+  </nav>
+</div>
+
+  <div class='hx:mx-auto hx:flex hextra-max-page-width'>
+    <aside class="hextra-sidebar-container hx:flex hx:flex-col hx:print:hidden hx:md:top-16 hx:md:shrink-0 hx:md:w-64 hx:md:self-start hx:max-md:[transform:translate3d(0,-100%,0)] hx:md:sticky">
+  
+  <div class="hx:px-4 hx:pt-4 hx:md:hidden">
+    <div class="hextra-search-wrapper hx:relative hx:md:w-64">
+  <div class="hx:relative hx:flex hx:items-center hx:text-gray-900 hx:contrast-more:text-gray-800 hx:dark:text-gray-300 hx:contrast-more:dark:text-gray-300">
+    <input
+      placeholder="Пошук..."
+      class="hextra-search-input hx:focus:hextra-focus hx:block hx:w-full hx:appearance-none hx:rounded-lg hx:px-3 hx:py-2 hx:transition-colors hx:text-base hx:leading-tight hx:md:text-sm hx:bg-black/[.05] hx:dark:bg-gray-50/10 hx:focus:bg-white hx:dark:focus:bg-dark hx:placeholder:text-gray-500 hx:dark:placeholder:text-gray-400 hx:contrast-more:border hx:contrast-more:border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="hx:absolute hx:my-1.5 hx:select-none hx:ltr:right-1.5 hx:rtl:left-1.5 hx:h-5 hx:rounded-sm hx:bg-white hx:px-1.5 hx:font-mono hx:text-[10px] hx:font-medium hx:text-gray-500 hx:border hx:border-gray-200 hx:dark:border-gray-100/20 hx:dark:bg-dark/50 hx:contrast-more:border-current hx:contrast-more:text-current hx:contrast-more:dark:border-current hx:items-center hx:gap-1 hx:transition-opacity hx:pointer-events-none hx:hidden hx:sm:flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="hextra-search-results hextra-scrollbar hx:hidden hx:border hx:border-gray-200 hx:bg-white hx:text-gray-100 hx:dark:border-neutral-800 hx:dark:bg-neutral-900 hx:absolute hx:top-full hx:z-20 hx:mt-2 hx:overflow-auto hx:overscroll-contain hx:rounded-xl hx:py-2.5 hx:shadow-xl hx:max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] hx:md:max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx:inset-x-0 hx:ltr:md:left-auto hx:rtl:md:right-auto hx:contrast-more:border hx:contrast-more:border-gray-900 hx:contrast-more:dark:border-gray-50 hx:w-screen hx:min-h-[100px] hx:max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+
+  </div>
+  <div class="hextra-scrollbar hx:overflow-y-auto hx:overflow-x-hidden hx:p-4 hx:grow hx:md:h-[calc(100vh-var(--navbar-height)-var(--menu-height))]">
+    <ul class="hx:flex hx:flex-col hx:gap-1 hx:md:hidden">
+      
+      
+          <li class="open"><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/"
+    
+  >Документація
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></span>
+    </a><div class="hx:ltr:pr-0 hx:overflow-hidden">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col open"><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
+    href="/uk/docs/minecraft-commands/"
+    
+  >Консольні команди для сервера Minecraft
+    </a>
+  
+    <ul class='hx:flex hx:flex-col hx:gap-1 hx:relative hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:dark:before:bg-neutral-800 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:pr-3 hx:rtl:before:right-0 hx:ltr:ml-3 hx:rtl:mr-3'><li>
+              <a
+                href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%ba%d0%b5%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-%d0%bc%d1%83%d0%bb%d1%8c%d1%82%d0%b8%d0%bf%d0%bb%d0%b5%d1%94%d1%80%d0%be%d0%bc-%d0%ba%d0%be%d0%bd%d1%81%d0%be%d0%bb%d1%8c-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Команди для керування мультиплеєром (консоль сервера)</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%82%d0%be%d1%80%d1%96%d0%b2-op-%d1%82%d0%b2%d0%be%d1%80%d1%87%d0%b8%d0%b9-%d0%b0%d1%80%d1%81%d0%b5%d0%bd%d0%b0%d0%bb"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Команди для операторів (OP): Творчий арсенал</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%bf%d1%80%d0%be%d1%81%d1%83%d0%bd%d1%83%d1%82%d0%b5-%d0%b0%d0%b4%d0%bc%d1%96%d0%bd%d1%96%d1%81%d1%82%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Просунуте адміністрування</a>
+            </li>
+          <li>
+              <a
+                href="#%d1%88%d0%b2%d0%b8%d0%b4%d0%ba%d1%96-%d0%b4%d0%be%d0%b2%d1%96%d0%b4%d0%ba%d0%be%d0%b2%d1%96-%d0%ba%d0%b0%d1%80%d1%82%d0%ba%d0%b8"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Швидкі довідкові картки</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%bf%d1%80%d0%be%d1%84%d0%b5%d1%81%d1%96%d0%b9%d0%bd%d1%96-%d0%bf%d0%be%d1%80%d0%b0%d0%b4%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%b0%d0%b4%d0%bc%d1%96%d0%bd%d1%96%d1%81%d1%82%d1%80%d0%b0%d1%82%d0%be%d1%80%d1%96%d0%b2-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d1%96%d0%b2"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Професійні поради для адміністраторів серверів</a>
+            </li>
+          <li>
+              <a
+                href="#%d0%b2%d0%b8%d1%81%d0%bd%d0%be%d0%b2%d0%be%d0%ba"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Висновок</a>
+            </li>
+          </ul>
+  
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/minecraft-cores/"
+    
+  >Ядра для Minecraft
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/server-setup/mysql/"
+    
+  >MySQL (Бази даних)
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/"
+    
+  >CloudFlare
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></span>
+    </a>
+              <div class="hx:ltr:pr-0 hx:overflow-hidden">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/disable-ech/"
+    
+  >Вимкнення Encrypted Client Hello (ECH)
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/web-server-setup/"
+    
+  >Прив&#39;язка веб-сервера до домену
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/domain-setup/"
+    
+  >Прив&#39;язка домену до Minecraft сервера
+    </a>
+              
+            </li></ul>
+      </div>
+            </li></ul>
+      </div></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/about/"
+    
+  >Про нас
+    </a></li>
+    </ul>
+
+    <ul class="hx:flex hx:flex-col hx:gap-1 hx:max-md:hidden">
+        
+          <li class="open"><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
+    href="/uk/docs/minecraft-commands/"
+    
+  >Консольні команди для сервера Minecraft
+    </a></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/minecraft-cores/"
+    
+  >Ядра для Minecraft
+    </a></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/server-setup/mysql/"
+    
+  >MySQL (Бази даних)
+    </a></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/"
+    
+  >CloudFlare
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></span>
+    </a><div class="hx:ltr:pr-0 hx:overflow-hidden">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/disable-ech/"
+    
+  >Вимкнення Encrypted Client Hello (ECH)
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/web-server-setup/"
+    
+  >Прив&#39;язка веб-сервера до домену
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/cloudflare/domain-setup/"
+    
+  >Прив&#39;язка домену до Minecraft сервера
+    </a>
+              
+            </li></ul>
+      </div></li>
+        
+      </ul>
+    </div>
+  
+  </aside>
+    
+<nav class="hextra-toc hx:order-last hx:hidden hx:w-64 hx:shrink-0 hx:xl:block hx:print:hidden hx:px-4" aria-label="table of contents">
+    <div class="hextra-scrollbar hx:sticky hx:top-16 hx:overflow-y-auto hx:pr-4 hx:pt-6 hx:text-sm [hyphens:auto] hx:max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] hx:ltr:-mr-4 hx:rtl:-ml-4"><p class="hx:mb-4 hx:font-semibold hx:tracking-tight">На цій сторінці</p><ul>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%ba%d0%b5%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-%d0%bc%d1%83%d0%bb%d1%8c%d1%82%d0%b8%d0%bf%d0%bb%d0%b5%d1%94%d1%80%d0%be%d0%bc-%d0%ba%d0%be%d0%bd%d1%81%d0%be%d0%bb%d1%8c-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0">Команди для керування мультиплеєром (консоль сервера)
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%82%d0%be%d1%80%d1%96%d0%b2-op-%d1%82%d0%b2%d0%be%d1%80%d1%87%d0%b8%d0%b9-%d0%b0%d1%80%d1%81%d0%b5%d0%bd%d0%b0%d0%bb">Команди для операторів (OP): Творчий арсенал
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%bf%d1%80%d0%be%d1%81%d1%83%d0%bd%d1%83%d1%82%d0%b5-%d0%b0%d0%b4%d0%bc%d1%96%d0%bd%d1%96%d1%81%d1%82%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f">Просунуте адміністрування
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d1%88%d0%b2%d0%b8%d0%b4%d0%ba%d1%96-%d0%b4%d0%be%d0%b2%d1%96%d0%b4%d0%ba%d0%be%d0%b2%d1%96-%d0%ba%d0%b0%d1%80%d1%82%d0%ba%d0%b8">Швидкі довідкові картки
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%bf%d1%80%d0%be%d1%84%d0%b5%d1%81%d1%96%d0%b9%d0%bd%d1%96-%d0%bf%d0%be%d1%80%d0%b0%d0%b4%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%b0%d0%b4%d0%bc%d1%96%d0%bd%d1%96%d1%81%d1%82%d1%80%d0%b0%d1%82%d0%be%d1%80%d1%96%d0%b2-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d1%96%d0%b2">Професійні поради для адміністраторів серверів
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#%d0%b2%d0%b8%d1%81%d0%bd%d0%be%d0%b2%d0%be%d0%ba">Висновок
+        </a>
+      </li></ul>
+      <div class="hx:mt-8 hx:border-t hx:bg-white hx:pt-8 hx:shadow-[0_-12px_16px_white] hx:dark:bg-dark hx:dark:shadow-[0_-12px_16px_#111] hx:sticky hx:bottom-0 hx:flex hx:flex-col hx:items-start hx:gap-2 hx:pb-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-t hx:contrast-more:border-neutral-400 hx:contrast-more:shadow-none hx:contrast-more:dark:border-neutral-400">
+        <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx:cursor-pointer hx:transition-all hx:duration-75 hx:opacity-0 hx:text-xs hx:font-medium hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-100 hx:contrast-more:text-gray-800 hx:contrast-more:dark:text-gray-50">
+          <span>Прокрутити до початку</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx:inline hx:ltr:ml-1 hx:rtl:mr-1 hx:h-3.5 hx:w-3.5 hx:rounded-full hx:border hx:border-gray-500 hx:hover:border-gray-900 hx:dark:border-gray-400 hx:dark:hover:border-gray-100 hx:contrast-more:border-gray-800 hx:contrast-more:dark:border-gray-50">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+    <article class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="hx:w-full hx:min-w-0 hx:max-w-6xl hx:px-6 hx:pt-4 hx:md:px-12">
+        <div class="hx:mt-1.5 hx:flex hx:items-center hx:gap-1 hx:overflow-hidden hx:text-sm hx:text-gray-500 hx:dark:text-gray-400 hx:contrast-more:text-current">
+        <div class="hx:whitespace-nowrap hx:transition-colors hx:min-w-[24px] hx:overflow-hidden hx:text-ellipsis hx:hover:text-gray-900 hx:dark:hover:text-gray-100">
+          <a href="/uk/docs/">Документація</a>
+        </div><svg class="hx:w-3.5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx:whitespace-nowrap hx:transition-colors hx:font-medium hx:text-gray-700 hx:contrast-more:font-bold hx:contrast-more:text-current hx:dark:text-gray-100 hx:contrast-more:dark:text-current">Консольні команди для сервера Minecraft</div>
+  </div>
+
+        <div class="content">
+          <h1>Консольні команди для сервера Minecraft</h1>
+          <p>У світі Minecraft керування сервером — це не просто запуск файлу та спостереження за тим, як гравці будують свої імперії з блоків. Це мистецтво балансу між творчістю, безпекою та динамікою спільноти. Якщо ви хочете перетворити свій сервер на магніт для лояльних гравців, знання консольних команд стане вашою секретною зброєю. Вони дозволяють миттєво реагувати на інциденти, налаштовувати геймплей та підтримувати атмосферу, де кожен візит відчувається як пригода.</p>
+<p>Уявіть: новий гравець скаржиться на лаги, а ви одним рухом зберігаєте світ і перезапускаєте сервер. Або підозрілий користувач починає griefing — і ось він вже в бан-листі. Ці команди — основа професійного адміністрування. Ми розберемо їх за категоріями: від базового контролю доступу до тонкого налаштування світу.</p>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><strong>Важливі позначення:</strong></p>
+<ul>
+<li><code>&lt;Кутові дужки&gt;</code> для обов&rsquo;язкових параметрів (наприклад, <code>&lt;нікнейм&gt;</code>)</li>
+<li><code>[Квадратні дужки]</code> для опціональних доповнень (наприклад, <code>[причина]</code>)</li>
+<li>В консолі сервера команди пишуться <strong>без слешу (/)</strong>, на відміну від чату в грі</li>
+<li>Не вводите самі дужки — вони лише для розуміння</li>
+</ul></div>
+  </div>
+</div>
+
+<p>Готові? Занурюємося в кодекс Minecraft!</p>
+<h2>Команди для керування мультиплеєром (консоль сервера)<span class="hx:absolute hx:-mt-20" id="команди-для-керування-мультиплеєром-консоль-сервера"></span>
+    <a href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%ba%d0%b5%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-%d0%bc%d1%83%d0%bb%d1%8c%d1%82%d0%b8%d0%bf%d0%bb%d0%b5%d1%94%d1%80%d0%be%d0%bc-%d0%ba%d0%be%d0%bd%d1%81%d0%be%d0%bb%d1%8c-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Ці інструменти — ваш щит і меч у боротьбі за порядок. Вони допомагають фільтрувати аудиторію, моніторити активність та забезпечувати стабільність.</p>
+<div class="hextra-scrollbar hx:overflow-x-auto hx:overflow-y-hidden hx:overscroll-x-contain">
+  <div class="hx:mt-4 hx:flex hx:w-max hx:min-w-full hx:border-b hx:border-gray-200 hx:pb-px hx:dark:border-neutral-800"><button
+        class="hextra-tabs-toggle hx:cursor-pointer hx:data-[state=selected]:border-primary-500 hx:data-[state=selected]:text-primary-600 hx:data-[state=selected]:dark:border-primary-500 hx:data-[state=selected]:dark:text-primary-600 hx:mr-2 hx:rounded-t hx:p-2 hx:font-medium hx:leading-5 hx:transition-colors hx:-mb-0.5 hx:select-none hx:border-b-2 hx:border-transparent hx:text-gray-600 hx:hover:border-gray-200 hx:hover:text-black hx:dark:text-gray-200 hx:dark:hover:border-neutral-800 hx:dark:hover:text-white"
+        role="tab"
+        type="button"
+        aria-controls="tabs-panel-0" aria-selected="true"  tabindex="0"  data-state="selected">Базове керування</button><button
+        class="hextra-tabs-toggle hx:cursor-pointer hx:data-[state=selected]:border-primary-500 hx:data-[state=selected]:text-primary-600 hx:data-[state=selected]:dark:border-primary-500 hx:data-[state=selected]:dark:text-primary-600 hx:mr-2 hx:rounded-t hx:p-2 hx:font-medium hx:leading-5 hx:transition-colors hx:-mb-0.5 hx:select-none hx:border-b-2 hx:border-transparent hx:text-gray-600 hx:hover:border-gray-200 hx:hover:text-black hx:dark:text-gray-200 hx:dark:hover:border-neutral-800 hx:dark:hover:text-white"
+        role="tab"
+        type="button"
+        aria-controls="tabs-panel-1">Білий список</button><button
+        class="hextra-tabs-toggle hx:cursor-pointer hx:data-[state=selected]:border-primary-500 hx:data-[state=selected]:text-primary-600 hx:data-[state=selected]:dark:border-primary-500 hx:data-[state=selected]:dark:text-primary-600 hx:mr-2 hx:rounded-t hx:p-2 hx:font-medium hx:leading-5 hx:transition-colors hx:-mb-0.5 hx:select-none hx:border-b-2 hx:border-transparent hx:text-gray-600 hx:hover:border-gray-200 hx:hover:text-black hx:dark:text-gray-200 hx:dark:hover:border-neutral-800 hx:dark:hover:text-white"
+        role="tab"
+        type="button"
+        aria-controls="tabs-panel-2">Бани та кіки</button></div>
+</div>
+<div>
+
+<div
+  class="hextra-tabs-panel hx:rounded-sm hx:pt-6 hx:hidden hx:data-[state=selected]:block"
+  id="tabs-panel-0"
+  role="tabpanel" tabindex="0"  data-state="selected" ><h3>Базове керування сервером<span class="hx:absolute hx:-mt-20" id="базове-керування-сервером"></span>
+    <a href="#%d0%b1%d0%b0%d0%b7%d0%be%d0%b2%d0%b5-%d0%ba%d0%b5%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%be%d0%bc" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Команда</th>
+          <th>Опис</th>
+          <th>Приклад використання</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>list</code></td>
+          <td>Показує всіх онлайн-гравців на сервері</td>
+          <td><code>list</code></td>
+      </tr>
+      <tr>
+          <td><code>save-all</code></td>
+          <td>Примусово зберігає весь світ. Рятує від втрат при збоях</td>
+          <td><code>save-all</code></td>
+      </tr>
+      <tr>
+          <td><code>save-off</code></td>
+          <td>Вимикає автоматичне збереження (економить ресурси під час тестів)</td>
+          <td><code>save-off</code></td>
+      </tr>
+      <tr>
+          <td><code>save-on</code></td>
+          <td>Вмикає авто-збереження назад</td>
+          <td><code>save-on</code></td>
+      </tr>
+      <tr>
+          <td><code>stop</code></td>
+          <td>Миттєво зупиняє сервер</td>
+          <td><code>stop</code></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+<div
+  class="hextra-tabs-panel hx:rounded-sm hx:pt-6 hx:hidden hx:data-[state=selected]:block"
+  id="tabs-panel-1"
+  role="tabpanel"><h3>Керування білим списком<span class="hx:absolute hx:-mt-20" id="керування-білим-списком"></span>
+    <a href="#%d0%ba%d0%b5%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-%d0%b1%d1%96%d0%bb%d0%b8%d0%bc-%d1%81%d0%bf%d0%b8%d1%81%d0%ba%d0%be%d0%bc" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Команда</th>
+          <th>Опис</th>
+          <th>Приклад використання</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>whitelist add &lt;нікнейм&gt;</code></td>
+          <td>Додає до білого списку</td>
+          <td><code>whitelist add NewFriend</code></td>
+      </tr>
+      <tr>
+          <td><code>whitelist remove &lt;нікнейм&gt;</code></td>
+          <td>Видаляє з білого списку</td>
+          <td><code>whitelist remove OldPlayer</code></td>
+      </tr>
+      <tr>
+          <td><code>whitelist list</code></td>
+          <td>Виводить повний список білого листа</td>
+          <td><code>whitelist list</code></td>
+      </tr>
+      <tr>
+          <td><code>whitelist on/off</code></td>
+          <td>Вмикає/вимикає режим білого списку</td>
+          <td><code>whitelist on</code></td>
+      </tr>
+      <tr>
+          <td><code>whitelist reload</code></td>
+          <td>Перезавантажує білий список після правок у файлі</td>
+          <td><code>whitelist reload</code></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+<div
+  class="hextra-tabs-panel hx:rounded-sm hx:pt-6 hx:hidden hx:data-[state=selected]:block"
+  id="tabs-panel-2"
+  role="tabpanel"><h3>Бани та кіки<span class="hx:absolute hx:-mt-20" id="бани-та-кіки"></span>
+    <a href="#%d0%b1%d0%b0%d0%bd%d0%b8-%d1%82%d0%b0-%d0%ba%d1%96%d0%ba%d0%b8" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Команда</th>
+          <th>Опис</th>
+          <th>Приклад використання</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>ban &lt;нікнейм&gt; [причина]</code></td>
+          <td>Додає гравця до чорного списку сервера</td>
+          <td><code>ban Griefer123 &quot;Спам у чаті&quot;</code></td>
+      </tr>
+      <tr>
+          <td><code>ban-ip &lt;IP-адреса&gt;</code></td>
+          <td>Блокує доступ по IP на сервер</td>
+          <td><code>ban-ip 192.168.1.1</code></td>
+      </tr>
+      <tr>
+          <td><code>kick &lt;нікнейм&gt; [причина]</code></td>
+          <td>Вигоняє гравця з сервера</td>
+          <td><code>kick TrollUser &quot;Правила сервера&quot;</code></td>
+      </tr>
+      <tr>
+          <td><code>pardon &lt;нікнейм&gt;</code></td>
+          <td>Знімає блокування з гравця</td>
+          <td><code>pardon ReformedGriefer</code></td>
+      </tr>
+      <tr>
+          <td><code>pardon-ip &lt;IP-адреса&gt;</code></td>
+          <td>Розблоковує IP з чорного списку</td>
+          <td><code>pardon-ip 192.168.1.1</code></td>
+      </tr>
+      <tr>
+          <td><code>banlist</code></td>
+          <td>Виводить список забанених гравців</td>
+          <td><code>banlist</code></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+<h2>Команди для операторів (OP): Творчий арсенал<span class="hx:absolute hx:-mt-20" id="команди-для-операторів-op-творчий-арсенал"></span>
+    <a href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%82%d0%be%d1%80%d1%96%d0%b2-op-%d1%82%d0%b2%d0%be%d1%80%d1%87%d0%b8%d0%b9-%d0%b0%d1%80%d1%81%d0%b5%d0%bd%d0%b0%d0%bb" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Якщо ви OP, то стаєте царем сервера. Вони дозволяють частково керувати сервером на сервері: від роздачі речей, додавання до списку до блокування поганих гравців. У чаті додавайте <code>/</code> перед командою.</p>
+<div class="hextra-scrollbar hx:overflow-x-auto hx:overflow-y-hidden hx:overscroll-x-contain">
+  <div class="hx:mt-4 hx:flex hx:w-max hx:min-w-full hx:border-b hx:border-gray-200 hx:pb-px hx:dark:border-neutral-800"><button
+        class="hextra-tabs-toggle hx:cursor-pointer hx:data-[state=selected]:border-primary-500 hx:data-[state=selected]:text-primary-600 hx:data-[state=selected]:dark:border-primary-500 hx:data-[state=selected]:dark:text-primary-600 hx:mr-2 hx:rounded-t hx:p-2 hx:font-medium hx:leading-5 hx:transition-colors hx:-mb-0.5 hx:select-none hx:border-b-2 hx:border-transparent hx:text-gray-600 hx:hover:border-gray-200 hx:hover:text-black hx:dark:text-gray-200 hx:dark:hover:border-neutral-800 hx:dark:hover:text-white"
+        role="tab"
+        type="button"
+        aria-controls="tabs-panel-0" aria-selected="true"  tabindex="0"  data-state="selected">Керування гравцями</button><button
+        class="hextra-tabs-toggle hx:cursor-pointer hx:data-[state=selected]:border-primary-500 hx:data-[state=selected]:text-primary-600 hx:data-[state=selected]:dark:border-primary-500 hx:data-[state=selected]:dark:text-primary-600 hx:mr-2 hx:rounded-t hx:p-2 hx:font-medium hx:leading-5 hx:transition-colors hx:-mb-0.5 hx:select-none hx:border-b-2 hx:border-transparent hx:text-gray-600 hx:hover:border-gray-200 hx:hover:text-black hx:dark:text-gray-200 hx:dark:hover:border-neutral-800 hx:dark:hover:text-white"
+        role="tab"
+        type="button"
+        aria-controls="tabs-panel-1">Контроль світу</button><button
+        class="hextra-tabs-toggle hx:cursor-pointer hx:data-[state=selected]:border-primary-500 hx:data-[state=selected]:text-primary-600 hx:data-[state=selected]:dark:border-primary-500 hx:data-[state=selected]:dark:text-primary-600 hx:mr-2 hx:rounded-t hx:p-2 hx:font-medium hx:leading-5 hx:transition-colors hx:-mb-0.5 hx:select-none hx:border-b-2 hx:border-transparent hx:text-gray-600 hx:hover:border-gray-200 hx:hover:text-black hx:dark:text-gray-200 hx:dark:hover:border-neutral-800 hx:dark:hover:text-white"
+        role="tab"
+        type="button"
+        aria-controls="tabs-panel-2">Предмети та досвід</button></div>
+</div>
+<div>
+
+<div
+  class="hextra-tabs-panel hx:rounded-sm hx:pt-6 hx:hidden hx:data-[state=selected]:block"
+  id="tabs-panel-0"
+  role="tabpanel" tabindex="0"  data-state="selected" ><h3>Керування гравцями<span class="hx:absolute hx:-mt-20" id="керування-гравцями"></span>
+    <a href="#%d0%ba%d0%b5%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-%d0%b3%d1%80%d0%b0%d0%b2%d1%86%d1%8f%d0%bc%d0%b8" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Команда</th>
+          <th>Опис</th>
+          <th>Приклад використання</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>op &lt;нікнейм&gt;</code></td>
+          <td>Призначає оператора</td>
+          <td><code>op qwerhost</code></td>
+      </tr>
+      <tr>
+          <td><code>deop &lt;нікнейм&gt;</code></td>
+          <td>Позбавляє прав оператора</td>
+          <td><code>deop qwerhost</code></td>
+      </tr>
+      <tr>
+          <td><code>gamemode &lt;режим&gt; [нікнейм]</code></td>
+          <td>Перемикає режим гри (s/c/a для скорочень)</td>
+          <td><code>gamemode creative qwerhost</code></td>
+      </tr>
+      <tr>
+          <td><code>tp &lt;нікнейм1&gt; &lt;нікнейм2&gt;</code></td>
+          <td>Телепортує одного до іншого</td>
+          <td><code>tp qwerhost qwerty1234</code></td>
+      </tr>
+      <tr>
+          <td><code>tp &lt;нікнейм&gt; &lt;x y z&gt;</code></td>
+          <td>Телепортує за координатами</td>
+          <td><code>tp qwerhost 100 64 200</code></td>
+      </tr>
+      <tr>
+          <td><code>spawnpoint [нікнейм] [x y z]</code></td>
+          <td>Встановлює точку спавну</td>
+          <td><code>spawnpoint qwerhost 100 64 200</code></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+<div
+  class="hextra-tabs-panel hx:rounded-sm hx:pt-6 hx:hidden hx:data-[state=selected]:block"
+  id="tabs-panel-1"
+  role="tabpanel"><h3>Контроль світу<span class="hx:absolute hx:-mt-20" id="контроль-світу"></span>
+    <a href="#%d0%ba%d0%be%d0%bd%d1%82%d1%80%d0%be%d0%bb%d1%8c-%d1%81%d0%b2%d1%96%d1%82%d1%83" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Команда</th>
+          <th>Опис</th>
+          <th>Приклад використання</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>difficulty &lt;рівень&gt;</code></td>
+          <td>Змінює складність: 0-3</td>
+          <td><code>difficulty 3</code></td>
+      </tr>
+      <tr>
+          <td><code>time set &lt;час/day/night&gt;</code></td>
+          <td>Фіксує час доби (0–23999 тіків)</td>
+          <td><code>time set day</code></td>
+      </tr>
+      <tr>
+          <td><code>weather &lt;clear/rain/thunder&gt;</code></td>
+          <td>Керує погодою</td>
+          <td><code>weather clear</code></td>
+      </tr>
+      <tr>
+          <td><code>gamerule &lt;правило&gt; &lt;значення&gt;</code></td>
+          <td>Змінює ігрові правила</td>
+          <td><code>gamerule keepInventory true</code></td>
+      </tr>
+  </tbody>
+</table>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-green-200 hx:bg-green-100 hx:text-green-900 hx:dark:border-green-200/30 hx:dark:bg-green-900/30 hx:dark:text-green-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><strong>Рівні складності:</strong></p>
+<ul>
+<li>0 = Мирний</li>
+<li>1 = Легкий</li>
+<li>2 = Нормальний</li>
+<li>3 = Складний</li>
+</ul></div>
+  </div>
+</div></div>
+
+<div
+  class="hextra-tabs-panel hx:rounded-sm hx:pt-6 hx:hidden hx:data-[state=selected]:block"
+  id="tabs-panel-2"
+  role="tabpanel"><h3>Предмети та досвід<span class="hx:absolute hx:-mt-20" id="предмети-та-досвід"></span>
+    <a href="#%d0%bf%d1%80%d0%b5%d0%b4%d0%bc%d0%b5%d1%82%d0%b8-%d1%82%d0%b0-%d0%b4%d0%be%d1%81%d0%b2%d1%96%d0%b4" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Команда</th>
+          <th>Опис</th>
+          <th>Приклад використання</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>give &lt;нікнейм&gt; &lt;предмет&gt; [кількість]</code></td>
+          <td>Видає предмети</td>
+          <td><code>give qwerhost diamond_sword 1</code></td>
+      </tr>
+      <tr>
+          <td><code>clear &lt;нікнейм&gt;</code></td>
+          <td>Очищає інвентар</td>
+          <td><code>clear qwerhost</code></td>
+      </tr>
+  </tbody>
+</table>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div>
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><strong>Обережно з командою Give:</strong>
+Деякі предмети можуть порушити ігровий баланс. Використовуйте відповідально, особливо з потужними зачарованими предметами.</div>
+  </div>
+</div>
+</div>
+
+</div>
+<h2>Просунуте адміністрування<span class="hx:absolute hx:-mt-20" id="просунуте-адміністрування"></span>
+    <a href="#%d0%bf%d1%80%d0%be%d1%81%d1%83%d0%bd%d1%83%d1%82%d0%b5-%d0%b0%d0%b4%d0%bc%d1%96%d0%bd%d1%96%d1%81%d1%82%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="hextra-scrollbar hx:overflow-x-auto hx:overflow-y-hidden hx:overscroll-x-contain">
+  <div class="hx:mt-4 hx:flex hx:w-max hx:min-w-full hx:border-b hx:border-gray-200 hx:pb-px hx:dark:border-neutral-800"><button
+        class="hextra-tabs-toggle hx:cursor-pointer hx:data-[state=selected]:border-primary-500 hx:data-[state=selected]:text-primary-600 hx:data-[state=selected]:dark:border-primary-500 hx:data-[state=selected]:dark:text-primary-600 hx:mr-2 hx:rounded-t hx:p-2 hx:font-medium hx:leading-5 hx:transition-colors hx:-mb-0.5 hx:select-none hx:border-b-2 hx:border-transparent hx:text-gray-600 hx:hover:border-gray-200 hx:hover:text-black hx:dark:text-gray-200 hx:dark:hover:border-neutral-800 hx:dark:hover:text-white"
+        role="tab"
+        type="button"
+        aria-controls="tabs-panel-0" aria-selected="true"  tabindex="0"  data-state="selected">Інформація про сервер</button><button
+        class="hextra-tabs-toggle hx:cursor-pointer hx:data-[state=selected]:border-primary-500 hx:data-[state=selected]:text-primary-600 hx:data-[state=selected]:dark:border-primary-500 hx:data-[state=selected]:dark:text-primary-600 hx:mr-2 hx:rounded-t hx:p-2 hx:font-medium hx:leading-5 hx:transition-colors hx:-mb-0.5 hx:select-none hx:border-b-2 hx:border-transparent hx:text-gray-600 hx:hover:border-gray-200 hx:hover:text-black hx:dark:text-gray-200 hx:dark:hover:border-neutral-800 hx:dark:hover:text-white"
+        role="tab"
+        type="button"
+        aria-controls="tabs-panel-1">Комунікація</button><button
+        class="hextra-tabs-toggle hx:cursor-pointer hx:data-[state=selected]:border-primary-500 hx:data-[state=selected]:text-primary-600 hx:data-[state=selected]:dark:border-primary-500 hx:data-[state=selected]:dark:text-primary-600 hx:mr-2 hx:rounded-t hx:p-2 hx:font-medium hx:leading-5 hx:transition-colors hx:-mb-0.5 hx:select-none hx:border-b-2 hx:border-transparent hx:text-gray-600 hx:hover:border-gray-200 hx:hover:text-black hx:dark:text-gray-200 hx:dark:hover:border-neutral-800 hx:dark:hover:text-white"
+        role="tab"
+        type="button"
+        aria-controls="tabs-panel-2">Відлагодження</button></div>
+</div>
+<div>
+
+<div
+  class="hextra-tabs-panel hx:rounded-sm hx:pt-6 hx:hidden hx:data-[state=selected]:block"
+  id="tabs-panel-0"
+  role="tabpanel" tabindex="0"  data-state="selected" ><h3>Інформація про сервер<span class="hx:absolute hx:-mt-20" id="інформація-про-сервер"></span>
+    <a href="#%d1%96%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d1%96%d1%8f-%d0%bf%d1%80%d0%be-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Команда</th>
+          <th>Опис</th>
+          <th>Приклад використання</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>help [сторінка/команда]</code></td>
+          <td>Довідник команд (? як аліас)</td>
+          <td><code>help 2</code></td>
+      </tr>
+      <tr>
+          <td><code>seed</code></td>
+          <td>Показує сід світу</td>
+          <td><code>seed</code></td>
+      </tr>
+      <tr>
+          <td><code>version</code></td>
+          <td>Показує версію сервера</td>
+          <td><code>version</code></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+<div
+  class="hextra-tabs-panel hx:rounded-sm hx:pt-6 hx:hidden hx:data-[state=selected]:block"
+  id="tabs-panel-1"
+  role="tabpanel"><h3>Комунікація<span class="hx:absolute hx:-mt-20" id="комунікація"></span>
+    <a href="#%d0%ba%d0%be%d0%bc%d1%83%d0%bd%d1%96%d0%ba%d0%b0%d1%86%d1%96%d1%8f" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Команда</th>
+          <th>Опис</th>
+          <th>Приклад використання</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>say &lt;повідомлення&gt;</code></td>
+          <td>Транслює рожеве оголошення всім</td>
+          <td><code>say &quot;Сервер оновлено! Ласкаво просимо!&quot;</code></td>
+      </tr>
+      <tr>
+          <td><code>tell &lt;нікнейм&gt; &lt;повідомлення&gt;</code></td>
+          <td>Особисте повідомлення гравцю</td>
+          <td><code>tell qwerhost &quot;Найкращий хост qwerhost!&quot;</code></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+<div
+  class="hextra-tabs-panel hx:rounded-sm hx:pt-6 hx:hidden hx:data-[state=selected]:block"
+  id="tabs-panel-2"
+  role="tabpanel"><h3>Відлагодження та продуктивність<span class="hx:absolute hx:-mt-20" id="відлагодження-та-продуктивність"></span>
+    <a href="#%d0%b2%d1%96%d0%b4%d0%bb%d0%b0%d0%b3%d0%be%d0%b4%d0%b6%d0%b5%d0%bd%d0%bd%d1%8f-%d1%82%d0%b0-%d0%bf%d1%80%d0%be%d0%b4%d1%83%d0%ba%d1%82%d0%b8%d0%b2%d0%bd%d1%96%d1%81%d1%82%d1%8c" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Команда</th>
+          <th>Опис</th>
+          <th>Приклад використання</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>tps</code></td>
+          <td>Показує продуктивність сервера (TPS)</td>
+          <td><code>tps</code></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+<h2>Швидкі довідкові картки<span class="hx:absolute hx:-mt-20" id="швидкі-довідкові-картки"></span>
+    <a href="#%d1%88%d0%b2%d0%b8%d0%b4%d0%ba%d1%96-%d0%b4%d0%be%d0%b2%d1%96%d0%b4%d0%ba%d0%be%d0%b2%d1%96-%d0%ba%d0%b0%d1%80%d1%82%d0%ba%d0%b8" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="hextra-cards hx:mt-4 hx:gap-4 hx:grid not-prose" style="--hextra-cards-grid-cols: 3;">
+    <a
+      class="hextra-card hx:group hx:flex hx:flex-col hx:justify-start hx:overflow-hidden hx:rounded-lg hx:border hx:border-gray-200 hx:text-current hx:no-underline hx:dark:shadow-none hx:hover:shadow-gray-100 hx:dark:hover:shadow-none hx:shadow-gray-100 hx:active:shadow-sm hx:active:shadow-gray-200 hx:transition-all hx:duration-200 hx:hover:border-gray-300 hx:bg-transparent hx:shadow-xs hx:dark:border-neutral-800 hx:hover:bg-slate-50 hx:hover:shadow-md hx:dark:hover:border-neutral-700 hx:dark:hover:bg-neutral-900"href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%ba%d0%b5%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-%d0%bc%d1%83%d0%bb%d1%8c%d1%82%d0%b8%d0%bf%d0%bb%d0%b5%d1%94%d1%80%d0%be%d0%bc-%d0%ba%d0%be%d0%bd%d1%81%d0%be%d0%bb%d1%8c-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0"
+        ><span class="hextra-card-icon hx:flex hx:font-semibold hx:items-start hx:gap-2 hx:pt-4 hx:px-4 hx:text-gray-700 hx:hover:text-gray-900 hx:dark:text-neutral-200 hx:dark:hover:text-neutral-50"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>Керування сервером</span><div class="hextra-card-subtitle hx:line-clamp-3 hx:text-sm hx:font-normal hx:text-gray-500 hx:dark:text-gray-400 hx:px-4 hx:mb-4 hx:mt-2">Базове керування сервером, білий список, бани та кіки</div></a>
+    <a
+      class="hextra-card hx:group hx:flex hx:flex-col hx:justify-start hx:overflow-hidden hx:rounded-lg hx:border hx:border-gray-200 hx:text-current hx:no-underline hx:dark:shadow-none hx:hover:shadow-gray-100 hx:dark:hover:shadow-none hx:shadow-gray-100 hx:active:shadow-sm hx:active:shadow-gray-200 hx:transition-all hx:duration-200 hx:hover:border-gray-300 hx:bg-transparent hx:shadow-xs hx:dark:border-neutral-800 hx:hover:bg-slate-50 hx:hover:shadow-md hx:dark:hover:border-neutral-700 hx:dark:hover:bg-neutral-900"href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%82%d0%be%d1%80%d1%96%d0%b2-op-%d1%82%d0%b2%d0%be%d1%80%d1%87%d0%b8%d0%b9-%d0%b0%d1%80%d1%81%d0%b5%d0%bd%d0%b0%d0%bb"
+        ><span class="hextra-card-icon hx:flex hx:font-semibold hx:items-start hx:gap-2 hx:pt-4 hx:px-4 hx:text-gray-700 hx:hover:text-gray-900 hx:dark:text-neutral-200 hx:dark:hover:text-neutral-50"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Команди операторів</span><div class="hextra-card-subtitle hx:line-clamp-3 hx:text-sm hx:font-normal hx:text-gray-500 hx:dark:text-gray-400 hx:px-4 hx:mb-4 hx:mt-2">Керування гравцями, контроль світу, предмети та досвід</div></a>
+    <a
+      class="hextra-card hx:group hx:flex hx:flex-col hx:justify-start hx:overflow-hidden hx:rounded-lg hx:border hx:border-gray-200 hx:text-current hx:no-underline hx:dark:shadow-none hx:hover:shadow-gray-100 hx:dark:hover:shadow-none hx:shadow-gray-100 hx:active:shadow-sm hx:active:shadow-gray-200 hx:transition-all hx:duration-200 hx:hover:border-gray-300 hx:bg-transparent hx:shadow-xs hx:dark:border-neutral-800 hx:hover:bg-slate-50 hx:hover:shadow-md hx:dark:hover:border-neutral-700 hx:dark:hover:bg-neutral-900"href="#%d0%bf%d1%80%d0%be%d1%81%d1%83%d0%bd%d1%83%d1%82%d0%b5-%d0%b0%d0%b4%d0%bc%d1%96%d0%bd%d1%96%d1%81%d1%82%d1%80%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f"
+        ><span class="hextra-card-icon hx:flex hx:font-semibold hx:items-start hx:gap-2 hx:pt-4 hx:px-4 hx:text-gray-700 hx:hover:text-gray-900 hx:dark:text-neutral-200 hx:dark:hover:text-neutral-50"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Просунуте адміністрування</span><div class="hextra-card-subtitle hx:line-clamp-3 hx:text-sm hx:font-normal hx:text-gray-500 hx:dark:text-gray-400 hx:px-4 hx:mb-4 hx:mt-2">Інформація про сервер, комунікація та інструменти відлагодження</div></a>
+</div>
+
+<h2>Професійні поради для адміністраторів серверів<span class="hx:absolute hx:-mt-20" id="професійні-поради-для-адміністраторів-серверів"></span>
+    <a href="#%d0%bf%d1%80%d0%be%d1%84%d0%b5%d1%81%d1%96%d0%b9%d0%bd%d1%96-%d0%bf%d0%be%d1%80%d0%b0%d0%b4%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%b0%d0%b4%d0%bc%d1%96%d0%bd%d1%96%d1%81%d1%82%d1%80%d0%b0%d1%82%d0%be%d1%80%d1%96%d0%b2-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d1%96%d0%b2" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-green-200 hx:bg-green-100 hx:text-green-900 hx:dark:border-green-200/30 hx:dark:bg-green-900/30 hx:dark:text-green-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><strong>Найкращі практики:</strong></p>
+<ol>
+<li><strong>Регулярні бекапи</strong>: Використовуйте <code>save-all</code> перед будь-якими серйозними змінами</li>
+<li><strong>Моніторинг активності</strong>: Регулярно перевіряйте <code>list</code> та <code>banlist</code></li>
+<li><strong>Спочатку тестуйте</strong>: Пробуйте команди на тестовому сервері перед продакшеном</li>
+<li><strong>Документуйте зміни</strong>: Ведіть журнал важливих адміністративних дій</li>
+<li><strong>Будьте послідовними</strong>: Встановіть чіткі правила та справедливо їх дотримуйтесь</li>
+</ol></div>
+  </div>
+</div>
+
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><strong>Нагадування про безпеку:</strong></p>
+<ul>
+<li>Давайте статус OP тільки довіреним гравцям</li>
+<li>Регулярно перевіряйте білий список та список банів</li>
+<li>Використовуйте команду <code>stop</code> замість примусового закриття</li>
+<li>Стежте за логами сервера на предмет підозрілої активності</li>
+</ul></div>
+  </div>
+</div>
+
+<h2>Висновок<span class="hx:absolute hx:-mt-20" id="висновок"></span>
+    <a href="#%d0%b2%d0%b8%d1%81%d0%bd%d0%be%d0%b2%d0%be%d0%ba" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Вітаємо — ви щойно освоїли консоль Minecraft! Але пам&rsquo;ятайте: справжня магія в практиці. Почніть з малого: протестуйте на локальному сервері, поекспериментуйте. З часом ви вивчите їх напам&rsquo;ять.</p>
+<p>Якщо сервер росте, загляньте в плагіни на кшталт EssentialsX для розширення. А для глибокого занурення — офіційна вікі, плагіни.</p>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><strong>Потрібна додаткова допомога?</strong></p>
+<ul>
+<li>Приєднуйтесь до нашої <a href="https://discord.com/invite/fTqZBaEbbG"target="_blank" rel="noopener">Discord спільноти</a> для підтримки в реальному часі</li>
+</ul></div>
+  </div>
+</div>
+
+
+        </div>
+        <div class="hx:mt-16"></div>
+        
+        
+      </main>
+    </article>
+  </div>
+
+      <footer class="hextra-footer hx:bg-gray-100 hx:pb-[env(safe-area-inset-bottom)] hx:dark:bg-neutral-900 hx:print:bg-transparent"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <div class="hextra-max-footer-width hx:mx-auto hx:flex hx:justify-center hx:py-12 hx:pl-[max(env(safe-area-inset-left),1.5rem)] hx:pr-[max(env(safe-area-inset-right),1.5rem)]" id="custom-footer">
+    <div class="hx:flex hx:w-full hx:flex-col hx:items-center hx:text-center">
+      
+      <div class="copyright-levels">
+        <h1 class="copyright-level primary animated-title">
+          <span class="brand-qwer">qwer</span><span class="brand-host">-host </span><span class="brand-wiki">Wiki</span>
+        </h1>
+        <p class="copyright-level secondary"><a href="https://my.qwer-host.com/">qwer-host</a> © 2022-2025</p>
+        <p class="copyright-level secondary">All rights reserved. Not affiliated with Mojang or Microsoft.</p>
+        <p class="copyright-level secondary">
+          <a href="/terms">Договор-оферта</a> | 
+          <a href="/privacy">Политика конфиденциальности</a>
+        </p>
+      </div>
+      
+      <div class="social-footer">
+        <a href="https://my.qwer-host.com" title="Contact" aria-label="Contact Us" target="_blank" rel="noopener">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="https://discord.com/invite/fTqZBaEbbG" title="Discord" aria-label="Join our Discord" target="_blank" rel="noopener">
+          <i class="fab fa-discord"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="Telegram" aria-label="Join our Telegram" target="_blank" rel="noopener">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="VK" aria-label="Follow us on VK" target="_blank" rel="noopener">
+          <i class="fab fa-vk"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="Instagram" aria-label="Follow us on Instagram" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="TikTok" aria-label="Follow us on TikTok" target="_blank" rel="noopener">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="YouTube" aria-label="Subscribe to our YouTube" target="_blank" rel="noopener">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+    <script defer src="/js/main.js" integrity=""></script>
+<script defer src="/js/flexsearch.9f5b5908f93ae86f1ecd4b043b799f580c2d1654e703dd9357d568ac41b2547a.js" integrity="sha256-n1tZCPk66G8ezUsEO3mfWAwtFlTnA92TV9VorEGyVHo=" crossorigin="anonymous"></script>
+        <script defer src="/uk.search.js" integrity=""></script>
+  </body>
+</html>

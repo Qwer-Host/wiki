@@ -1056,5 +1056,68 @@ Origin Rule:
       </description>
     </item>
     
+    <item>
+      <title>MySQL (Базы данных)</title>
+      <link>//localhost:1313/docs/server-setup/mysql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/docs/server-setup/mysql/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Для чего нужны MySQL базы данных и как их использовать?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;для-чего-нужны-mysql-базы-данных-и-как-их-использовать&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%b4%d0%bb%d1%8f-%d1%87%d0%b5%d0%b3%d0%be-%d0%bd%d1%83%d0%b6%d0%bd%d1%8b-mysql-%d0%b1%d0%b0%d0%b7%d1%8b-%d0%b4%d0%b0%d0%bd%d0%bd%d1%8b%d1%85-%d0%b8-%d0%ba%d0%b0%d0%ba-%d0%b8%d1%85-%d0%b8%d1%81%d0%bf%d0%be%d0%bb%d1%8c%d0%b7%d0%be%d0%b2%d0%b0%d1%82%d1%8c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;MySQL базы данных используются для хранения данных плагинов, а также синхронизации данных между серверами в связке. Данные, хранящиеся в базе, не занимают пространство на диске сервера.&lt;/p&gt;
+&lt;h2&gt;Создание базы данных&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;создание-базы-данных&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%bd%d0%b8%d0%b5-%d0%b1%d0%b0%d0%b7%d1%8b-%d0%b4%d0%b0%d0%bd%d0%bd%d1%8b%d1%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Для создания базы данных:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Перейдите в панель управления сервером.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Зайдите во вкладку «Базы»/«Databases».&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Создайте новую базу данных и придумайте название для неё в соответствии с плагином, для которого Вы собираетесь её использовать.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/open-database.png&#34; alt=&#34;Открытие раздела баз данных&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Нажимаете на значок «глаза» чтобы увидеть параметры базы данных.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/open-full-settings-database.png&#34; alt=&#34;Настройки базы данных&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Готово! Вы создали базу данных.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Привязка базы данных к плагину&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;привязка-базы-данных-к-плагину&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%bf%d1%80%d0%b8%d0%b2%d1%8f%d0%b7%d0%ba%d0%b0-%d0%b1%d0%b0%d0%b7%d1%8b-%d0%b4%d0%b0%d0%bd%d0%bd%d1%8b%d1%85-%d0%ba-%d0%bf%d0%bb%d0%b0%d0%b3%d0%b8%d0%bd%d1%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Теперь перейдём к привязке базы данных к плагину. Как пример мы возьмём плагин CoreProtect.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Перейдите во вкладку Files в каталог плагина (&lt;code&gt;plugins/CoreProtect&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Откройте &lt;code&gt;config.yml&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Найдите настройки хранения данных. Сначала необходимо включить поддержку MySQL в плагине, в данном случае необходимо поставить &lt;code&gt;use-mysql: true&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/use-mysql-coreprotect.png&#34; alt=&#34;Включение MySQL в CoreProtect&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Скопируйте нужную информацию в соответствующие поля. Пароль рекомендуется писать в кавычках &lt;code&gt;&amp;quot; &amp;quot;&lt;/code&gt;, так как в нем могут быть специальные символы. Также обратите внимание на название базы, оно должно в точности соответствовать значению из панели.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/settings-coreprotcet.png&#34; alt=&#34;Настройки MySQL в CoreProtect&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Сохраните конфиг и перезагрузите сервер.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Работа с другими плагинами&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;работа-с-другими-плагинами&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0-%d1%81-%d0%b4%d1%80%d1%83%d0%b3%d0%b8%d0%bc%d0%b8-%d0%bf%d0%bb%d0%b0%d0%b3%d0%b8%d0%bd%d0%b0%d0%bc%d0%b8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;В других плагинах делается так же, но есть некоторые исключения, где базы данных вынесены в отдельный &lt;code&gt;.yml&lt;/code&gt; файл. Всё делается по логике, просто ищите место, где от вас требуются поля, которые вам даны в панели управления.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Заключение&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;заключение&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%b7%d0%b0%d0%ba%d0%bb%d1%8e%d1%87%d0%b5%d0%bd%d0%b8%d0%b5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Теперь вы знаете, как создавать и использовать MySQL базы данных для ваших плагинов! Это открывает множество возможностей для синхронизации данных и оптимизации работы сервера.&lt;/p&gt;
+&lt;p&gt;Если у вас возникли проблемы, обратитесь в техническую поддержку вашего хостинга.&lt;/p&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

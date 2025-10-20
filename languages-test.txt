@@ -1,0 +1,205 @@
+﻿languages:
+  ru:
+    languageName: Р СѓСЃСЃРєРёР№
+    languageCode: ru-RU
+    weight: 1
+    title: qwer-host Wiki
+    menu:
+      main:
+        - identifier: documentation
+          name: Р”РѕРєСѓРјРµРЅС‚Р°С†РёСЏ
+          pageRef: /docs
+          weight: 1
+        - identifier: versions
+          name: Р’РµСЂСЃРёРё
+          weight: 2
+        - identifier: blog
+          name: Р‘Р»РѕРі
+          pageRef: /blog
+          weight: 3
+        - identifier: about
+          name: Рћ РЅР°СЃ
+          pageRef: /about
+          weight: 4
+        - identifier: showcase
+          name: Р’РёС‚СЂРёРЅР°
+          pageRef: /showcase
+          weight: 5
+          params:
+            type: link
+            icon: collection
+        - name: РџРѕРёСЃРє
+          weight: 6
+          params:
+            type: search
+        - name: РЇР·С‹Рє
+          weight: 7
+          params:
+            type: language-switch
+            icon: translate
+        - name: РўРµРјР°
+          weight: 8
+          params:
+            type: theme-toggle
+        - identifier: development
+          name: Р Р°Р·СЂР°Р±РѕС‚РєР° в†—
+          url: https://mhcore.xyz
+          parent: versions
+          params:
+            type: link
+            icon: beaker
+        - identifier: v0.9
+          name: v0.9 в†—
+          url: https://mhcore.xyz
+          parent: versions
+      sidebar:
+        - identifier: more
+          name: Р‘РѕР»СЊС€Рµ
+          params:
+            type: separator
+          weight: 1
+        - identifier: about
+          name: "Рћ РЅР°СЃ"
+          pageRef: "/about"
+          weight: 2
+        - identifier: hugoDocs
+          name: "Hugo Р”РѕРєСѓРјРµРЅС‚Р°С†РёСЏ в†—"
+          url: "https://mhcore.xyz"
+          weight: 3
+
+  en:
+    languageName: English
+    languageCode: en-US
+    weight: 2
+    title: qwer-host Wiki
+    menu:
+      main:
+        - identifier: documentation
+          name: Documentation
+          pageRef: /docs
+          weight: 1
+        - identifier: versions
+          name: Versions
+          weight: 2
+        - identifier: blog
+          name: Blog
+          pageRef: /blog
+          weight: 3
+        - identifier: about
+          name: About
+          pageRef: /about
+          weight: 4
+        - identifier: showcase
+          name: Showcase
+          pageRef: /showcase
+          weight: 5
+          params:
+            type: link
+            icon: collection
+        - name: Search
+          weight: 6
+          params:
+            type: search
+        - name: Language
+          weight: 7
+          params:
+            type: language-switch
+            icon: translate
+        - name: Theme
+          weight: 8
+          params:
+            type: theme-toggle
+        - identifier: development
+          name: Development в†—
+          url: https://mhcore.xyz
+          parent: versions
+          params:
+            type: link
+            icon: beaker
+        - identifier: v0.9
+          name: v0.9 в†—
+          url: https://mhcore.xyz
+          parent: versions
+      sidebar:
+        - identifier: more
+          name: More
+          params:
+            type: separator
+          weight: 1
+        - identifier: about
+          name: "About"
+          pageRef: "/about"
+          weight: 2
+        - identifier: hugoDocs
+          name: "Hugo Docs в†—"
+          url: "https://mhcore.xyz"
+          weight: 3
+
+  uk:
+    languageName: Ukrainian
+    languageCode: uk-UA
+    weight: 3
+    title: qwer-host Wiki
+    menu:
+      main:
+        - identifier: documentation
+          name: Р”РѕРєСѓРјРµРЅС‚Р°С†С–СЏ
+          pageRef: /docs
+          weight: 1
+        - identifier: versions
+          name: Р’РµСЂСЃС–С—
+          weight: 2
+        - identifier: blog
+          name: Р‘Р»РѕРі
+          pageRef: /blog
+          weight: 3
+        - identifier: about
+          name: РџСЂРѕ РЅР°СЃ
+          pageRef: /about
+          weight: 4
+        - identifier: showcase
+          name: Р’С–С‚СЂРёРЅР°
+          pageRef: /showcase
+          weight: 5
+          params:
+            type: link
+            icon: collection
+        - name: РџРѕС€СѓРє
+          weight: 6
+          params:
+            type: search
+        - name: РњРѕРІР°
+          weight: 7
+          params:
+            type: language-switch
+            icon: translate
+        - name: РўРµРјР°
+          weight: 8
+          params:
+            type: theme-toggle
+        - identifier: development
+          name: Р РѕР·СЂРѕР±РєР° в†—
+          url: https://mhcore.xyz
+          parent: versions
+          params:
+            type: link
+            icon: beaker
+        - identifier: v0.9
+          name: v0.9 в†—
+          url: https://mhcore.xyz
+          parent: versions
+      sidebar:
+        - identifier: more
+          name: Р‘С–Р»СЊС€Рµ
+          params:
+            type: separator
+          weight: 1
+        - identifier: about
+          name: "РџСЂРѕ РЅР°СЃ"
+          pageRef: "/about"
+          weight: 2
+        - identifier: hugoDocs
+          name: "Hugo Р”РѕРєСѓРјРµРЅС‚Р°С†С–СЏ в†—"
+          url: "https://mhcore.xyz"
+          weight: 3
+

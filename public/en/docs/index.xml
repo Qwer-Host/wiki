@@ -1056,5 +1056,64 @@ In Target, specify your node address in the format: &lt;code&gt;(node_name).mhco
       </description>
     </item>
     
+    <item>
+      <title>MySQL (Databases)</title>
+      <link>//localhost:1313/en/docs/server-setup/mysql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/en/docs/server-setup/mysql/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;What are MySQL databases for and how to use them?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;what-are-mysql-databases-for-and-how-to-use-them&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#what-are-mysql-databases-for-and-how-to-use-them&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;MySQL databases are used to store plugin data and synchronize data between servers in a network. Data stored in the database does not take up space on the server disk.&lt;/p&gt;
+&lt;h2&gt;Creating a Database&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;creating-a-database&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#creating-a-database&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;To create a database:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the server control panel.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Navigate to the &amp;ldquo;Databases&amp;rdquo; tab.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new database and come up with a name for it according to the plugin you are going to use it for.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/open-database.png&#34; alt=&#34;Opening databases section&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Click on the &amp;ldquo;eye&amp;rdquo; icon to see the database parameters.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/open-full-settings-database.png&#34; alt=&#34;Database settings&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Done! You have created a database.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Connecting a Database to a Plugin&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;connecting-a-database-to-a-plugin&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#connecting-a-database-to-a-plugin&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Now let&amp;rsquo;s move on to connecting the database to a plugin. As an example, we will use the CoreProtect plugin.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the Files tab in the plugin directory (&lt;code&gt;plugins/CoreProtect&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open &lt;code&gt;config.yml&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Find the data storage settings. First, you need to enable MySQL support in the plugin. In this case, you need to set &lt;code&gt;use-mysql: true&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/use-mysql-coreprotect.png&#34; alt=&#34;Enable MySQL in CoreProtect&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Copy the necessary information into the corresponding fields. It is recommended to put the password in quotes &lt;code&gt;&amp;quot; &amp;quot;&lt;/code&gt;, as it may contain special characters. Also pay attention to the database name - it must exactly match the value from the panel.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/settings-coreprotcet.png&#34; alt=&#34;CoreProtect MySQL settings&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Save the config and restart the server.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Working with Other Plugins&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;working-with-other-plugins&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#working-with-other-plugins&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Other plugins work the same way, but there are some exceptions where databases are placed in a separate &lt;code&gt;.yml&lt;/code&gt; file. Everything is done logically - just look for a place where you need to enter the fields that are given to you in the control panel.&lt;/p&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

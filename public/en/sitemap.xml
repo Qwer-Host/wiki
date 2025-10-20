@@ -10,6 +10,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/en/docs/"
                 />
@@ -19,6 +24,11 @@
                 rel="alternate"
                 hreflang="ru"
                 href="//localhost:1313/docs/cloudflare/disable-ech/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/cloudflare/disable-ech/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -34,6 +44,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/minecraft-commands/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/en/docs/minecraft-commands/"
                 />
@@ -43,6 +58,11 @@
                 rel="alternate"
                 hreflang="ru"
                 href="//localhost:1313/docs/cloudflare/web-server-setup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/cloudflare/web-server-setup/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -58,6 +78,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/cloudflare/domain-setup/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/en/docs/cloudflare/domain-setup/"
                 />
@@ -70,8 +95,30 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/minecraft-cores/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/en/docs/minecraft-cores/"
+                />
+  </url><url>
+    <loc>//localhost:1313/en/docs/server-setup/mysql/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="//localhost:1313/docs/server-setup/mysql/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/server-setup/mysql/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/en/docs/server-setup/mysql/"
                 />
   </url><url>
     <loc>//localhost:1313/en/docs/cloudflare/</loc>
@@ -79,6 +126,11 @@
                 rel="alternate"
                 hreflang="ru"
                 href="//localhost:1313/docs/cloudflare/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/cloudflare/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -94,6 +146,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/en/categories/"
                 />
@@ -106,6 +163,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/en/tags/"
                 />
@@ -115,6 +177,11 @@
                 rel="alternate"
                 hreflang="ru"
                 href="//localhost:1313/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/"
                 />
     <xhtml:link
                 rel="alternate"

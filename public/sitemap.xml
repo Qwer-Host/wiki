@@ -11,4 +11,9 @@
     
   </sitemap>
   
+  <sitemap>
+    <loc>//localhost:1313/uk/sitemap.xml</loc>
+    
+  </sitemap>
+  
 </sitemapindex>

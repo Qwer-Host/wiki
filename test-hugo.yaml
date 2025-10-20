@@ -1,0 +1,20 @@
+baseURL: "https://example.com/"
+title: "Test Wiki"
+defaultContentLanguage: ru
+
+languages:
+  ru:
+    languageName: Russian
+    languageCode: ru-RU
+    weight: 1
+    title: Test Wiki
+  en:
+    languageName: English
+    languageCode: en-US
+    weight: 2
+    title: Test Wiki
+  uk:
+    languageName: Ukrainian
+    languageCode: uk-UA
+    weight: 3
+    title: Test Wiki
