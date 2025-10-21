@@ -121,6 +121,8 @@
                 href="//localhost:1313/docs/server-setup/mysql/"
                 />
   </url><url>
+    <loc>//localhost:1313/docs/server-setup/top-errors-ru/</loc>
+  </url><url>
     <loc>//localhost:1313/docs/cloudflare/</loc>
     <xhtml:link
                 rel="alternate"

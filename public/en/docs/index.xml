@@ -1115,5 +1115,43 @@ In Target, specify your node address in the format: &lt;code&gt;(node_name).mhco
       </description>
     </item>
     
+    <item>
+      <title>Top Mistakes When Creating a Minecraft Server</title>
+      <link>//localhost:1313/en/docs/server-setup/top-errors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/en/docs/server-setup/top-errors/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Want to start your own Minecraft server and learn how to manage it properly?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;want-to-start-your-own-minecraft-server-and-learn-how-to-manage-it-properly&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#want-to-start-your-own-minecraft-server-and-learn-how-to-manage-it-properly&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Read this article, watch our video, and NEVER repeat these mistakes. Unfortunately, even experienced players sometimes struggle with their servers and blame the hosting. But the responsibility is on your shoulders — and in the video we explain why!&lt;/p&gt;
+&lt;h3&gt;1. Choosing the wrong plan&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;1-choosing-the-wrong-plan&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-choosing-the-wrong-plan&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This is the most common mistake among beginners. To keep the server stable and avoid overload, choose a plan that fits your load. For example, to run a server comfortably without plugins on version 1.20.2, you need at least 2 GB of RAM.
+A useful guide on selecting the right plan — HERE.&lt;/p&gt;
+&lt;h3&gt;2. Installing a huge number of mods/plugins&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;2-installing-a-huge-number-of-modsplugins&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-installing-a-huge-number-of-modsplugins&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;If you install too many plugins or mods, don’t be surprised when something breaks. Plugins can conflict and cause errors. If you plan to add many additions, proceed carefully and be prepared to buy more resources.&lt;/p&gt;
+&lt;h3&gt;3. Ignoring console errors&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;3-ignoring-console-errors&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-ignoring-console-errors&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;You must check the console for errors and warnings. Sometimes something may crash or throw an error related to a component. Read the error, identify the plugin mentioned, and search the web. In 99% of cases a solution exists. If it’s a warning, translate it and take notice.&lt;/p&gt;
+&lt;h3&gt;4. Not using the knowledge base and asking repeated questions to support&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;4-not-using-the-knowledge-base-and-asking-repeated-questions-to-support&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-not-using-the-knowledge-base-and-asking-repeated-questions-to-support&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Learn to google and check our knowledge base. Almost every basic (and not so basic) question has an answer. Learn and understand how things work.&lt;/p&gt;
+&lt;h3&gt;5. Copying servers &amp;ldquo;as is&amp;rdquo;&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;5-copying-servers-as-is&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#5-copying-servers-as-is&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Copying server setups or downloading ready-made packs while only renaming them is short-sighted. Before creating a server, have a unique idea or concept — that will help your project grow.&lt;/p&gt;
+&lt;h3&gt;6. Ignoring backups&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;6-ignoring-backups&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#6-ignoring-backups&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Never neglect backups. Regular snapshots will save you from crashes, corrupted worlds, or plugin update issues.&lt;/p&gt;
+&lt;h3&gt;7. Updating plugins and server without testing&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;7-updating-plugins-and-server-without-testing&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#7-updating-plugins-and-server-without-testing&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Updates can break compatibility. Always test new plugin or server versions on a local or staging server before applying them to production.&lt;/p&gt;
+&lt;h3&gt;8. Poor security configuration&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;8-poor-security-configuration&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#8-poor-security-configuration&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Leaving default passwords, not setting proper access rights, or opening unnecessary ports makes your server vulnerable. Configure operator permissions and use strong passwords.&lt;/p&gt;
+&lt;h3&gt;9. No monitoring or alerts&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;9-no-monitoring-or-alerts&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#9-no-monitoring-or-alerts&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Without monitoring CPU, memory, and disk usage you may miss early signs of problems. Set up alerts and automated backups.&lt;/p&gt;
+&lt;h3&gt;10. Incorrect Java optimization and settings&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;10-incorrect-java-optimization-and-settings&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#10-incorrect-java-optimization-and-settings&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Improper Java startup parameters (heap, garbage collection) and lack of configuration optimization can cause lag and memory leaks. Follow recommendations for your server version and use proven startup templates.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;If you have questions, contact our support or check the help section.&lt;/p&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

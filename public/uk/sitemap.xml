@@ -121,6 +121,18 @@
                 href="//localhost:1313/uk/docs/server-setup/mysql/"
                 />
   </url><url>
+    <loc>//localhost:1313/uk/docs/server-setup/top-errors/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/en/docs/server-setup/top-errors/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/server-setup/top-errors/"
+                />
+  </url><url>
     <loc>//localhost:1313/uk/docs/cloudflare/</loc>
     <xhtml:link
                 rel="alternate"

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="robots" content="noindex, nofollow" />
+  <link rel="icon shortcut" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" id="favicon-svg" />
+<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
+<title>Allowing Offline (Cracked) Clients – Wiki qwer-host</title>
+  <meta name="description" content="How to enable offline-mode for cracked clients and required security measures." /><link rel="canonical" href="//localhost:1313/en/docs/server-setup/allow-offline-auth/" itemprop="url" />
+
+<meta property="og:title" content="Allowing Offline (Cracked) Clients" />
+<meta property="og:description" content="How to enable offline-mode for cracked clients and required security measures." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="//localhost:1313/en/docs/server-setup/allow-offline-auth/" /><meta property="article:section" content="docs" />
+
+
+
+  <meta itemprop="name" content="Allowing Offline (Cracked) Clients">
+  <meta itemprop="description" content="How to enable offline-mode for cracked clients and required security measures.">
+  <meta itemprop="wordCount" content="142">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Allowing Offline (Cracked) Clients">
+  <meta name="twitter:description" content="How to enable offline-mode for cracked clients and required security measures.">
+<link href="/css/compiled/main.css" rel="stylesheet" />
+    <link href="/css/variables.css" rel="stylesheet" />
+    <link href="/css/custom.css" rel="stylesheet" />
+
+  
+
+
+  <script>
+    
+
+    function setTheme(theme) {
+      document.documentElement.classList.remove("light", "dark");
+
+      if (theme !== "light" && theme !== "dark") {
+       theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+
+      document.documentElement.classList.add(theme);
+      document.documentElement.style.colorScheme = theme;
+    }
+
+    setTheme("color-theme" in localStorage ? localStorage.getItem("color-theme") : 'system')
+
+  </script>
+
+  <script>
+    
+
+    if (localStorage.getItem('banner-closed')) {
+      document.documentElement.style.setProperty("--hextra-banner-height", "0px");
+      document.documentElement.classList.add("hextra-banner-hidden");
+    }
+  </script>
+
+  
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    quicklink.listen();
+  });
+</script>
+</head>
+<body dir="ltr"><div class="hextra-nav-container hx:sticky hx:top-0 hx:z-20 hx:w-full hx:bg-transparent hx:print:hidden">
+  <div
+    class="hextra-nav-container-blur hx:pointer-events-none hx:absolute hx:z-[-1] hx:h-full hx:w-full hx:bg-white hx:dark:bg-dark hx:shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] hx:contrast-more:shadow-[0_0_0_1px_#000] hx:dark:shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] hx:contrast-more:dark:shadow-[0_0_0_1px_#fff]"
+  ></div>
+
+  <nav class="hextra-max-navbar-width hx:mx-auto hx:flex hx:items-center hx:justify-end hx:gap-2 hx:h-16 hx:px-6">
+    <a class="hx:flex hx:items-center hx:hover:opacity-75 hx:ltr:mr-auto hx:rtl:ml-auto" href="/en/">
+    <img class="hx:mr-2 hx:block hx:dark:hidden" src="/images/logo.svg" alt="Logo" height="20" width="20" />
+    <img class="hx:mr-2 hx:hidden hx:dark:block" src="/images/logo.svg" alt="Dark Logo" height="20" width="20" />
+    <span class="brand-title hx:mr-2 hx:font-extrabold hx:inline hx:select-none" title="Wiki qwer-host">
+      <span class="brand-qwer">qwer</span><span class="brand-host">-host </span>
+    </span>
+</a>
+<a
+  title=""
+  href="/en/docs/"
+  
+  class="hx:text-sm hx:contrast-more:text-gray-700 hx:contrast-more:dark:text-gray-100 hx:relative hx:-ml-2 hx:hidden hx:whitespace-nowrap hx:p-2 hx:md:inline-flex hx:items-center hx:gap-1 hx:font-medium"
+><span class="hx:text-center">Docs</span>
+</a><div class="hextra-search-wrapper hx:relative hx:md:w-64">
+  <div class="hx:relative hx:flex hx:items-center hx:text-gray-900 hx:contrast-more:text-gray-800 hx:dark:text-gray-300 hx:contrast-more:dark:text-gray-300">
+    <input
+      placeholder="Search..."
+      class="hextra-search-input hx:focus:hextra-focus hx:block hx:w-full hx:appearance-none hx:rounded-lg hx:px-3 hx:py-2 hx:transition-colors hx:text-base hx:leading-tight hx:md:text-sm hx:bg-black/[.05] hx:dark:bg-gray-50/10 hx:focus:bg-white hx:dark:focus:bg-dark hx:placeholder:text-gray-500 hx:dark:placeholder:text-gray-400 hx:contrast-more:border hx:contrast-more:border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="hx:absolute hx:my-1.5 hx:select-none hx:ltr:right-1.5 hx:rtl:left-1.5 hx:h-5 hx:rounded-sm hx:bg-white hx:px-1.5 hx:font-mono hx:text-[10px] hx:font-medium hx:text-gray-500 hx:border hx:border-gray-200 hx:dark:border-gray-100/20 hx:dark:bg-dark/50 hx:contrast-more:border-current hx:contrast-more:text-current hx:contrast-more:dark:border-current hx:items-center hx:gap-1 hx:transition-opacity hx:pointer-events-none hx:hidden hx:sm:flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="hextra-search-results hextra-scrollbar hx:hidden hx:border hx:border-gray-200 hx:bg-white hx:text-gray-100 hx:dark:border-neutral-800 hx:dark:bg-neutral-900 hx:absolute hx:top-full hx:z-20 hx:mt-2 hx:overflow-auto hx:overscroll-contain hx:rounded-xl hx:py-2.5 hx:shadow-xl hx:max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] hx:md:max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx:inset-x-0 hx:ltr:md:left-auto hx:rtl:md:right-auto hx:contrast-more:border hx:contrast-more:border-gray-900 hx:contrast-more:dark:border-gray-50 hx:w-screen hx:min-h-[100px] hx:max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+<div class="minimal-theme-toggle">
+  <button type="button" id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
+    <div class="theme-icon-container">
+      <svg class="theme-icon sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="theme-icon moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </div>
+  </button>
+</div>
+
+<style>
+.minimal-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-btn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-btn:hover {
+  background: rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-btn:active {
+  transform: scale(0.95);
+}
+
+.theme-icon-container {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.theme-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  stroke: currentColor;
+}
+
+.sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.8);
+}
+
+ 
+.dark .theme-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+.dark .theme-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dark .sun-icon {
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.8);
+}
+
+.dark .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+ 
+:not(.dark) .theme-btn {
+  background: rgba(0, 0, 0, 0.08);
+  color: #374151;
+}
+
+:not(.dark) .theme-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeBtn = document.getElementById('theme-toggle-btn');
+  
+  
+  const initializeTheme = () => {
+    const storedTheme = localStorage.getItem('color-theme');
+    const systemDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (storedTheme) {
+      
+      if (storedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } else {
+      
+      if (systemDarkTheme) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  };
+  
+  
+  initializeTheme();
+  
+  
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function() {
+      const isDark = document.documentElement.classList.contains('dark');
+      
+      if (isDark) {
+        
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  }
+  
+  
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    const storedTheme = localStorage.getItem('color-theme');
+    
+    if (!storedTheme) {
+      if (e.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  });
+});
+</script>
+<div class="hx:flex hx:items-center hx:relative ">
+    <button
+      title="Change language"
+      data-state="closed"
+      data-location="top"
+      class="hextra-language-switcher hx:cursor-pointer hx:rounded-md hx:text-left hx:font-medium hx:p-2"
+      type="button"
+      aria-label="Change language"
+    >
+      <div class="hx:flex hx:items-center hx:gap-2 hx:capitalize"><svg height=24 width=24 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg></div>
+    </button>
+    <ul
+      class="hextra-language-options hx:hidden hx:z-20 hx:max-h-64 hx:overflow-auto hx:rounded-md hx:ring-1 hx:ring-black/5 hx:bg-white hx:py-1 hx:text-sm hx:shadow-lg hx:dark:ring-white/20 hx:dark:bg-neutral-800"
+    >
+      
+        
+        <li class="hx:flex hx:flex-col">
+          <a
+            href="/"
+            class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9"
+          >Русский</a>
+        </li>
+      
+        
+        <li class="hx:flex hx:flex-col">
+          <a
+            href="/en/docs/server-setup/allow-offline-auth/"
+            class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9"
+          >English<span class="hx:absolute hx:inset-y-0 hx:flex hx:items-center hx:ltr:right-3 hx:rtl:left-3"><svg height=1em width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></a>
+        </li>
+      
+        
+        <li class="hx:flex hx:flex-col">
+          <a
+            href="/uk/docs/server-setup/allow-offline-auth/"
+            class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9"
+          >Українська</a>
+        </li>
+      </ul>
+  </div><button type="button" aria-label="Menu" class="hextra-hamburger-menu hx:cursor-pointer hx:-mr-2 hx:rounded-sm hx:p-2 hx:active:bg-gray-400/20 hx:md:hidden"><svg height=24 fill="none" viewBox="0 0 24 24" stroke="currentColor"><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8H20"></path></g><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16H20"></path></g></svg></button>
+  </nav>
+</div>
+
+  <div class='hx:mx-auto hx:flex hextra-max-page-width'>
+    <aside class="hextra-sidebar-container hx:flex hx:flex-col hx:print:hidden hx:md:top-16 hx:md:shrink-0 hx:md:w-64 hx:md:self-start hx:max-md:[transform:translate3d(0,-100%,0)] hx:md:sticky">
+  
+  <div class="hx:px-4 hx:pt-4 hx:md:hidden">
+    <div class="hextra-search-wrapper hx:relative hx:md:w-64">
+  <div class="hx:relative hx:flex hx:items-center hx:text-gray-900 hx:contrast-more:text-gray-800 hx:dark:text-gray-300 hx:contrast-more:dark:text-gray-300">
+    <input
+      placeholder="Search..."
+      class="hextra-search-input hx:focus:hextra-focus hx:block hx:w-full hx:appearance-none hx:rounded-lg hx:px-3 hx:py-2 hx:transition-colors hx:text-base hx:leading-tight hx:md:text-sm hx:bg-black/[.05] hx:dark:bg-gray-50/10 hx:focus:bg-white hx:dark:focus:bg-dark hx:placeholder:text-gray-500 hx:dark:placeholder:text-gray-400 hx:contrast-more:border hx:contrast-more:border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="hx:absolute hx:my-1.5 hx:select-none hx:ltr:right-1.5 hx:rtl:left-1.5 hx:h-5 hx:rounded-sm hx:bg-white hx:px-1.5 hx:font-mono hx:text-[10px] hx:font-medium hx:text-gray-500 hx:border hx:border-gray-200 hx:dark:border-gray-100/20 hx:dark:bg-dark/50 hx:contrast-more:border-current hx:contrast-more:text-current hx:contrast-more:dark:border-current hx:items-center hx:gap-1 hx:transition-opacity hx:pointer-events-none hx:hidden hx:sm:flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="hextra-search-results hextra-scrollbar hx:hidden hx:border hx:border-gray-200 hx:bg-white hx:text-gray-100 hx:dark:border-neutral-800 hx:dark:bg-neutral-900 hx:absolute hx:top-full hx:z-20 hx:mt-2 hx:overflow-auto hx:overscroll-contain hx:rounded-xl hx:py-2.5 hx:shadow-xl hx:max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] hx:md:max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx:inset-x-0 hx:ltr:md:left-auto hx:rtl:md:right-auto hx:contrast-more:border hx:contrast-more:border-gray-900 hx:contrast-more:dark:border-gray-50 hx:w-screen hx:min-h-[100px] hx:max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+
+  </div>
+  <div class="hextra-scrollbar hx:overflow-y-auto hx:overflow-x-hidden hx:p-4 hx:grow hx:md:h-[calc(100vh-var(--navbar-height)-var(--menu-height))]">
+    <ul class="hx:flex hx:flex-col hx:gap-1 hx:md:hidden">
+      
+      
+          <li class="open"><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/"
+    
+  >Documentation
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></span>
+    </a><div class="hx:ltr:pr-0 hx:overflow-hidden">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/minecraft-commands/"
+    
+  >Minecraft Server Console Commands
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/minecraft-cores/"
+    
+  >Minecraft Server Cores
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/server-setup/mysql/"
+    
+  >MySQL (Databases)
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/server-setup/top-errors/"
+    
+  >Top Mistakes When Creating a Minecraft Server
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col open"><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
+    href="/en/docs/server-setup/allow-offline-auth/"
+    
+  >Allowing Offline (Cracked) Clients
+    </a>
+  
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/cloudflare/"
+    
+  >CloudFlare
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></span>
+    </a>
+              <div class="hx:ltr:pr-0 hx:overflow-hidden">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/cloudflare/disable-ech/"
+    
+  >Disabling Encrypted Client Hello (ECH)
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/cloudflare/web-server-setup/"
+    
+  >Linking Web Server to Domain
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/cloudflare/domain-setup/"
+    
+  >Linking a Domain to Minecraft Server
+    </a>
+              
+            </li></ul>
+      </div>
+            </li></ul>
+      </div></li>
+    </ul>
+
+    <ul class="hx:flex hx:flex-col hx:gap-1 hx:max-md:hidden">
+        
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/minecraft-commands/"
+    
+  >Minecraft Server Console Commands
+    </a></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/minecraft-cores/"
+    
+  >Minecraft Server Cores
+    </a></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/server-setup/mysql/"
+    
+  >MySQL (Databases)
+    </a></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/server-setup/top-errors/"
+    
+  >Top Mistakes When Creating a Minecraft Server
+    </a></li>
+          <li class="open"><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
+    href="/en/docs/server-setup/allow-offline-auth/"
+    
+  >Allowing Offline (Cracked) Clients
+    </a></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/cloudflare/"
+    
+  >CloudFlare
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></span>
+    </a><div class="hx:ltr:pr-0 hx:overflow-hidden">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/cloudflare/disable-ech/"
+    
+  >Disabling Encrypted Client Hello (ECH)
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/cloudflare/web-server-setup/"
+    
+  >Linking Web Server to Domain
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/en/docs/cloudflare/domain-setup/"
+    
+  >Linking a Domain to Minecraft Server
+    </a>
+              
+            </li></ul>
+      </div></li>
+        
+      </ul>
+    </div>
+  
+  </aside>
+    
+<nav class="hextra-toc hx:order-last hx:hidden hx:w-64 hx:shrink-0 hx:xl:block hx:print:hidden hx:px-4" aria-label="table of contents">
+    <div class="hextra-scrollbar hx:sticky hx:top-16 hx:overflow-y-auto hx:pr-4 hx:pt-6 hx:text-sm [hyphens:auto] hx:max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] hx:ltr:-mr-4 hx:rtl:-ml-4">
+      <div class=" hx:sticky hx:bottom-0 hx:flex hx:flex-col hx:items-start hx:gap-2 hx:pb-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-t hx:contrast-more:border-neutral-400 hx:contrast-more:shadow-none hx:contrast-more:dark:border-neutral-400">
+        <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx:cursor-pointer hx:transition-all hx:duration-75 hx:opacity-0 hx:text-xs hx:font-medium hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-100 hx:contrast-more:text-gray-800 hx:contrast-more:dark:text-gray-50">
+          <span>Scroll to top</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx:inline hx:ltr:ml-1 hx:rtl:mr-1 hx:h-3.5 hx:w-3.5 hx:rounded-full hx:border hx:border-gray-500 hx:hover:border-gray-900 hx:dark:border-gray-400 hx:dark:hover:border-gray-100 hx:contrast-more:border-gray-800 hx:contrast-more:dark:border-gray-50">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+    <article class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="hx:w-full hx:min-w-0 hx:max-w-6xl hx:px-6 hx:pt-4 hx:md:px-12">
+        <div class="hx:mt-1.5 hx:flex hx:items-center hx:gap-1 hx:overflow-hidden hx:text-sm hx:text-gray-500 hx:dark:text-gray-400 hx:contrast-more:text-current">
+        <div class="hx:whitespace-nowrap hx:transition-colors hx:min-w-[24px] hx:overflow-hidden hx:text-ellipsis hx:hover:text-gray-900 hx:dark:hover:text-gray-100">
+          <a href="/en/docs/">Documentation</a>
+        </div><svg class="hx:w-3.5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx:whitespace-nowrap hx:transition-colors hx:font-medium hx:text-gray-700 hx:contrast-more:font-bold hx:contrast-more:text-current hx:dark:text-gray-100 hx:contrast-more:dark:text-current">Allowing Offline (Cracked) Clients</div>
+  </div>
+
+        <div class="content">
+          <h1>Allowing Offline (Cracked) Clients</h1>
+          <p>If you intentionally want to allow cracked/offline clients to connect, follow these steps. Remember: this increases security risks and can let malicious users impersonate admins — follow the steps carefully.</p>
+<ol>
+<li>Open panel.qwer-host.xyz and select your server.</li>
+<li>Go to the &ldquo;Files&rdquo; tab and open <code>server.properties</code>.</li>
+<li>Find the line <code>online-mode=true</code> and change it to <code>online-mode=false</code>.
+<img src="/images/docs/help-servers/files-server-properties.png" alt="files-server-properties"  loading="lazy" /></li>
+<li>Save the file.
+<img src="/images/docs/help-servers/open-files-server-proporties.png" alt="open-files-server-proporties"  loading="lazy" /></li>
+<li>Restart the server.</li>
+</ol>
+<p>IMPORTANT:</p>
+<ul>
+<li>YOU MUST INSTALL AN AUTHENTICATION PLUGIN (e.g., AuthMe, xAuth or another trusted plugin). Without it, anyone can join with any nickname — including admin names — and perform any actions.</li>
+<li>Use a whitelist and manage permissions via trusted permission plugins (such as LuckPerms).</li>
+<li>Restrict access by IP if possible and monitor login logs.</li>
+<li>Make backups before making changes.</li>
+</ul>
+<p>While this setting allows non-premium players to join, we strongly recommend purchasing legitimate licenses for all players and using offline-mode only when absolutely necessary.</p>
+
+        </div>
+        <div class="hx:mt-16"></div>
+        <div class="hx:mb-8 hx:flex hx:items-center hx:border-t hx:pt-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-neutral-400 hx:dark:contrast-more:border-neutral-400 hx:print:hidden"><a
+        href="/en/docs/server-setup/top-errors/"
+        title="Top Mistakes When Creating a Minecraft Server"
+        class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:pr-4 hx:rtl:pl-4"
+      ><svg class="hx:inline hx:h-5 hx:shrink-0 hx:ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Top Mistakes When Creating a Minecraft Server</a></div>
+        
+      </main>
+    </article>
+  </div>
+
+      <footer class="hextra-footer hx:bg-gray-100 hx:pb-[env(safe-area-inset-bottom)] hx:dark:bg-neutral-900 hx:print:bg-transparent"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <div class="hextra-max-footer-width hx:mx-auto hx:flex hx:justify-center hx:py-12 hx:pl-[max(env(safe-area-inset-left),1.5rem)] hx:pr-[max(env(safe-area-inset-right),1.5rem)]" id="custom-footer">
+    <div class="hx:flex hx:w-full hx:flex-col hx:items-center hx:text-center">
+      
+      <div class="copyright-levels">
+        <h1 class="copyright-level primary animated-title">
+          <span class="brand-qwer">qwer</span><span class="brand-host">-host </span><span class="brand-wiki">Wiki</span>
+        </h1>
+        <p class="copyright-level secondary"><a href="https://my.qwer-host.com/">qwer-host</a> © 2022-2025</p>
+        <p class="copyright-level secondary">All rights reserved. Not affiliated with Mojang or Microsoft.</p>
+        <p class="copyright-level secondary">
+          <a href="/terms">Договор-оферта</a> | 
+          <a href="/privacy">Политика конфиденциальности</a>
+        </p>
+      </div>
+      
+      <div class="social-footer">
+        <a href="https://my.qwer-host.com" title="Contact" aria-label="Contact Us" target="_blank" rel="noopener">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="https://discord.com/invite/fTqZBaEbbG" title="Discord" aria-label="Join our Discord" target="_blank" rel="noopener">
+          <i class="fab fa-discord"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="Telegram" aria-label="Join our Telegram" target="_blank" rel="noopener">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="VK" aria-label="Follow us on VK" target="_blank" rel="noopener">
+          <i class="fab fa-vk"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="Instagram" aria-label="Follow us on Instagram" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="TikTok" aria-label="Follow us on TikTok" target="_blank" rel="noopener">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://my.qwer-host.com" title="YouTube" aria-label="Subscribe to our YouTube" target="_blank" rel="noopener">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+    <script defer src="/js/main.js" integrity=""></script>
+<script defer src="/js/flexsearch.9f5b5908f93ae86f1ecd4b043b799f580c2d1654e703dd9357d568ac41b2547a.js" integrity="sha256-n1tZCPk66G8ezUsEO3mfWAwtFlTnA92TV9VorEGyVHo=" crossorigin="anonymous"></script>
+        <script defer src="/en.search.js" integrity=""></script>
+  </body>
+</html>
