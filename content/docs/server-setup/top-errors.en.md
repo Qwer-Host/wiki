@@ -40,11 +40,7 @@ Updates can break compatibility. Always test new plugin or server versions on a 
 
 Leaving default passwords, not setting proper access rights, or opening unnecessary ports makes your server vulnerable. Configure operator permissions and use strong passwords.
 
-### 9. No monitoring or alerts
-
-Without monitoring CPU, memory, and disk usage you may miss early signs of problems. Set up alerts and automated backups.
-
-### 10. Incorrect Java optimization and settings
+### 9. Incorrect Java optimization and settings
 
 Improper Java startup parameters (heap, garbage collection) and lack of configuration optimization can cause lag and memory leaks. Follow recommendations for your server version and use proven startup templates.
 
