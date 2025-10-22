@@ -18,7 +18,6 @@ IMPORTANT:
 
 - YOU MUST INSTALL AN AUTHENTICATION PLUGIN (e.g., AuthMe, xAuth or another trusted plugin). Without it, anyone can join with any nickname — including admin names — and perform any actions.
 - Use a whitelist and manage permissions via trusted permission plugins (such as LuckPerms).
-- Restrict access by IP if possible and monitor login logs.
 - Make backups before making changes.
 
 While this setting allows non-premium players to join, we strongly recommend purchasing legitimate licenses for all players and using offline-mode only when absolutely necessary.

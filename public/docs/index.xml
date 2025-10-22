@@ -1146,12 +1146,110 @@ Origin Rule:
     &lt;a href=&#34;#7-%d0%be%d0%b1%d0%bd%d0%be%d0%b2%d0%bb%d0%b5%d0%bd%d0%b8%d0%b5-%d0%bf%d0%bb%d0%b0%d0%b3%d0%b8%d0%bd%d0%be%d0%b2-%d0%b8-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0-%d0%b1%d0%b5%d0%b7-%d1%82%d0%b5%d1%81%d1%82%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d1%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Обновления могут ломать совместимость. Всегда тестируйте новую версию плагина или сервера на локальной копии или тестовом сервере перед применением на рабочем.&lt;/p&gt;
 &lt;h3&gt;8. Плохая конфигурация безопасности&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;8-плохая-конфигурация-безопасности&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#8-%d0%bf%d0%bb%d0%be%d1%85%d0%b0%d1%8f-%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b3%d1%83%d1%80%d0%b0%d1%86%d0%b8%d1%8f-%d0%b1%d0%b5%d0%b7%d0%be%d0%bf%d0%b0%d1%81%d0%bd%d0%be%d1%81%d1%82%d0%b8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Оставлять дефолтные пароли, не настраивать права доступа, или открывать ненужные порты — всё это делает ваш сервер уязвимым. Настройте правильные права для операторов и используйте надёжные пароли.&lt;/p&gt;
-&lt;h3&gt;9. Отсутствие мониторинга и алертов&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;9-отсутствие-мониторинга-и-алертов&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#9-%d0%be%d1%82%d1%81%d1%83%d1%82%d1%81%d1%82%d0%b2%d0%b8%d0%b5-%d0%bc%d0%be%d0%bd%d0%b8%d1%82%d0%be%d1%80%d0%b8%d0%bd%d0%b3%d0%b0-%d0%b8-%d0%b0%d0%bb%d0%b5%d1%80%d1%82%d0%be%d0%b2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Если вы не настроили мониторинг CPU, памяти и диска — вы рискуете пропустить ранние признаки проблем. Настройте оповещения и автоматические бэкапы.&lt;/p&gt;
-&lt;h3&gt;10. Неправильная оптимизация и настройки Java&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;10-неправильная-оптимизация-и-настройки-java&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#10-%d0%bd%d0%b5%d0%bf%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d1%8c%d0%bd%d0%b0%d1%8f-%d0%be%d0%bf%d1%82%d0%b8%d0%bc%d0%b8%d0%b7%d0%b0%d1%86%d0%b8%d1%8f-%d0%b8-%d0%bd%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b8-java&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Неправильные параметры запуска Java (heap, garbage collection) и отсутствие оптимизации конфигов могут привести к лагам и утечкам памяти. Изучите рекомендации для вашей версии сервера и используйте проверенные шаблоны запуска.&lt;/p&gt;
+&lt;h3&gt;9. Неправильная оптимизация и настройки Java&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;9-неправильная-оптимизация-и-настройки-java&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#9-%d0%bd%d0%b5%d0%bf%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d1%8c%d0%bd%d0%b0%d1%8f-%d0%be%d0%bf%d1%82%d0%b8%d0%bc%d0%b8%d0%b7%d0%b0%d1%86%d0%b8%d1%8f-%d0%b8-%d0%bd%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b8-java&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Неправильные параметры запуска Java (heap, garbage collection) и отсутствие оптимизации конфигов могут привести к лагам и утечкам памяти. Изучите рекомендации для вашей версии сервера и используйте проверенные шаблоны запуска.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Если у вас остались вопросы — обратитесь в нашу поддержку или посмотрите раздел справки.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Подключение пиратских клиентов (offline-mode)</title>
+      <link>//localhost:1313/docs/server-setup/allow-offline-auth-ru/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/docs/server-setup/allow-offline-auth-ru/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Если вы намеренно хотите разрешить подключение пиратских игроков (offline-клиентов), выполните следующие шаги. Помните: это повышает риски безопасности и может позволить злоумышленникам выдавать себя за админов — тщательно следуйте инструкции.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Откройте panel.qwer-host.xyz и выберите свой сервер.&lt;/li&gt;
+&lt;li&gt;Перейдите во вкладку &amp;ldquo;Файлы/Files&amp;rdquo; и откройте файл &lt;code&gt;server.properties&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Найдите строку &lt;code&gt;online-mode=true&lt;/code&gt; и замените на &lt;code&gt;online-mode=false&lt;/code&gt;.
+&lt;img src=&#34;//localhost:1313/images/docs/help-servers/files-server-properties.png&#34; alt=&#34;files-server-properties&#34;  loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;Сохраните файл.
+&lt;img src=&#34;//localhost:1313/images/docs/help-servers/open-files-server-proporties.png&#34; alt=&#34;open-files-server-proporties&#34;  loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;Перезагрузите сервер.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ВАЖНО:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ОБЯЗАТЕЛЬНО УСТАНОВИТЕ ПЛАГИН НА АВТОРИЗАЦИЮ (например, AuthMe, xAuth или другой надёжный плагин), иначе любой пользователь сможет зайти под любым ником, включая ники админов. Это позволит им получить доступ к правам и совершать нежелательные действия.&lt;/li&gt;
+&lt;li&gt;Используйте белые списки (whitelist) и настраивайте права через проверенные плагины управления правами (LuckPerms и т.д.).&lt;/li&gt;
+&lt;li&gt;Обязательно делайте резервные копии перед изменениями.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Несмотря на то, что данная настройка позволяет подключаться пользователям без лицензионной проверки, мы рекомендуем покупать лицензии для всех игроков и использовать это только в исключительных случаях.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Ошибка Invalid signature for profile public key — как исправить?</title>
+      <link>//localhost:1313/docs/server-setup/invalid-signature-error-ru/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/docs/server-setup/invalid-signature-error-ru/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Описание проблемы&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;описание-проблемы&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%be%d0%bf%d0%b8%d1%81%d0%b0%d0%bd%d0%b8%d0%b5-%d0%bf%d1%80%d0%be%d0%b1%d0%bb%d0%b5%d0%bc%d1%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Если вы сталкиваетесь с ошибкой при попытке подключения к серверу:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Invalid signature for profile public key.
+Try restarting your game.
+agj$a: Missing profile public key.
+This server requires secure profiles.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Скопировать код&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Это связано с проверкой безопасных профилей в новых версиях Minecraft. Ниже описано решение!&lt;/p&gt;
+&lt;h2&gt;Решение&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;решение&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d1%80%d0%b5%d1%88%d0%b5%d0%bd%d0%b8%d0%b5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Вам необходимо изменить настройку в файле конфигурации сервера &lt;code&gt;server.properties&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Пошаговая инструкция&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;пошаговая-инструкция&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%bf%d0%be%d1%88%d0%b0%d0%b3%d0%be%d0%b2%d0%b0%d1%8f-%d0%b8%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%86%d0%b8%d1%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Откройте панель управления panel.qwer-host.xyz и выберите свой сервер.&lt;/li&gt;
+&lt;li&gt;Перейдите во вкладку &lt;strong&gt;&amp;ldquo;Файлы&amp;rdquo;&lt;/strong&gt; (Files) и найдите файл &lt;code&gt;server.properties&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Откройте файл для редактирования.&lt;/li&gt;
+&lt;li&gt;Найдите строку:
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-properties&#34; data-lang=&#34;properties&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enforce-secure-profile&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Скопировать код&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Измените значение на &lt;code&gt;false&lt;/code&gt;:
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-properties&#34; data-lang=&#34;properties&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enforce-secure-profile&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Скопировать код&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Сохраните файл.&lt;/li&gt;
+&lt;li&gt;Перезагрузите сервер.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;После перезагрузки попробуйте войти снова — ошибка должна исчезнуть.&lt;/p&gt;
 
       </description>
     </item>

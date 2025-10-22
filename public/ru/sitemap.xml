@@ -123,6 +123,10 @@
   </url><url>
     <loc>//localhost:1313/docs/server-setup/top-errors-ru/</loc>
   </url><url>
+    <loc>//localhost:1313/docs/server-setup/allow-offline-auth-ru/</loc>
+  </url><url>
+    <loc>//localhost:1313/docs/server-setup/invalid-signature-error-ru/</loc>
+  </url><url>
     <loc>//localhost:1313/docs/cloudflare/</loc>
     <xhtml:link
                 rel="alternate"

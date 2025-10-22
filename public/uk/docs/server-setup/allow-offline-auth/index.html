@@ -20,7 +20,7 @@
 
   <meta itemprop="name" content="Підключення піратських клієнтів (offline-mode)">
   <meta itemprop="description" content="Як увімкнути offline-mode для піратських клієнтів і які заходи безпеки потрібно виконати.">
-  <meta itemprop="wordCount" content="135">
+  <meta itemprop="wordCount" content="124">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Підключення піратських клієнтів (offline-mode)">
   <meta name="twitter:description" content="Як увімкнути offline-mode для піратських клієнтів і які заходи безпеки потрібно виконати.">
@@ -409,6 +409,14 @@ document.addEventListener('DOMContentLoaded', function() {
             </li><li class="hx:flex hx:flex-col "><a
     class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/server-setup/invalid-signature-error/"
+    
+  >Помилка Invalid signature for profile public key — як виправити?
+    </a>
+              
+            </li><li class="hx:flex hx:flex-col "><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
     href="/uk/docs/cloudflare/"
     
   >CloudFlare
@@ -492,6 +500,13 @@ document.addEventListener('DOMContentLoaded', function() {
           <li class=""><a
     class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+    href="/uk/docs/server-setup/invalid-signature-error/"
+    
+  >Помилка Invalid signature for profile public key — як виправити?
+    </a></li>
+          <li class=""><a
+    class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
     href="/uk/docs/cloudflare/"
     
   >CloudFlare
@@ -567,7 +582,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <ul>
 <li>ОБОВ&rsquo;ЯЗКОВО ВСТАНОВІТЬ ПЛАГІН АВТОРИЗАЦІЇ (наприклад, AuthMe, xAuth або інший надійний плагін). Інакше будь-хто зможе зайти під будь-яким ніком, включно з ніками адмінів, і виконувати будь-які дії.</li>
 <li>Використовуйте білий список (whitelist) та керуйте правами через перевірені плагіни (LuckPerms і т.д.).</li>
-<li>Обмежте доступ за IP, якщо можливо, і стежте за логами входів.</li>
 <li>Обов&rsquo;язково робіть резервні копії перед внесенням змін.</li>
 </ul>
 <p>Незважаючи на те, що ця настройка дозволяє непреміум-гравцям підключатися, ми радимо придбати ліцензії для всіх гравців і використовувати offline-mode лише в крайніх випадках.</p>
@@ -578,7 +592,11 @@ document.addEventListener('DOMContentLoaded', function() {
         href="/uk/docs/server-setup/top-errors/"
         title="Топ помилок при створенні сервера Minecraft"
         class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:pr-4 hx:rtl:pl-4"
-      ><svg class="hx:inline hx:h-5 hx:shrink-0 hx:ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Топ помилок при створенні сервера Minecraft</a></div>
+      ><svg class="hx:inline hx:h-5 hx:shrink-0 hx:ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Топ помилок при створенні сервера Minecraft</a><a
+        href="/uk/docs/server-setup/invalid-signature-error/"
+        title="Помилка Invalid signature for profile public key — як виправити?"
+        class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:ml-auto hx:ltr:pl-4 hx:ltr:text-right hx:rtl:mr-auto hx:rtl:pr-4 hx:rtl:text-left"
+      >Помилка Invalid signature for profile public key — як виправити?<svg class="hx:inline hx:h-5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>

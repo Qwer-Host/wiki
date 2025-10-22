@@ -133,6 +133,30 @@
                 href="//localhost:1313/uk/docs/server-setup/top-errors/"
                 />
   </url><url>
+    <loc>//localhost:1313/uk/docs/server-setup/allow-offline-auth/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/en/docs/server-setup/allow-offline-auth/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/server-setup/allow-offline-auth/"
+                />
+  </url><url>
+    <loc>//localhost:1313/uk/docs/server-setup/invalid-signature-error/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/en/docs/server-setup/invalid-signature-error/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/server-setup/invalid-signature-error/"
+                />
+  </url><url>
     <loc>//localhost:1313/uk/docs/cloudflare/</loc>
     <xhtml:link
                 rel="alternate"
