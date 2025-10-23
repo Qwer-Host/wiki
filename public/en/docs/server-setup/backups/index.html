@@ -8,22 +8,22 @@
 <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
-<title>Top Mistakes When Creating a Minecraft Server – Wiki qwer-host</title>
-  <meta name="description" content="Common mistakes when launching and managing a Minecraft server and how to avoid them." /><link rel="canonical" href="//localhost:1313/en/docs/server-setup/top-errors/" itemprop="url" />
+<title>How to Create Minecraft Server Backups Through Control Panel – Wiki qwer-host</title>
+  <meta name="description" content="Step-by-step guide on creating backups to protect your Minecraft server data" /><link rel="canonical" href="//localhost:1313/en/docs/server-setup/backups/" itemprop="url" />
 
-<meta property="og:title" content="Top Mistakes When Creating a Minecraft Server" />
-<meta property="og:description" content="Common mistakes when launching and managing a Minecraft server and how to avoid them." />
+<meta property="og:title" content="How to Create Minecraft Server Backups Through Control Panel" />
+<meta property="og:description" content="Step-by-step guide on creating backups to protect your Minecraft server data" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="//localhost:1313/en/docs/server-setup/top-errors/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="//localhost:1313/en/docs/server-setup/backups/" /><meta property="article:section" content="docs" />
 
 
 
-  <meta itemprop="name" content="Top Mistakes When Creating a Minecraft Server">
-  <meta itemprop="description" content="Common mistakes when launching and managing a Minecraft server and how to avoid them.">
-  <meta itemprop="wordCount" content="390">
+  <meta itemprop="name" content="How to Create Minecraft Server Backups Through Control Panel">
+  <meta itemprop="description" content="Step-by-step guide on creating backups to protect your Minecraft server data">
+  <meta itemprop="wordCount" content="355">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Top Mistakes When Creating a Minecraft Server">
-  <meta name="twitter:description" content="Common mistakes when launching and managing a Minecraft server and how to avoid them.">
+  <meta name="twitter:title" content="How to Create Minecraft Server Backups Through Control Panel">
+  <meta name="twitter:description" content="Step-by-step guide on creating backups to protect your Minecraft server data">
 <link href="/css/compiled/main.css" rel="stylesheet" />
     <link href="/css/variables.css" rel="stylesheet" />
     <link href="/css/custom.css" rel="stylesheet" />
@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         <li class="hx:flex hx:flex-col">
           <a
-            href="/en/docs/server-setup/top-errors/"
+            href="/en/docs/server-setup/backups/"
             class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9"
           >English<span class="hx:absolute hx:inset-y-0 hx:flex hx:items-center hx:ltr:right-3 hx:rtl:left-3"><svg height=1em width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></a>
         </li>
@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         <li class="hx:flex hx:flex-col">
           <a
-            href="/uk/docs/server-setup/top-errors/"
+            href="/uk/docs/server-setup/backups/"
             class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9"
           >Українська</a>
         </li>
@@ -373,13 +373,40 @@ document.addEventListener('DOMContentLoaded', function() {
   >EULA — Minecraft License Agreement
     </a>
               
-            </li><li class="hx:flex hx:flex-col "><a
+            </li><li class="hx:flex hx:flex-col open"><a
     class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+      hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
     href="/en/docs/server-setup/backups/"
     
   >How to Create Minecraft Server Backups Through Control Panel
     </a>
+  
+    <ul class='hx:flex hx:flex-col hx:gap-1 hx:relative hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:dark:before:bg-neutral-800 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:pr-3 hx:rtl:before:right-0 hx:ltr:ml-3 hx:rtl:mr-3'><li>
+              <a
+                href="#why-are-backups-so-important"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Why Are Backups So Important?</a>
+            </li>
+          <li>
+              <a
+                href="#creating-a-backup-through-control-panel"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Creating a Backup Through Control Panel</a>
+            </li>
+          <li>
+              <a
+                href="#backup-best-practices"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Backup Best Practices</a>
+            </li>
+          <li>
+              <a
+                href="#restoring-from-a-backup"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Restoring From a Backup</a>
+            </li>
+          </ul>
+  
               
             </li><li class="hx:flex hx:flex-col "><a
     class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -405,22 +432,13 @@ document.addEventListener('DOMContentLoaded', function() {
   >MySQL (Databases)
     </a>
               
-            </li><li class="hx:flex hx:flex-col open"><a
+            </li><li class="hx:flex hx:flex-col "><a
     class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
     href="/en/docs/server-setup/top-errors/"
     
   >Top Mistakes When Creating a Minecraft Server
     </a>
-  
-    <ul class='hx:flex hx:flex-col hx:gap-1 hx:relative hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:dark:before:bg-neutral-800 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:pr-3 hx:rtl:before:right-0 hx:ltr:ml-3 hx:rtl:mr-3'><li>
-              <a
-                href="#want-to-start-your-own-minecraft-server-and-learn-how-to-manage-it-properly"
-                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
-              >Want to start your own Minecraft server and learn how to manage it properly?</a>
-            </li>
-          </ul>
-  
               
             </li><li class="hx:flex hx:flex-col "><a
     class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -502,9 +520,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
   >EULA — Minecraft License Agreement
     </a></li>
-          <li class=""><a
+          <li class="open"><a
     class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+      hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
     href="/en/docs/server-setup/backups/"
     
   >How to Create Minecraft Server Backups Through Control Panel
@@ -530,9 +548,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
   >MySQL (Databases)
     </a></li>
-          <li class="open"><a
+          <li class=""><a
     class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
+      hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
     href="/en/docs/server-setup/top-errors/"
     
   >Top Mistakes When Creating a Minecraft Server
@@ -608,43 +626,43 @@ document.addEventListener('DOMContentLoaded', function() {
 <nav class="hextra-toc hx:order-last hx:hidden hx:w-64 hx:shrink-0 hx:xl:block hx:print:hidden hx:px-4" aria-label="table of contents">
     <div class="hextra-scrollbar hx:sticky hx:top-16 hx:overflow-y-auto hx:pr-4 hx:pt-6 hx:text-sm [hyphens:auto] hx:max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] hx:ltr:-mr-4 hx:rtl:-ml-4"><p class="hx:mb-4 hx:font-semibold hx:tracking-tight">On this page</p><ul>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#want-to-start-your-own-minecraft-server-and-learn-how-to-manage-it-properly">Want to start your own Minecraft server and learn how to manage it properly?
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#why-are-backups-so-important">Why Are Backups So Important?
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#1-choosing-the-wrong-plan">1. Choosing the wrong plan
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#how-to-protect-yourself">How to Protect Yourself?
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#2-installing-a-huge-number-of-modsplugins">2. Installing a huge number of mods/plugins
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#creating-a-backup-through-control-panel">Creating a Backup Through Control Panel
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#3-ignoring-console-errors">3. Ignoring console errors
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#step-by-step-instructions">Step-by-Step Instructions
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#4-not-using-the-knowledge-base-and-asking-repeated-questions-to-support">4. Not using the knowledge base and asking repeated questions to support
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#1-open-the-backups-section">1. Open the Backups Section
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#5-copying-servers-as-is">5. Copying servers “as is”
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#2-create-a-backup">2. Create a Backup
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#6-ignoring-backups">6. Ignoring backups
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#3-configure-backup-settings">3. Configure Backup Settings
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#7-updating-plugins-and-server-without-testing">7. Updating plugins and server without testing
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#4-protection-against-accidental-deletion-optional">4. Protection Against Accidental Deletion (Optional)
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#8-poor-security-configuration">8. Poor security configuration
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#backup-best-practices">Backup Best Practices
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#9-incorrect-java-optimization-and-settings">9. Incorrect Java optimization and settings
+        <a class="hx:font-medium hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#restoring-from-a-backup">Restoring From a Backup
         </a>
       </li></ul>
       <div class="hx:mt-8 hx:border-t hx:bg-white hx:pt-8 hx:shadow-[0_-12px_16px_white] hx:dark:bg-dark hx:dark:shadow-[0_-12px_16px_#111] hx:sticky hx:bottom-0 hx:flex hx:flex-col hx:items-start hx:gap-2 hx:pb-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-t hx:contrast-more:border-neutral-400 hx:contrast-more:shadow-none hx:contrast-more:dark:border-neutral-400">
@@ -664,45 +682,85 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="hx:mt-1.5 hx:flex hx:items-center hx:gap-1 hx:overflow-hidden hx:text-sm hx:text-gray-500 hx:dark:text-gray-400 hx:contrast-more:text-current">
         <div class="hx:whitespace-nowrap hx:transition-colors hx:min-w-[24px] hx:overflow-hidden hx:text-ellipsis hx:hover:text-gray-900 hx:dark:hover:text-gray-100">
           <a href="/en/docs/">Documentation</a>
-        </div><svg class="hx:w-3.5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx:whitespace-nowrap hx:transition-colors hx:font-medium hx:text-gray-700 hx:contrast-more:font-bold hx:contrast-more:text-current hx:dark:text-gray-100 hx:contrast-more:dark:text-current">Top Mistakes When Creating a Minecraft Server</div>
+        </div><svg class="hx:w-3.5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx:whitespace-nowrap hx:transition-colors hx:font-medium hx:text-gray-700 hx:contrast-more:font-bold hx:contrast-more:text-current hx:dark:text-gray-100 hx:contrast-more:dark:text-current">How to Create Minecraft Server Backups Through Control Panel</div>
   </div>
 
         <div class="content">
-          <h1>Top Mistakes When Creating a Minecraft Server</h1>
-          <h2>Want to start your own Minecraft server and learn how to manage it properly?<span class="hx:absolute hx:-mt-20" id="want-to-start-your-own-minecraft-server-and-learn-how-to-manage-it-properly"></span>
-    <a href="#want-to-start-your-own-minecraft-server-and-learn-how-to-manage-it-properly" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Read this article, watch our video, and NEVER repeat these mistakes. Unfortunately, even experienced players sometimes struggle with their servers and blame the hosting. But the responsibility is on your shoulders — and in the video we explain why!</p>
-<h3>1. Choosing the wrong plan<span class="hx:absolute hx:-mt-20" id="1-choosing-the-wrong-plan"></span>
-    <a href="#1-choosing-the-wrong-plan" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>This is the most common mistake among beginners. To keep the server stable and avoid overload, choose a plan that fits your load. For example, to run a server comfortably without plugins on version 1.20.2, you need at least 2 GB of RAM.</p>
-<h3>2. Installing a huge number of mods/plugins<span class="hx:absolute hx:-mt-20" id="2-installing-a-huge-number-of-modsplugins"></span>
-    <a href="#2-installing-a-huge-number-of-modsplugins" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>If you install too many plugins or mods, don’t be surprised when something breaks. Plugins can conflict and cause errors. If you plan to add many additions, proceed carefully and be prepared to buy more resources.</p>
-<h3>3. Ignoring console errors<span class="hx:absolute hx:-mt-20" id="3-ignoring-console-errors"></span>
-    <a href="#3-ignoring-console-errors" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>You must check the console for errors and warnings. Sometimes something may crash or throw an error related to a component. Read the error, identify the plugin mentioned, and search the web. In 99% of cases a solution exists. If it’s a warning, translate it and take notice.</p>
-<h3>4. Not using the knowledge base and asking repeated questions to support<span class="hx:absolute hx:-mt-20" id="4-not-using-the-knowledge-base-and-asking-repeated-questions-to-support"></span>
-    <a href="#4-not-using-the-knowledge-base-and-asking-repeated-questions-to-support" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Learn to google and check our knowledge base. Almost every basic (and not so basic) question has an answer. Learn and understand how things work.</p>
-<h3>5. Copying servers &ldquo;as is&rdquo;<span class="hx:absolute hx:-mt-20" id="5-copying-servers-as-is"></span>
-    <a href="#5-copying-servers-as-is" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Copying server setups or downloading ready-made packs while only renaming them is short-sighted. Before creating a server, have a unique idea or concept — that will help your project grow.</p>
-<h3>6. Ignoring backups<span class="hx:absolute hx:-mt-20" id="6-ignoring-backups"></span>
-    <a href="#6-ignoring-backups" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Never neglect backups. Regular snapshots will save you from crashes, corrupted worlds, or plugin update issues.</p>
-<h3>7. Updating plugins and server without testing<span class="hx:absolute hx:-mt-20" id="7-updating-plugins-and-server-without-testing"></span>
-    <a href="#7-updating-plugins-and-server-without-testing" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Updates can break compatibility. Always test new plugin or server versions on a local or staging server before applying them to production.</p>
-<h3>8. Poor security configuration<span class="hx:absolute hx:-mt-20" id="8-poor-security-configuration"></span>
-    <a href="#8-poor-security-configuration" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Leaving default passwords, not setting proper access rights, or opening unnecessary ports makes your server vulnerable. Configure operator permissions and use strong passwords.</p>
-<h3>9. Incorrect Java optimization and settings<span class="hx:absolute hx:-mt-20" id="9-incorrect-java-optimization-and-settings"></span>
-    <a href="#9-incorrect-java-optimization-and-settings" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Improper Java startup parameters (heap, garbage collection) and lack of configuration optimization can cause lag and memory leaks. Follow recommendations for your server version and use proven startup templates.</p>
+          <h1>How to Create Minecraft Server Backups Through Control Panel</h1>
+          <h2>Why Are Backups So Important?<span class="hx:absolute hx:-mt-20" id="why-are-backups-so-important"></span>
+    <a href="#why-are-backups-so-important" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>A backup (data copy) is essential for any Minecraft server that aims to become an interesting project.</p>
+<p>Imagine this situation: you created a server, installed many different plugins and interesting mods, spent days on configuration, and also built survival houses. And then&hellip; a sudden error, some failure, or someone deliberately harmed your project — and everything is lost.</p>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0">This happens very often, and all the players&rsquo; efforts go to waste. People lose motivation and don&rsquo;t want to do anything anymore.</div>
+  </div>
+</div>
+
+<h3>How to Protect Yourself?<span class="hx:absolute hx:-mt-20" id="how-to-protect-yourself"></span>
+    <a href="#how-to-protect-yourself" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>That&rsquo;s what backups are for! With their help, you can easily restore all data and continue enjoying the game.</p>
+<h2>Creating a Backup Through Control Panel<span class="hx:absolute hx:-mt-20" id="creating-a-backup-through-control-panel"></span>
+    <a href="#creating-a-backup-through-control-panel" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Our website panel.qwer-host.xyz provides the ability to create backups directly in the control panel.</p>
+<h3>Step-by-Step Instructions<span class="hx:absolute hx:-mt-20" id="step-by-step-instructions"></span>
+    <a href="#step-by-step-instructions" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>1. Open the Backups Section<span class="hx:absolute hx:-mt-20" id="1-open-the-backups-section"></span>
+    <a href="#1-open-the-backups-section" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Go to the <strong>&ldquo;Backups&rdquo;</strong> section in your server control panel.</p>
+<p><img src="/images/docs/help-servers/open-backups.png" alt="Opening Backups Section"  loading="lazy" /></p>
+<h4>2. Create a Backup<span class="hx:absolute hx:-mt-20" id="2-create-a-backup"></span>
+    <a href="#2-create-a-backup" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Click the <strong>&ldquo;Create Backup&rdquo;</strong> button.</p>
+<h4>3. Configure Backup Settings<span class="hx:absolute hx:-mt-20" id="3-configure-backup-settings"></span>
+    <a href="#3-configure-backup-settings" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Choose a name for the backup and click <strong>&ldquo;Start Backup&rdquo;</strong>.</p>
+<p><img src="/images/docs/help-servers/create-backup.png" alt="Creating Backup"  loading="lazy" /></p>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><strong>Important!</strong> Creating a backup will immediately stop your server. Plan backup creation for times when there are minimal players on the server.</div>
+  </div>
+</div>
+
+<h4>4. Protection Against Accidental Deletion (Optional)<span class="hx:absolute hx:-mt-20" id="4-protection-against-accidental-deletion-optional"></span>
+    <a href="#4-protection-against-accidental-deletion-optional" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>You can protect the backup from accidental deletion using the toggle at the bottom of the backup creation form.</p>
 <hr>
-<p>If you have questions, contact our support or check the help section.</p>
+<h2>Backup Best Practices<span class="hx:absolute hx:-mt-20" id="backup-best-practices"></span>
+    <a href="#backup-best-practices" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><strong>Regularity</strong> — create backups regularly (daily or weekly depending on server activity)</li>
+<li><strong>Planning</strong> — use automatic restart scheduling to create backups during off-hours</li>
+<li><strong>Naming</strong> — give backups clear names with dates and descriptions (e.g., &ldquo;backup-2025-10-23-before-update&rdquo;)</li>
+<li><strong>Verification</strong> — periodically check that backups are being created correctly</li>
+<li><strong>Storage</strong> — don&rsquo;t delete old backups immediately — keep several recent copies just in case</li>
+</ul>
+<h2>Restoring From a Backup<span class="hx:absolute hx:-mt-20" id="restoring-from-a-backup"></span>
+    <a href="#restoring-from-a-backup" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>If you need to restore your server from a backup:</p>
+<ol>
+<li>Go to the <strong>&ldquo;Backups&rdquo;</strong> section</li>
+<li>Find the needed backup in the list</li>
+<li>Click the three dots to the right of the backup</li>
+<li>Select <strong>&ldquo;Restore&rdquo;</strong></li>
+<li>Confirm the action</li>
+</ol>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200">
+  <div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"><svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0">Restoring from a backup will replace all current server files with data from the backup copy. Make sure you selected the correct backup!</div>
+  </div>
+</div>
+
+<hr>
+<p>Regular backups are a guarantee of your project&rsquo;s safety. Don&rsquo;t neglect this feature!</p>
 
         </div>
         <div class="hx:mt-16"></div>
         <div class="hx:mb-8 hx:flex hx:items-center hx:border-t hx:pt-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-neutral-400 hx:dark:contrast-more:border-neutral-400 hx:print:hidden"><a
+        href="/en/docs/server-setup/eula/"
+        title="EULA — Minecraft License Agreement"
+        class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:pr-4 hx:rtl:pl-4"
+      ><svg class="hx:inline hx:h-5 hx:shrink-0 hx:ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>EULA — Minecraft License Agreement</a><a
         href="/en/docs/server-setup/mysql/"
         title="MySQL (Databases)"
-        class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:pr-4 hx:rtl:pl-4"
-      ><svg class="hx:inline hx:h-5 hx:shrink-0 hx:ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>MySQL (Databases)</a><a
-        href="/en/docs/server-setup/allow-offline-auth/"
-        title="Allowing Offline (Cracked) Clients"
         class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:ml-auto hx:ltr:pl-4 hx:ltr:text-right hx:rtl:mr-auto hx:rtl:pr-4 hx:rtl:text-left"
-      >Allowing Offline (Cracked) Clients<svg class="hx:inline hx:h-5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >MySQL (Databases)<svg class="hx:inline hx:h-5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>

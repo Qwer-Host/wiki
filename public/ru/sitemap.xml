@@ -19,6 +19,10 @@
                 href="//localhost:1313/docs/"
                 />
   </url><url>
+    <loc>//localhost:1313/docs/server-setup/eula-ru/</loc>
+  </url><url>
+    <loc>//localhost:1313/docs/server-setup/backups-ru/</loc>
+  </url><url>
     <loc>//localhost:1313/docs/minecraft-commands/</loc>
     <xhtml:link
                 rel="alternate"
@@ -127,6 +131,8 @@
   </url><url>
     <loc>//localhost:1313/docs/server-setup/invalid-signature-error-ru/</loc>
   </url><url>
+    <loc>//localhost:1313/docs/server-setup/auto-restart-ru/</loc>
+  </url><url>
     <loc>//localhost:1313/docs/cloudflare/</loc>
     <xhtml:link
                 rel="alternate"
@@ -143,6 +149,8 @@
                 hreflang="ru"
                 href="//localhost:1313/docs/cloudflare/"
                 />
+  </url><url>
+    <loc>//localhost:1313/docs/server-setup/high-ping-issue-ru/</loc>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
     <xhtml:link

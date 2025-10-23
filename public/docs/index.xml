@@ -15,6 +15,149 @@
     
     
     <item>
+      <title>EULA — Лицензионное соглашение Minecraft</title>
+      <link>//localhost:1313/docs/server-setup/eula-ru/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/docs/server-setup/eula-ru/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Что такое EULA?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;что-такое-eula&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d1%87%d1%82%d0%be-%d1%82%d0%b0%d0%ba%d0%be%d0%b5-eula&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;EULA&lt;/strong&gt; (&lt;a href=&#34;https://www.minecraft.net/en-us/eula&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;End User License Agreement&lt;/a&gt;) — это лицензионное соглашение конечного пользователя между вами и разработчиком Minecraft (Mojang Studios).&lt;/p&gt;
+&lt;p&gt;EULA описывает:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Правила использования игры&lt;/li&gt;
+&lt;li&gt;Права и обязанности пользователей&lt;/li&gt;
+&lt;li&gt;Ограничения на модификации и коммерческое использование&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;Внимание!&lt;/strong&gt; Без принятия EULA запуск сервера Minecraft невозможен.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Как принять EULA?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;как-принять-eula&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%ba%d0%b0%d0%ba-%d0%bf%d1%80%d0%b8%d0%bd%d1%8f%d1%82%d1%8c-eula&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Существует два способа принять лицензионное соглашение:&lt;/p&gt;
+&lt;h3&gt;Способ 1: Через консоль (рекомендуется)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;способ-1-через-консоль-рекомендуется&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d1%81%d0%bf%d0%be%d1%81%d0%be%d0%b1-1-%d1%87%d0%b5%d1%80%d0%b5%d0%b7-%d0%ba%d0%be%d0%bd%d1%81%d0%be%d0%bb%d1%8c-%d1%80%d0%b5%d0%ba%d0%be%d0%bc%d0%b5%d0%bd%d0%b4%d1%83%d0%b5%d1%82%d1%81%d1%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Перейдите в консоль вашего сервера в панели управления&lt;/li&gt;
+&lt;li&gt;Запустите сервер&lt;/li&gt;
+&lt;li&gt;Сервер автоматически создаст файл &lt;code&gt;eula.txt&lt;/code&gt; и остановится&lt;/li&gt;
+&lt;li&gt;Следуйте инструкциям в консоли или используйте Способ 2&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Способ 2: Редактирование файла eula.txt&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;способ-2-редактирование-файла-eulatxt&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d1%81%d0%bf%d0%be%d1%81%d0%be%d0%b1-2-%d1%80%d0%b5%d0%b4%d0%b0%d0%ba%d1%82%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5-%d1%84%d0%b0%d0%b9%d0%bb%d0%b0-eulatxt&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Откройте панель управления panel.qwer-host.xyz и выберите свой сервер&lt;/li&gt;
+&lt;li&gt;Перейдите во вкладку &lt;strong&gt;&amp;ldquo;Файлы&amp;rdquo;&lt;/strong&gt; (Files)&lt;/li&gt;
+&lt;li&gt;Найдите и откройте файл &lt;code&gt;eula.txt&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Замените содержимое файла на:
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-properties&#34; data-lang=&#34;properties&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;eula&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Скопировать код&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Сохраните файл&lt;/li&gt;
+&lt;li&gt;Запустите сервер&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;После выполнения этих действий сервер успешно запустится.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Важная информация&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;важная-информация&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%b2%d0%b0%d0%b6%d0%bd%d0%b0%d1%8f-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d1%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Принимая EULA, вы соглашаетесь соблюдать условия лицензионного соглашения Mojang Studios&lt;/li&gt;
+&lt;li&gt;Рекомендуем ознакомиться с полным текстом соглашения по ссылке: &lt;a href=&#34;https://www.minecraft.net/en-us/eula&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;minecraft.net/eula&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;EULA применяется ко всем серверам Minecraft, независимо от хостинг-провайдера&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Как создавать бэкапы сервера Minecraft через панель управления</title>
+      <link>//localhost:1313/docs/server-setup/backups-ru/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/docs/server-setup/backups-ru/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Почему бэкапы так важны?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;почему-бэкапы-так-важны&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%bf%d0%be%d1%87%d0%b5%d0%bc%d1%83-%d0%b1%d1%8d%d0%ba%d0%b0%d0%bf%d1%8b-%d1%82%d0%b0%d0%ba-%d0%b2%d0%b0%d0%b6%d0%bd%d1%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Бэкап (резервная копия данных) — это необходимое условие для любого сервера Minecraft, который планирует стать интересным проектом.&lt;/p&gt;
+&lt;p&gt;Представьте ситуацию: вы создали сервер, установили на него множество различных плагинов и интересных модов, потратили на настройку не один день, в добавок к этому ещё и строили дома для выживания. И тут&amp;hellip; внезапная ошибка, какой-то сбой или кто-то специально навредил вашему проекту — и всё утеряно.&lt;/p&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;Такое случается очень часто, и все труды игроков уходят насмарку. Опускаются руки и больше ничего не хочется делать.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Как себя обезопасить?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;как-себя-обезопасить&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%ba%d0%b0%d0%ba-%d1%81%d0%b5%d0%b1%d1%8f-%d0%be%d0%b1%d0%b5%d0%b7%d0%be%d0%bf%d0%b0%d1%81%d0%b8%d1%82%d1%8c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Для этого и нужно делать бэкапы! С их помощью вы с лёгкостью восстановите все данные и продолжите наслаждаться игрой.&lt;/p&gt;
+&lt;h2&gt;Создание бэкапа через панель управления&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;создание-бэкапа-через-панель-управления&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%bd%d0%b8%d0%b5-%d0%b1%d1%8d%d0%ba%d0%b0%d0%bf%d0%b0-%d1%87%d0%b5%d1%80%d0%b5%d0%b7-%d0%bf%d0%b0%d0%bd%d0%b5%d0%bb%d1%8c-%d1%83%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d0%b5%d0%bd%d0%b8%d1%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Наш сайт panel.qwer-host.xyz предоставляет возможность создавать бэкапы прямо в панели управления.&lt;/p&gt;
+&lt;h3&gt;Пошаговая инструкция&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;пошаговая-инструкция&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%bf%d0%be%d1%88%d0%b0%d0%b3%d0%be%d0%b2%d0%b0%d1%8f-%d0%b8%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%86%d0%b8%d1%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;1. Откройте раздел бэкапов&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;1-откройте-раздел-бэкапов&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-%d0%be%d1%82%d0%ba%d1%80%d0%be%d0%b9%d1%82%d0%b5-%d1%80%d0%b0%d0%b7%d0%b4%d0%b5%d0%bb-%d0%b1%d1%8d%d0%ba%d0%b0%d0%bf%d0%be%d0%b2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Перейдите в раздел &lt;strong&gt;&amp;ldquo;Бэкапы&amp;rdquo;&lt;/strong&gt; (Backups) в панели управления вашего сервера.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/open-backups.png&#34; alt=&#34;Открытие раздела бэкапов&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h4&gt;2. Создайте резервную копию&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;2-создайте-резервную-копию&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%b9%d1%82%d0%b5-%d1%80%d0%b5%d0%b7%d0%b5%d1%80%d0%b2%d0%bd%d1%83%d1%8e-%d0%ba%d0%be%d0%bf%d0%b8%d1%8e&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Нажмите кнопку &lt;strong&gt;&amp;ldquo;Создать резервную копию&amp;rdquo;&lt;/strong&gt; (Create Backup).&lt;/p&gt;
+&lt;h4&gt;3. Настройте параметры бэкапа&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;3-настройте-параметры-бэкапа&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-%d0%bd%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d1%82%d0%b5-%d0%bf%d0%b0%d1%80%d0%b0%d0%bc%d0%b5%d1%82%d1%80%d1%8b-%d0%b1%d1%8d%d0%ba%d0%b0%d0%bf%d0%b0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Придумайте название для резервной копии и нажмите &lt;strong&gt;&amp;ldquo;Запуск&amp;rdquo;&lt;/strong&gt; (Start Backup).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/create-backup.png&#34; alt=&#34;Создание бэкапа&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;Важно!&lt;/strong&gt; Создание бэкапа немедленно остановит ваш сервер. Планируйте создание резервных копий в то время, когда на сервере минимальное количество игроков.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h4&gt;4. Защита от случайного удаления (опционально)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;4-защита-от-случайного-удаления-опционально&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-%d0%b7%d0%b0%d1%89%d0%b8%d1%82%d0%b0-%d0%be%d1%82-%d1%81%d0%bb%d1%83%d1%87%d0%b0%d0%b9%d0%bd%d0%be%d0%b3%d0%be-%d1%83%d0%b4%d0%b0%d0%bb%d0%b5%d0%bd%d0%b8%d1%8f-%d0%be%d0%bf%d1%86%d0%b8%d0%be%d0%bd%d0%b0%d0%bb%d1%8c%d0%bd%d0%be&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Вы можете защитить резервную копию от случайного удаления с помощью переключателя внизу формы создания бэкапа.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Рекомендации по работе с бэкапами&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;рекомендации-по-работе-с-бэкапами&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d1%80%d0%b5%d0%ba%d0%be%d0%bc%d0%b5%d0%bd%d0%b4%d0%b0%d1%86%d0%b8%d0%b8-%d0%bf%d0%be-%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b5-%d1%81-%d0%b1%d1%8d%d0%ba%d0%b0%d0%bf%d0%b0%d0%bc%d0%b8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Регулярность&lt;/strong&gt; — создавайте бэкапы регулярно (ежедневно или еженедельно в зависимости от активности сервера)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Планирование&lt;/strong&gt; — используйте функцию автоматических рестартов для создания бэкапов в нерабочее время&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Именование&lt;/strong&gt; — давайте бэкапам понятные названия с датой и описанием (например, &amp;ldquo;backup-2025-10-23-before-update&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Проверка&lt;/strong&gt; — периодически проверяйте, что бэкапы создаются корректно&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Хранение&lt;/strong&gt; — не удаляйте старые бэкапы сразу — храните несколько последних копий на случай необходимости&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Восстановление из бэкапа&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;восстановление-из-бэкапа&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%b2%d0%be%d1%81%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%bb%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b8%d0%b7-%d0%b1%d1%8d%d0%ba%d0%b0%d0%bf%d0%b0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Если возникла необходимость восстановить сервер из резервной копии:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Перейдите в раздел &lt;strong&gt;&amp;ldquo;Бэкапы&amp;rdquo;&lt;/strong&gt; (Backups)&lt;/li&gt;
+&lt;li&gt;Найдите нужную резервную копию в списке&lt;/li&gt;
+&lt;li&gt;Нажмите на три точки справа от бэкапа&lt;/li&gt;
+&lt;li&gt;Выберите &lt;strong&gt;&amp;ldquo;Восстановить&amp;rdquo;&lt;/strong&gt; (Restore)&lt;/li&gt;
+&lt;li&gt;Подтвердите действие&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;Восстановление из бэкапа заменит все текущие файлы сервера на данные из резервной копии. Убедитесь, что вы выбрали правильный бэкап!&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Регулярные бэкапы — это гарантия безопасности вашего проекта. Не пренебрегайте этой функцией!&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Отключение Encrypted Client Hello (ECH)</title>
       <link>//localhost:1313/docs/cloudflare/disable-ech/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1250,6 +1393,125 @@ This server requires secure profiles.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;di
 &lt;li&gt;Перезагрузите сервер.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;После перезагрузки попробуйте войти снова — ошибка должна исчезнуть.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Автоматические рестарты сервера Minecraft с сохранением мира</title>
+      <link>//localhost:1313/docs/server-setup/auto-restart-ru/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/docs/server-setup/auto-restart-ru/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Зачем нужны автоматические рестарты?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;зачем-нужны-автоматические-рестарты&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%b7%d0%b0%d1%87%d0%b5%d0%bc-%d0%bd%d1%83%d0%b6%d0%bd%d1%8b-%d0%b0%d0%b2%d1%82%d0%be%d0%bc%d0%b0%d1%82%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%b8%d0%b5-%d1%80%d0%b5%d1%81%d1%82%d0%b0%d1%80%d1%82%d1%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;К нам часто обращаются в поддержку с вопросом: &amp;ldquo;Как настроить автоматические рестарты сервера Майнкрафт?&amp;rdquo;. Мы прислушиваемся к клиентам и поэтому подготовили для вас обучающий материал на данную тему.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Важно:&lt;/strong&gt; регулярно перезапускать Minecraft сервер необходимо, чтобы избежать лишней нагрузки и переполнения оперативной памяти.&lt;/p&gt;
+&lt;h2&gt;Пошаговая инструкция&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;пошаговая-инструкция&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%bf%d0%be%d1%88%d0%b0%d0%b3%d0%be%d0%b2%d0%b0%d1%8f-%d0%b8%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%86%d0%b8%d1%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Откройте планировщик задач&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;1-откройте-планировщик-задач&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-%d0%be%d1%82%d0%ba%d1%80%d0%be%d0%b9%d1%82%d0%b5-%d0%bf%d0%bb%d0%b0%d0%bd%d0%b8%d1%80%d0%be%d0%b2%d1%89%d0%b8%d0%ba-%d0%b7%d0%b0%d0%b4%d0%b0%d1%87&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Перейдите во вкладку &lt;strong&gt;&amp;ldquo;Планировщик&amp;rdquo;&lt;/strong&gt; (Schedules) в панели управления хостинга panel.qwer-host.xyz и создайте новое расписание.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/open-schedules.png&#34; alt=&#34;Открытие планировщика&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;2. Создайте расписание&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;2-создайте-расписание&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%b9%d1%82%d0%b5-%d1%80%d0%b0%d1%81%d0%bf%d0%b8%d1%81%d0%b0%d0%bd%d0%b8%d0%b5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Придумайте название для расписания и настройте время выполнения. Расписание на скриншоте ниже будет выполняться в 4 часа утра.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/create-new-schedule.png&#34; alt=&#34;Создание расписания&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;3. Добавьте задачу с уведомлением (опционально)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;3-добавьте-задачу-с-уведомлением-опционально&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-%d0%b4%d0%be%d0%b1%d0%b0%d0%b2%d1%8c%d1%82%d0%b5-%d0%b7%d0%b0%d0%b4%d0%b0%d1%87%d1%83-%d1%81-%d1%83%d0%b2%d0%b5%d0%b4%d0%be%d0%bc%d0%bb%d0%b5%d0%bd%d0%b8%d0%b5%d0%bc-%d0%be%d0%bf%d1%86%d0%b8%d0%be%d0%bd%d0%b0%d0%bb%d1%8c%d0%bd%d0%be&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Если вы хотите уведомить игроков перед перезапуском, создайте задачу с уведомлением.&lt;/p&gt;
+&lt;p&gt;Нажмите на &lt;strong&gt;&amp;ldquo;New Task&amp;rdquo;&lt;/strong&gt; (Новая задача):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/new-task-schedule.png&#34; alt=&#34;Создание новой задачи&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Настройте задачу с отправкой сообщения в чат:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/new-task-avtorestart.png&#34; alt=&#34;Настройка уведомления&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;4. Создайте задачу с рестартом сервера&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;4-создайте-задачу-с-рестартом-сервера&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%b9%d1%82%d0%b5-%d0%b7%d0%b0%d0%b4%d0%b0%d1%87%d1%83-%d1%81-%d1%80%d0%b5%d1%81%d1%82%d0%b0%d1%80%d1%82%d0%be%d0%bc-%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Создайте задачу непосредственно с самим перезапуском сервера. Выберите действие &lt;strong&gt;&amp;ldquo;Restart Server&amp;rdquo;&lt;/strong&gt; (Перезапустить сервер).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/new-task-power-restart.png&#34; alt=&#34;Задача перезапуска сервера&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;5. Готово!&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;5-готово&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#5-%d0%b3%d0%be%d1%82%d0%be%d0%b2%d0%be&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Теперь сервер будет автоматически перезапускаться каждый день в 04:00 (или в то время, которое вы настроили).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Дополнительные рекомендации&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;дополнительные-рекомендации&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%b4%d0%be%d0%bf%d0%be%d0%bb%d0%bd%d0%b8%d1%82%d0%b5%d0%bb%d1%8c%d0%bd%d1%8b%d0%b5-%d1%80%d0%b5%d0%ba%d0%be%d0%bc%d0%b5%d0%bd%d0%b4%d0%b0%d1%86%d0%b8%d0%b8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Выбирайте время рестарта, когда на сервере минимальное количество игроков (обычно ночные часы).&lt;/li&gt;
+&lt;li&gt;Используйте задачу уведомления за 5-10 минут до рестарта, чтобы игроки успели подготовиться.&lt;/li&gt;
+&lt;li&gt;Регулярные рестарты (1-2 раза в день) помогают поддерживать стабильную работу сервера и избежать лагов.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Если у вас возникли вопросы или проблемы, обратитесь в техническую поддержку.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>У игроков высокий пинг — что делать?</title>
+      <link>//localhost:1313/docs/server-setup/high-ping-issue-ru/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/docs/server-setup/high-ping-issue-ru/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Проблема&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;проблема&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%bf%d1%80%d0%be%d0%b1%d0%bb%d0%b5%d0%bc%d0%b0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;У игроков на вашем сервере наблюдается высокий пинг? Не беспокойтесь — мы поможем вам диагностировать и решить эту проблему.&lt;/p&gt;
+&lt;h2&gt;Возможные причины&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;возможные-причины&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%b2%d0%be%d0%b7%d0%bc%d0%be%d0%b6%d0%bd%d1%8b%d0%b5-%d0%bf%d1%80%d0%b8%d1%87%d0%b8%d0%bd%d1%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Прежде чем приступить к диагностике, проверьте следующие распространённые причины высокого пинга:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Непрогруженные чанки&lt;/strong&gt; — убедитесь, что сервер успевает обрабатывать загрузку территории&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Paper AntiXray в режимах 2 или 3&lt;/strong&gt; — эти режимы могут создавать дополнительную нагрузку. Попробуйте переключиться на режим 1 или отключить&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Если исправление этих причин не помогло, переходите к следующему шагу.&lt;/p&gt;
+&lt;h2&gt;Диагностика с помощью WinMTR&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;диагностика-с-помощью-winmtr&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%b4%d0%b8%d0%b0%d0%b3%d0%bd%d0%be%d1%81%d1%82%d0%b8%d0%ba%d0%b0-%d1%81-%d0%bf%d0%be%d0%bc%d0%be%d1%89%d1%8c%d1%8e-winmtr&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Что такое WinMTR?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;что-такое-winmtr&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d1%87%d1%82%d0%be-%d1%82%d0%b0%d0%ba%d0%be%d0%b5-winmtr&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;WinMTR&lt;/strong&gt; — это бесплатная утилита с открытым исходным кодом, которая сочетает в себе функциональность traceroute и ping, позволяя получить детальную информацию о маршрутизации сетевых пакетов.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Инструкция для игроков&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;инструкция-для-игроков&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%b8%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%86%d0%b8%d1%8f-%d0%b4%d0%bb%d1%8f-%d0%b8%d0%b3%d1%80%d0%be%d0%ba%d0%be%d0%b2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Попросите всех игроков, у которых наблюдается высокий пинг, выполнить следующие шаги:&lt;/p&gt;
+&lt;h4&gt;1. Скачайте WinMTR&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;1-скачайте-winmtr&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-%d1%81%d0%ba%d0%b0%d1%87%d0%b0%d0%b9%d1%82%d0%b5-winmtr&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Скачайте программу WinMTR с официального репозитория: &lt;a href=&#34;https://github.com/White-Tiger/WinMTR/releases&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WinMTR Releases&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;2. Запустите трассировку&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;2-запустите-трассировку&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-%d0%b7%d0%b0%d0%bf%d1%83%d1%81%d1%82%d0%b8%d1%82%d0%b5-%d1%82%d1%80%d0%b0%d1%81%d1%81%d0%b8%d1%80%d0%be%d0%b2%d0%ba%d1%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Важно:&lt;/strong&gt; Отключите все VPN, PROXY и подобные сервисы перед началом трассировки&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;В поле &lt;strong&gt;&amp;ldquo;Host&amp;rdquo;&lt;/strong&gt; программы WinMTR введите &lt;strong&gt;только IP-адрес&lt;/strong&gt; вашего сервера, &lt;strong&gt;без порта&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Пример:&lt;/strong&gt; Если адрес сервера &lt;code&gt;192.168.1.1:27015&lt;/code&gt;, вводите только &lt;code&gt;192.168.1.1&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;3. Соберите данные&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;3-соберите-данные&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-%d1%81%d0%be%d0%b1%d0%b5%d1%80%d0%b8%d1%82%d0%b5-%d0%b4%d0%b0%d0%bd%d0%bd%d1%8b%d0%b5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Нажмите кнопку &lt;strong&gt;&amp;ldquo;Start&amp;rdquo;&lt;/strong&gt; для начала трассировки&lt;/li&gt;
+&lt;li&gt;Подождите &lt;strong&gt;2-3 минуты&lt;/strong&gt;, чтобы собрать статистику по каждому узлу на пути к серверу&lt;/li&gt;
+&lt;li&gt;Нажмите кнопку &lt;strong&gt;&amp;ldquo;Stop&amp;rdquo;&lt;/strong&gt; для остановки теста&lt;/li&gt;
+&lt;li&gt;Сохраните результаты, нажав кнопку &lt;strong&gt;&amp;ldquo;Export TXT&amp;rdquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;4. Узнайте свой внешний IP-адрес&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;4-узнайте-свой-внешний-ip-адрес&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-%d1%83%d0%b7%d0%bd%d0%b0%d0%b9%d1%82%d0%b5-%d1%81%d0%b2%d0%be%d0%b9-%d0%b2%d0%bd%d0%b5%d1%88%d0%bd%d0%b8%d0%b9-ip-%d0%b0%d0%b4%d1%80%d0%b5%d1%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;Узнать свой внешний IP-адрес можно на любом сервисе определения IP, например: &lt;a href=&#34;https://2ip.ru/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;2ip.ru&lt;/a&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Обращение в техническую поддержку&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;обращение-в-техническую-поддержку&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%be%d0%b1%d1%80%d0%b0%d1%89%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b2-%d1%82%d0%b5%d1%85%d0%bd%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d1%83%d1%8e-%d0%bf%d0%be%d0%b4%d0%b4%d0%b5%d1%80%d0%b6%d0%ba%d1%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;После проделанных действий создайте тикет в технической поддержке и предоставьте следующие данные:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Результат трассировки WinMTR&lt;/strong&gt; (файл .txt)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IP-адрес игрока&lt;/strong&gt;, которому принадлежит результат трассировки&lt;/li&gt;
+&lt;li&gt;Описание проблемы и время, когда наблюдался высокий пинг&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Наша команда поддержки проанализирует данные и поможет решить проблему.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Дополнительные советы&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;дополнительные-советы&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%d0%b4%d0%be%d0%bf%d0%be%d0%bb%d0%bd%d0%b8%d1%82%d0%b5%d0%bb%d1%8c%d0%bd%d1%8b%d0%b5-%d1%81%d0%be%d0%b2%d0%b5%d1%82%d1%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Рекомендуйте игрокам проверить стабильность своего интернет-соединения&lt;/li&gt;
+&lt;li&gt;Проверьте, не перегружен ли сервер (CPU, RAM, диск)&lt;/li&gt;
+&lt;li&gt;Убедитесь, что на сервере установлены оптимизированные плагины и настройки&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>

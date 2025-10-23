@@ -19,6 +19,18 @@
                 href="//localhost:1313/uk/docs/"
                 />
   </url><url>
+    <loc>//localhost:1313/uk/docs/server-setup/eula/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/en/docs/server-setup/eula/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/server-setup/eula/"
+                />
+  </url><url>
     <loc>//localhost:1313/uk/docs/cloudflare/disable-ech/</loc>
     <xhtml:link
                 rel="alternate"
@@ -51,6 +63,18 @@
                 rel="alternate"
                 hreflang="uk"
                 href="//localhost:1313/uk/docs/minecraft-commands/"
+                />
+  </url><url>
+    <loc>//localhost:1313/uk/docs/server-setup/backups/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/en/docs/server-setup/backups/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/server-setup/backups/"
                 />
   </url><url>
     <loc>//localhost:1313/uk/docs/cloudflare/web-server-setup/</loc>
@@ -157,6 +181,18 @@
                 href="//localhost:1313/uk/docs/server-setup/invalid-signature-error/"
                 />
   </url><url>
+    <loc>//localhost:1313/uk/docs/server-setup/auto-restart/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/en/docs/server-setup/auto-restart/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/server-setup/auto-restart/"
+                />
+  </url><url>
     <loc>//localhost:1313/uk/docs/cloudflare/</loc>
     <xhtml:link
                 rel="alternate"
@@ -172,6 +208,18 @@
                 rel="alternate"
                 hreflang="uk"
                 href="//localhost:1313/uk/docs/cloudflare/"
+                />
+  </url><url>
+    <loc>//localhost:1313/uk/docs/server-setup/high-ping-issue/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/en/docs/server-setup/high-ping-issue/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="//localhost:1313/uk/docs/server-setup/high-ping-issue/"
                 />
   </url><url>
     <loc>//localhost:1313/uk/categories/</loc>

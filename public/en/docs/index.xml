@@ -15,6 +15,74 @@
     
     
     <item>
+      <title>EULA — Minecraft License Agreement</title>
+      <link>//localhost:1313/en/docs/server-setup/eula/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/en/docs/server-setup/eula/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;What is EULA?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;what-is-eula&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#what-is-eula&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;EULA&lt;/strong&gt; (&lt;a href=&#34;https://www.minecraft.net/en-us/eula&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;End User License Agreement&lt;/a&gt;) is an end-user license agreement between you and the Minecraft developer (Mojang Studios).&lt;/p&gt;
+&lt;p&gt;EULA describes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rules for using the game&lt;/li&gt;
+&lt;li&gt;User rights and responsibilities&lt;/li&gt;
+&lt;li&gt;Restrictions on modifications and commercial use&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;Warning!&lt;/strong&gt; Without accepting the EULA, starting a Minecraft server is impossible.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;How to Accept EULA?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;how-to-accept-eula&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#how-to-accept-eula&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;There are two ways to accept the license agreement:&lt;/p&gt;
+&lt;h3&gt;Method 1: Through Console (Recommended)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;method-1-through-console-recommended&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#method-1-through-console-recommended&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Go to your server console in the control panel&lt;/li&gt;
+&lt;li&gt;Start the server&lt;/li&gt;
+&lt;li&gt;The server will automatically create an &lt;code&gt;eula.txt&lt;/code&gt; file and stop&lt;/li&gt;
+&lt;li&gt;Follow the instructions in the console or use Method 2&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Method 2: Edit the eula.txt File&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;method-2-edit-the-eulatxt-file&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#method-2-edit-the-eulatxt-file&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Open the control panel at panel.qwer-host.xyz and select your server&lt;/li&gt;
+&lt;li&gt;Go to the &lt;strong&gt;&amp;ldquo;Files&amp;rdquo;&lt;/strong&gt; tab&lt;/li&gt;
+&lt;li&gt;Find and open the &lt;code&gt;eula.txt&lt;/code&gt; file&lt;/li&gt;
+&lt;li&gt;Replace the file contents with:
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-properties&#34; data-lang=&#34;properties&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;eula&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Save the file&lt;/li&gt;
+&lt;li&gt;Start the server&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;After completing these steps, the server will start successfully.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Important Information&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;important-information&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#important-information&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;By accepting the EULA, you agree to comply with Mojang Studios&amp;rsquo; license agreement terms&lt;/li&gt;
+&lt;li&gt;We recommend reading the full agreement at: &lt;a href=&#34;https://www.minecraft.net/en-us/eula&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;minecraft.net/eula&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;EULA applies to all Minecraft servers, regardless of hosting provider&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Disabling Encrypted Client Hello (ECH)</title>
       <link>//localhost:1313/en/docs/cloudflare/disable-ech/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -285,6 +353,81 @@
   &lt;/div&gt;
 &lt;/div&gt;
 
+
+      </description>
+    </item>
+    
+    <item>
+      <title>How to Create Minecraft Server Backups Through Control Panel</title>
+      <link>//localhost:1313/en/docs/server-setup/backups/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/en/docs/server-setup/backups/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Why Are Backups So Important?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;why-are-backups-so-important&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#why-are-backups-so-important&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A backup (data copy) is essential for any Minecraft server that aims to become an interesting project.&lt;/p&gt;
+&lt;p&gt;Imagine this situation: you created a server, installed many different plugins and interesting mods, spent days on configuration, and also built survival houses. And then&amp;hellip; a sudden error, some failure, or someone deliberately harmed your project — and everything is lost.&lt;/p&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;This happens very often, and all the players&amp;rsquo; efforts go to waste. People lose motivation and don&amp;rsquo;t want to do anything anymore.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;How to Protect Yourself?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;how-to-protect-yourself&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#how-to-protect-yourself&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;That&amp;rsquo;s what backups are for! With their help, you can easily restore all data and continue enjoying the game.&lt;/p&gt;
+&lt;h2&gt;Creating a Backup Through Control Panel&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;creating-a-backup-through-control-panel&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#creating-a-backup-through-control-panel&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Our website panel.qwer-host.xyz provides the ability to create backups directly in the control panel.&lt;/p&gt;
+&lt;h3&gt;Step-by-Step Instructions&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-by-step-instructions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-by-step-instructions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;1. Open the Backups Section&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;1-open-the-backups-section&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-open-the-backups-section&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Go to the &lt;strong&gt;&amp;ldquo;Backups&amp;rdquo;&lt;/strong&gt; section in your server control panel.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/open-backups.png&#34; alt=&#34;Opening Backups Section&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h4&gt;2. Create a Backup&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;2-create-a-backup&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-create-a-backup&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Click the &lt;strong&gt;&amp;ldquo;Create Backup&amp;rdquo;&lt;/strong&gt; button.&lt;/p&gt;
+&lt;h4&gt;3. Configure Backup Settings&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;3-configure-backup-settings&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-configure-backup-settings&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Choose a name for the backup and click &lt;strong&gt;&amp;ldquo;Start Backup&amp;rdquo;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/create-backup.png&#34; alt=&#34;Creating Backup&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-amber-200 hx:bg-amber-100 hx:text-amber-900 hx:dark:border-amber-200/30 hx:dark:bg-amber-900/30 hx:dark:text-amber-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;Important!&lt;/strong&gt; Creating a backup will immediately stop your server. Plan backup creation for times when there are minimal players on the server.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h4&gt;4. Protection Against Accidental Deletion (Optional)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;4-protection-against-accidental-deletion-optional&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-protection-against-accidental-deletion-optional&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;You can protect the backup from accidental deletion using the toggle at the bottom of the backup creation form.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Backup Best Practices&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;backup-best-practices&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#backup-best-practices&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Regularity&lt;/strong&gt; — create backups regularly (daily or weekly depending on server activity)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Planning&lt;/strong&gt; — use automatic restart scheduling to create backups during off-hours&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Naming&lt;/strong&gt; — give backups clear names with dates and descriptions (e.g., &amp;ldquo;backup-2025-10-23-before-update&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verification&lt;/strong&gt; — periodically check that backups are being created correctly&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Storage&lt;/strong&gt; — don&amp;rsquo;t delete old backups immediately — keep several recent copies just in case&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Restoring From a Backup&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;restoring-from-a-backup&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#restoring-from-a-backup&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If you need to restore your server from a backup:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to the &lt;strong&gt;&amp;ldquo;Backups&amp;rdquo;&lt;/strong&gt; section&lt;/li&gt;
+&lt;li&gt;Find the needed backup in the list&lt;/li&gt;
+&lt;li&gt;Click the three dots to the right of the backup&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;&amp;ldquo;Restore&amp;rdquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Confirm the action&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;Restoring from a backup will replace all current server files with data from the backup copy. Make sure you selected the correct backup!&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Regular backups are a guarantee of your project&amp;rsquo;s safety. Don&amp;rsquo;t neglect this feature!&lt;/p&gt;
 
       </description>
     </item>
@@ -1246,10 +1389,125 @@ This server requires secure profiles.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;di
 &lt;li&gt;Restart the server.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;After the restart, try connecting again — the error should be gone.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Automatic Minecraft Server Restarts with World Saving</title>
+      <link>//localhost:1313/en/docs/server-setup/auto-restart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/en/docs/server-setup/auto-restart/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Why Are Automatic Restarts Needed?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;why-are-automatic-restarts-needed&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#why-are-automatic-restarts-needed&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We often receive support requests asking: &amp;ldquo;How do I set up automatic Minecraft server restarts?&amp;rdquo; We listen to our clients, and that&amp;rsquo;s why we&amp;rsquo;ve prepared this tutorial for you.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; Regularly restarting your Minecraft server is necessary to avoid excessive load and RAM overflow.&lt;/p&gt;
+&lt;h2&gt;Step-by-Step Instructions&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-by-step-instructions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-by-step-instructions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Open the Task Scheduler&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;1-open-the-task-scheduler&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-open-the-task-scheduler&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Go to the &lt;strong&gt;&amp;ldquo;Schedules&amp;rdquo;&lt;/strong&gt; tab in the hosting control panel at panel.qwer-host.xyz and create a new schedule.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/open-schedules.png&#34; alt=&#34;Opening Scheduler&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;2. Create a Schedule&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;2-create-a-schedule&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-create-a-schedule&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Choose a name for the schedule and configure the execution time. The schedule in the screenshot below will run at 4:00 AM.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/create-new-schedule.png&#34; alt=&#34;Creating Schedule&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;3. Add a Notification Task (Optional)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;3-add-a-notification-task-optional&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-add-a-notification-task-optional&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;If you want to notify players before the restart, create a notification task.&lt;/p&gt;
+&lt;p&gt;Click on &lt;strong&gt;&amp;ldquo;New Task&amp;rdquo;&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/new-task-schedule.png&#34; alt=&#34;Creating New Task&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Configure the task to send a chat message:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/new-task-avtorestart.png&#34; alt=&#34;Setting Up Notification&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;4. Create a Server Restart Task&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;4-create-a-server-restart-task&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-create-a-server-restart-task&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Create a task for the actual server restart. Select the &lt;strong&gt;&amp;ldquo;Restart Server&amp;rdquo;&lt;/strong&gt; action.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/docs/help-servers/new-task-power-restart.png&#34; alt=&#34;Server Restart Task&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;5. Done!&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;5-done&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#5-done&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Now the server will automatically restart every day at 04:00 (or at the time you configured).&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;Additional Information&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;additional-information&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#additional-information&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Disabling secure profile verification allows players to connect without strict profile signature checks. This can be useful for certain server configurations but reduces security.&lt;/p&gt;
-&lt;p&gt;If the problem persists, contact technical support.&lt;/p&gt;
+&lt;h2&gt;Additional Recommendations&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;additional-recommendations&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#additional-recommendations&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Choose a restart time when the server has minimal players (usually nighttime hours).&lt;/li&gt;
+&lt;li&gt;Use a notification task 5-10 minutes before the restart so players have time to prepare.&lt;/li&gt;
+&lt;li&gt;Regular restarts (1-2 times per day) help maintain stable server performance and avoid lag.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have questions or issues, contact technical support.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Players Have High Ping — What to Do?</title>
+      <link>//localhost:1313/en/docs/server-setup/high-ping-issue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/en/docs/server-setup/high-ping-issue/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Problem&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;problem&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#problem&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Are players experiencing high ping on your server? Don&amp;rsquo;t worry — we&amp;rsquo;ll help you diagnose and solve this issue.&lt;/p&gt;
+&lt;h2&gt;Common Causes&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;common-causes&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#common-causes&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Before proceeding with diagnostics, check the following common causes of high ping:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Unloaded chunks&lt;/strong&gt; — ensure the server can handle chunk loading properly&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Paper AntiXray in mode 2 or 3&lt;/strong&gt; — these modes can create additional load. Try switching to mode 1 or disabling it&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If fixing these causes doesn&amp;rsquo;t help, proceed to the next step.&lt;/p&gt;
+&lt;h2&gt;Diagnostics with WinMTR&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;diagnostics-with-winmtr&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#diagnostics-with-winmtr&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;What is WinMTR?&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;what-is-winmtr&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#what-is-winmtr&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;&lt;strong&gt;WinMTR&lt;/strong&gt; is a free, open-source utility that combines the functionality of traceroute and ping, providing detailed information about network packet routing.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;Instructions for Players&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;instructions-for-players&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#instructions-for-players&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Ask all players experiencing high ping to follow these steps:&lt;/p&gt;
+&lt;h4&gt;1. Download WinMTR&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;1-download-winmtr&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-download-winmtr&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Download WinMTR from the official repository: &lt;a href=&#34;https://github.com/White-Tiger/WinMTR/releases&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WinMTR Releases&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;2. Run the Trace&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;2-run-the-trace&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-run-the-trace&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; Disable all VPN, PROXY, and similar services before starting the trace&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the &lt;strong&gt;&amp;ldquo;Host&amp;rdquo;&lt;/strong&gt; field of WinMTR, enter &lt;strong&gt;only the IP address&lt;/strong&gt; of your server, &lt;strong&gt;without the port&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; If the server address is &lt;code&gt;192.168.1.1:27015&lt;/code&gt;, enter only &lt;code&gt;192.168.1.1&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;3. Collect Data&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;3-collect-data&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-collect-data&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Click the &lt;strong&gt;&amp;ldquo;Start&amp;rdquo;&lt;/strong&gt; button to begin the trace&lt;/li&gt;
+&lt;li&gt;Wait &lt;strong&gt;2-3 minutes&lt;/strong&gt; to collect statistics for each node on the path to the server&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;&amp;ldquo;Stop&amp;rdquo;&lt;/strong&gt; button to stop the test&lt;/li&gt;
+&lt;li&gt;Save the results by clicking &lt;strong&gt;&amp;ldquo;Export TXT&amp;rdquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;4. Find Your External IP Address&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;4-find-your-external-ip-address&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-find-your-external-ip-address&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2&#34;&gt;&lt;svg height=1.2em class=&#34;hx:inline-block hx:align-middle&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx:w-full hx:min-w-0 hx:leading-7&#34;&gt;
+    &lt;div class=&#34;hx:mt-6 hx:leading-7 hx:first:mt-0&#34;&gt;You can find your external IP address on any IP detection service, for example: &lt;a href=&#34;https://2ip.ru/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;2ip.ru&lt;/a&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Contacting Technical Support&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;contacting-technical-support&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#contacting-technical-support&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;After completing these steps, create a support ticket and provide the following data:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;WinMTR trace result&lt;/strong&gt; (.txt file)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Player&amp;rsquo;s IP address&lt;/strong&gt; corresponding to the trace result&lt;/li&gt;
+&lt;li&gt;Description of the issue and the time when high ping was observed&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Our support team will analyze the data and help resolve the issue.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Additional Tips&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;additional-tips&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#additional-tips&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Advise players to check the stability of their internet connection&lt;/li&gt;
+&lt;li&gt;Verify that the server is not overloaded (CPU, RAM, disk)&lt;/li&gt;
+&lt;li&gt;Ensure optimized plugins and settings are installed on the server&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
